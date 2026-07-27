@@ -1,0 +1,64 @@
+# macOS / Dropbox local metadata
+.DS_Store
+**/.DS_Store
+.dropbox*
+
+# Python runtime and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local environments
+.venv/
+venv/
+env/
+.env.local
+.env
+
+# Local agent/editor state
+.claude/settings.local.json
+.obsidian/workspace.json
+.obsidian/plugins/
+.git-rewrite/
+
+# Generated query/index artifacts
+index/*.db
+index/*.db-*
+index/*.sqlite
+index/*.sqlite-*
+entities/**/catalog.md
+dashboards/site/app/dashboard-data.json
+
+# Corpus and source-data vault areas kept outside Git.
+# Negated placeholders preserve the empty directory skeleton.
+Inputs/**
+!Inputs/articles/
+!Inputs/articles/.gitkeep
+raw/**
+!raw/.gitkeep
+entities/article/**
+!entities/article/index.md
+!entities/article/log.md
+!entities/article/.gitkeep
+
+# Generated run/debug output
+runs/**
+!runs/.gitkeep
+tmp/**
+!tmp/.gitkeep
+topics/*
+!topics/.gitkeep
+*.tmp
+*.log
+
+# Dashboard dependencies, generated builds, and deployment identity
+dashboards/site/node_modules/
+dashboards/site/dist/
+dashboards/site/.vinext/
+dashboards/site/.wrangler/
+dashboards/site/.openai/hosting.json
+dashboards/site/public/og.png

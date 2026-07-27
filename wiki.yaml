@@ -1,0 +1,3 @@
+name: indonesia-politics
+description: Indonesian political-media monitoring knowledge vault
+entities: [article, outlet]

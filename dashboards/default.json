@@ -1,0 +1,37 @@
+{
+  "id": "default",
+  "name": "Indonesia Politics Overview",
+  "tiles": [
+    {
+      "id": "t-volume",
+      "title": "Articles per month",
+      "nl_query": "article count by month",
+      "entity": "article",
+      "sql": "SELECT substr(publishedDate,1,7) AS x, COUNT(*) AS y FROM article GROUP BY 1 ORDER BY 1",
+      "chart": {"type": "line", "x": "x", "y": "y"},
+      "layout": {"w": 6, "h": 4},
+      "refresh_sec": 300
+    },
+    {
+      "id": "t-sentiment",
+      "title": "Sentiment by month",
+      "nl_query": "monthly count split by sentiment",
+      "entity": "article",
+      "sql": "SELECT substr(publishedDate,1,7) AS x, toneSentiment AS s, COUNT(*) AS y FROM article WHERE toneSentiment IS NOT NULL GROUP BY 1,2 ORDER BY 1",
+      "chart": {"type": "bar", "stacked": true, "x": "x", "series": "s", "y": "y"},
+      "layout": {"w": 6, "h": 4},
+      "refresh_sec": 300
+    },
+    {
+      "id": "t-outlets",
+      "title": "Top outlets",
+      "nl_query": "top 10 outlets by article count",
+      "entity": "article",
+      "sql": "SELECT json_each.value AS x, COUNT(*) AS y FROM article, json_each(article.\"outlets\") GROUP BY 1 ORDER BY y DESC LIMIT 10",
+      "chart": {"type": "bar", "x": "x", "y": "y"},
+      "layout": {"w": 6, "h": 4},
+      "refresh_sec": 300
+    }
+  ],
+  "updated_at": null
+}
