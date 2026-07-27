@@ -57,4 +57,4 @@ The initial repository contains no monitoring topics, sources, schedules, corpus
 
 Git tracks code, schemas, procedures, tests, domain manuals, and empty system ledgers. It excludes corpus data, generated catalogs, generated databases, run artifacts, local credentials, dependencies, and caches.
 
-This system was migrated from `media-monitoring` commit `d969639` without importing source data or Git history. See `MIGRATION_PLAN.md` and `MIGRATION_REPORT.md`.
+This system was migrated from `media-monitoring` commit `d969639` without importing source data or Git history. See [`docs/MIGRATION_PLAN.md`](docs/MIGRATION_PLAN.md) and [`docs/MIGRATION_REPORT.md`](docs/MIGRATION_REPORT.md).
