@@ -2,18 +2,23 @@
 type: procedure
 name: entity-query
 status: active
-last_updated: 2026-07-27
+last_updated: 2026-08-03
 ---
 
 # Query Procedure
 
 Answer natural-language questions by navigating catalogs and compiled entity summaries before reading source articles.
 
+English and Bahasa Indonesia questions are supported. Detect the question language, answer in that
+language, and preserve proper names and verbatim evidence in their source language. Machine-facing
+fields and section headings remain English.
+
 ## 0. Check reusable answers
 
 1. Search the query cache when cache reads are enabled.
 2. Reuse only a relevant, fresh answer.
 3. Treat time-sensitive answers or answers whose underlying entity counts changed as stale.
+4. Never reuse a cached answer whose `answerLanguage` differs from the current question language.
 
 ## 1. Resolve
 
@@ -21,6 +26,7 @@ Answer natural-language questions by navigating catalogs and compiled entity sum
 2. Resolve candidates against domain catalogs and aliases.
 3. Do not scan the raw corpus as a substitute for entity resolution.
 4. Return an unresolved result when identity remains ambiguous.
+5. Resolve English and Bahasa forms through the same canonical note's aliases; do not translate an uncertain identity.
 
 ## 2. Read bounded context
 

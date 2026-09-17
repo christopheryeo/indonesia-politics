@@ -24,6 +24,7 @@ async function render() {
 }
 
 test("server-renders the media intelligence dashboard", async () => {
+  const data = JSON.parse(await readFile(new URL("../app/dashboard-data.json", import.meta.url), "utf8"));
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
@@ -36,8 +37,13 @@ test("server-renders the media intelligence dashboard", async () => {
   assert.match(html, /Issue radar/);
   assert.match(html, /Knowledge graph/);
   assert.match(html, /Top(?:\s|<!-- -->)*countries/);
-  assert.match(html, /Empty vault ready/);
-  assert.match(html, /Awaiting first ingest/);
+  if (data.summary.articles === 0) {
+    assert.match(html, /Empty vault ready/);
+    assert.match(html, /Awaiting first ingest/);
+  } else {
+    assert.match(html, /Latest coverage/);
+    assert.match(html, /<option value="languages">Language<\/option>/);
+  }
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });
 
@@ -51,10 +57,15 @@ test("keeps the dashboard self-contained and vault-generated", async () => {
   ]);
 
   const parsed = JSON.parse(data);
-  assert.equal(parsed.summary.articles, 0);
-  assert.equal(parsed.summary.entities, 0);
-  assert.equal(parsed.months.length, 0);
-  assert.equal(parsed.top.countries.length, 0);
+  assert.ok(parsed.summary.articles >= 0);
+  assert.ok(parsed.summary.entities >= 0);
+  assert.ok(Array.isArray(parsed.months));
+  assert.ok(Array.isArray(parsed.top.countries));
+  assert.ok(Array.isArray(parsed.languages));
+  assert.equal(
+    parsed.languages.reduce((sum, row) => sum + row.count, 0),
+    parsed.summary.articles,
+  );
 
   assert.match(client, /"use client"/);
   assert.match(client, /function Dashboard/);

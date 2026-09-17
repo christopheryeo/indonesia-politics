@@ -1,9 +1,421 @@
 ---
 type: domain-log
 domain: Outlets
-entry_count: 0
+entry_count: 412
 ---
 
 # Outlet Audit Log
 
 Append new entries below. Never rewrite prior entries.
+- 2026-08-03 - Created [[tempo-co|tempo-co]] from Approved NewsAPI three-article quality cascade.
+- 2026-08-03 - Created [[jakarta-globe|jakarta-globe]] from Approved NewsAPI three-article quality cascade.
+- 2026-08-03 - Added coverage [[article/2026-07/9410710146-kpk-breaks-silence-on-possible-perry-warjiyo-questioning-in-bi-corrupt|KPK Breaks Silence on Possible Perry Warjiyo Questioning in BI Corruption Probe]] to [[tempo-co|tempo-co]].
+- 2026-08-03 - Reconciled [[tempo-co|TEMPO.CO]] display metadata, publisher country, channel, and two-article count from the approved enrichment and cascade evidence.
+- 2026-08-03 - Reconciled [[jakarta-globe|Jakarta Globe]] display metadata, publisher country, and channel from the approved enrichment and cascade evidence.
+- 2026-08-03 - Created [[pos-kupang|pos-kupang]] from Approved NewsAPI 13-article cascade, July new records.
+- 2026-08-03 - Created [[cnn-indonesia|cnn-indonesia]] from Approved NewsAPI 13-article cascade, July new records.
+- 2026-08-03 - Created [[antara-news-yogyakarta|antara-news-yogyakarta]] from Approved NewsAPI 13-article cascade, July new records.
+- 2026-08-03 - Created [[pikiran-rakyat-com|pikiran-rakyat-com]] from Approved NewsAPI 13-article cascade, July new records.
+- 2026-08-03 - Created [[harianterbit-com|harianterbit-com]] from Approved NewsAPI 13-article cascade, July new records.
+- 2026-08-03 - Added coverage [[article/2026-07/9408592710-buntut-paw-sepihak-barisan-pengurus-dpp-ampi-tuntut-transparansi-dokum|Buntut PAW Sepihak, Barisan Pengurus DPP AMPI Tuntut Transparansi Dokumen Resmi]] to [[pikiran-rakyat-com|pikiran-rakyat-com]].
+- 2026-08-03 - Added coverage [[article/2026-07/9410095604-hendi-prio-santoso-dituntut-5-tahun-penjara-ini-duduk-perkara-kasus-ko|Hendi Prio Santoso Dituntut 5 Tahun Penjara, Ini Duduk Perkara Kasus Korupsi PGN]] to [[pikiran-rakyat-com|pikiran-rakyat-com]].
+- 2026-08-03 - Created [[kompas-com|kompas-com]] from Approved NewsAPI 13-article cascade, August new records.
+- 2026-08-03 - Added coverage [[article/2026-08/9416182407-pihak-febrie-adriansyah-belum-dapat-daftar-barang-bukti-dari-rumah-jak|Pihak Febrie Adriansyah Belum Dapat Daftar Barang Bukti dari Rumah Jaksel]] to [[kompas-com|kompas-com]].
+- 2026-08-03T13:23:43+08:00 - Reconciled [[pikiran-rakyat-com|Pikiran-Rakyat.com]] articleCount to 3 from its three validated Coverage backlinks in the approved NewsAPI cascade.
+- 2026-08-03T13:23:43+08:00 - Reconciled [[kompas-com|KOMPAS.com]] articleCount to 2 from its two validated Coverage backlinks in the approved NewsAPI cascade.
+- 2026-08-03T17:42:16+08:00 | entity: [[pos-kupang|Pos Kupang]] | action: reconciled outlet ID, display name, alias, country, media category, channel, and heading | reasoning: match approved database coverage metadata while preserving the stable filename.
+- 2026-08-03T17:42:16+08:00 | entity: [[cnn-indonesia|CNN Indonesia]] | action: reconciled outlet ID, display name, alias, country, media category, channel, and heading | reasoning: match approved database coverage metadata while preserving the stable filename.
+- 2026-08-03T17:42:16+08:00 | entity: [[antara-news-yogyakarta|ANTARA News Yogyakarta]] | action: reconciled outlet ID, display name, alias, country, media category, channel, and heading | reasoning: match approved database coverage metadata while preserving the stable filename.
+- 2026-08-03T17:42:16+08:00 | entity: [[pikiran-rakyat-com|Pikiran-Rakyat.com]] | action: reconciled outlet ID, display name, alias, country, media category, channel, and heading | reasoning: match approved database coverage metadata while preserving the stable filename.
+- 2026-08-03T17:42:16+08:00 | entity: [[harianterbit-com|HarianTerbit.com]] | action: reconciled outlet ID, display name, alias, country, media category, channel, and heading | reasoning: match approved database coverage metadata while preserving the stable filename.
+- 2026-08-03T17:42:16+08:00 | entity: [[kompas-com|KOMPAS.com]] | action: reconciled outlet ID, display name, alias, country, media category, channel, and heading | reasoning: match approved database coverage metadata while preserving the stable filename.
+- 2026-08-03T17:42:16+08:00 | entity: [[tempo-co|TEMPO.CO]] | action: normalized media category to `Online News` | reasoning: match the approved database coverage metadata exactly.
+- 2026-08-03T17:42:16+08:00 | entity: [[jakarta-globe|Jakarta Globe]] | action: normalized media category to `Online News` | reasoning: match the approved database coverage metadata exactly.
+- 2026-08-04 - Added coverage [[article/2026-07/9387781584-tni-sebut-penjagaan-di-rumah-jampidsus-febrie-adriansyah-atas-perminta|TNI Sebut Penjagaan di Rumah Jampidsus Febrie Adriansyah atas Permintaan Kejagung]] to [[kompas-com|KOMPAS.com]].
+- 2026-08-04 - Created [[tribun-medan|Tribun Medan]] from Generic ingest Goal 2026-08-04 batch 01.
+- 2026-08-04 - Added coverage [[article/2026-07/9387821597-situasi-terkini-di-kediaman-jampidsus-tampak-lengang-masih-ada-mobil-p|Situasi Terkini di Kediaman Jampidsus, Tampak Lengang, Masih Ada Mobil Polisi Militer]] to [[kompas-com|KOMPAS.com]].
+- 2026-08-04 - Created [[tribun-batam|Tribun Batam]] from Generic ingest Goal 2026-08-04 batch 01.
+- 2026-08-04 - Added coverage [[article/2026-07/9387833132-kenapa-rumah-jampidsus-febrie-adriansyah-dijaga-prajurit-tni|Kenapa Rumah Jampidsus Febrie Adriansyah Dijaga Prajurit TNI?]] to [[kompas-com|KOMPAS.com]].
+- 2026-08-04 - Added coverage [[article/2026-07/9387841864-tni-bantah-datangi-polda-metro-waspadai-narasi-provokasi|TNI Bantah Datangi Polda Metro: Waspadai Narasi Provokasi]] to [[kompas-com|KOMPAS.com]].
+- 2026-08-04 - Added coverage [[article/2026-07/9387856849-anggota-dpr-dorong-polisi-usut-tuntas-dugaan-korupsi-batu-bara-penyeba|Anggota DPR Dorong Polisi Usut Tuntas Dugaan Korupsi Batu Bara Penyebab "Blackout"]] to [[kompas-com|KOMPAS.com]].
+- 2026-08-04 - Added coverage [[article/2026-07/9387884164-puluhan-tentara-geruduk-polda-metro-setelah-penggeledahan|Puluhan Tentara Geruduk Polda Metro setelah Penggeledahan]] to [[tempo-co|TEMPO.CO]].
+- 2026-08-04 - Added coverage [[article/2026-07/9387923220-eks-ajudan-prabowo-diduga-pimpin-penggerudukan-ke-polda-metro|Eks Ajudan Prabowo Diduga Pimpin Penggerudukan ke Polda Metro]] to [[tempo-co|TEMPO.CO]].
+- 2026-08-04 - Added coverage [[article/2026-07/9387948313-ferry-hongkiriwang-dan-jejak-bisnis-di-balik-kafe-de-clan|Ferry Hongkiriwang dan Jejak Bisnis di Balik Kafe de'Clan]] to [[tempo-co|TEMPO.CO]].
+- 2026-08-04 - Created [[tribun-sumsel|Tribun Sumsel]] from Generic ingest Goal 2026-08-04 batch 02.
+- 2026-08-04 - Added coverage [[article/2026-07/9387973973-tni-sebut-penjagaan-rumah-jampidsus-terkait-perlindungan-kepada-jaksa|TNI Sebut Penjagaan Rumah Jampidsus Terkait Perlindungan kepada Jaksa]] to [[kompas-com|KOMPAS.com]].
+- 2026-08-04 - Created [[the-jakarta-post|The Jakarta Post]] from Generic ingest Goal 2026-08-04 batch 02.
+- 2026-08-04 - Added coverage [[article/2026-07/9389220394-soal-isu-mundur-jampidsus-febrie-ardiansyah-sampai-jumat-pagi-saya-mas|Soal Isu Mundur, Jampidsus Febrie Ardiansyah: Sampai Jumat Pagi Saya Masih Terima Perintah]] to [[tribun-batam|Tribun Batam]].
+- 2026-08-04 - Added coverage [[article/2026-07/9389221761-jampidsus-febrie-ardiansyah-respons-isu-dugaan-korupsi-penyidikan-kasu|Jampidsus Febrie Ardiansyah Respons Isu Dugaan Korupsi, Penyidikan Kasus Prioritas Tetap Berjalan]] to [[tribun-sumsel|Tribun Sumsel]].
+- 2026-08-04 - Added coverage [[article/2026-07/9389228020-respons-polri-ini-pernyataan-lengkap-jampidsus-febrie-ardiansyah|Respons Polri, Ini Pernyataan Lengkap Jampidsus Febrie Ardiansyah]] to [[cnn-indonesia|CNN Indonesia]].
+- 2026-08-04 - Created [[bangka-pos|Bangka Pos]] from Generic ingest Goal 2026-08-04 batch 02.
+- 2026-08-04 - Created [[tribunnews-bogor|Tribunnews Bogor]] from Generic ingest Goal 2026-08-04 batch 02.
+- 2026-08-04 - Added coverage [[article/2026-07/9389290213-rekam-jejak-febrie-adriansyah-jampidsus-rumahnya-dijaga-tni-pernah-tan|Rekam Jejak Febrie Adriansyah, Jampidsus Rumahnya Dijaga TNI, Pernah Tangani 12 Kasus Mega Korupsi]] to [[bangka-pos|Bangka Pos]].
+- 2026-08-04 - Added coverage [[article/2026-07/9389312197-sosok-jampidsus-febrie-ardiansyah-perjalanan-karier-hingga-kasus-yang-|Sosok Jampidsus Febrie Ardiansyah, Perjalanan Karier hingga Kasus Yang Pernah Ditangani]] to [[bangka-pos|Bangka Pos]].
+- 2026-08-04 - Added coverage [[article/2026-07/9389392166-anggota-polisi-dilarang-hadiri-panggilan-kejaksaan-tanpa-pendampingan-|Anggota Polisi Dilarang Hadiri Panggilan Kejaksaan Tanpa Pendampingan, Polda Jateng Beber Alasannya]] to [[tribun-medan|Tribun Medan]].
+- 2026-08-04 - Added coverage [[article/2026-07/9389460633-karangan-bunga-di-depan-ditreskrimsus-polda-metro-jaya-dukung-pengusut|Karangan Bunga di Depan Ditreskrimsus Polda Metro Jaya, Dukung Pengusutan Korupsi Mega Proyek]] to [[harianterbit-com|HarianTerbit.com]].
+- 2026-08-04 - Created [[kompasiana|KOMPASIANA]] from Generic ingest Goal 2026-08-04 batch 03.
+- 2026-08-04 - Created [[tribun-jogja|Tribun Jogja]] from Generic ingest Goal 2026-08-04 batch 03.
+- 2026-08-04 - Created [[tribun-pekanbaru|Tribun Pekanbaru]] from Generic ingest Goal 2026-08-04 batch 03.
+- 2026-08-04 - Created [[okezone-news|Okezone News]] from Generic ingest Goal 2026-08-04 batch 03.
+- 2026-08-04 - Added coverage [[article/2026-07/9390632570-termasuk-febrie-ardiansyah-total-ada-2-tersangka-kasus-batu-bara|Termasuk Febrie Ardiansyah, Total Ada 2 Tersangka Kasus Batu Bara]] to [[cnn-indonesia|CNN Indonesia]].
+- 2026-08-04 - Added coverage [[article/2026-07/9390697169-kortas-tipidkor-polri-tetapkan-febrie-adriansyah-dan-dr-jadi-tersangka|Kortas Tipidkor Polri Tetapkan Febrie Adriansyah dan DR Jadi Tersangka Kasus Dugaan Korupsi dan TPPU]] to [[tribun-sumsel|Tribun Sumsel]].
+- 2026-08-04 - Added coverage [[article/2026-07/9390868719-gantikan-febrie-plt-jampidsus-bakal-proses-pelanggaran-etik-sesuai-atu|Gantikan Febrie, Plt Jampidsus Bakal Proses Pelanggaran Etik Sesuai Aturan Berlaku]] to [[pikiran-rakyat-com|Pikiran-Rakyat.com]].
+- 2026-08-04 - Created [[beritasatu-com|beritasatu.com]] from Generic ingest Goal 2026-08-04 batch 03.
+- 2026-08-04 - Added coverage [[article/2026-07/9391013621-deretan-kasus-megakorupsi-yang-ditangani-eks-jampidsus-febrie-ardiansy|Deretan Kasus Megakorupsi yang Ditangani Eks Jampidsus Febrie Ardiansyah]] to [[pos-kupang|Pos Kupang]].
+- 2026-08-04 - Added coverage [[article/2026-07/9391307853-andai-aku-polisi-andai-aku-jaksa|Andai Aku Polisi, Andai Aku Jaksa]] to [[kompas-com|KOMPAS.com]].
+- 2026-08-04 - Added coverage [[article/2026-07/9391329200-perbandingan-harta-febrie-adriansyah-dan-rudi-margono-plt-jampidsus-cu|PERBANDINGAN Harta Febrie Adriansyah dan Rudi Margono Plt Jampidsus Cuma Punya Satu Motor]] to [[tribun-medan|Tribun Medan]].
+- 2026-08-04 - Created [[suara-merdeka|Suara Merdeka]] from Generic ingest Goal 2026-08-04 batch 04.
+- 2026-08-04 - Added coverage [[article/2026-07/9391505366-jembatan-sidaanyar-rampung-akses-antardesa-lancar-dan-ekonomi-warga-ba|Jembatan Sidaanyar Rampung, Akses Antardesa Lancar dan Ekonomi Warga Banyumas Diprediksi Tumbuh]] to [[suara-merdeka|Suara Merdeka]].
+- 2026-08-04 - Added coverage [[article/2026-07/9391516072-disdikbud-batang-pertahankan-sd-negeri-meski-murid-sedikit-tak-ada-mer|Disdikbud Batang Pertahankan SD Negeri Meski Murid Sedikit, Tak Ada Merger Tahun Ajaran Ini]] to [[suara-merdeka|Suara Merdeka]].
+- 2026-08-04 - Created [[tribun-lampung|Tribun Lampung]] from Generic ingest Goal 2026-08-04 batch 04.
+- 2026-08-04 - Created [[tribun-jakarta|Tribun Jakarta]] from Generic ingest Goal 2026-08-04 batch 04.
+- 2026-08-04 - Created [[detik-news|detik News]] from Generic ingest Goal 2026-08-04 batch 04.
+- 2026-08-04 - Added coverage [[article/2026-07/9393344018-justice-at-the-barrel-of-a-gun-the-anticlimax-of-antigraft-policy|Justice at the barrel of a gun: The anticlimax of antigraft policy]] to [[the-jakarta-post|The Jakarta Post]].
+- 2026-08-04 - Added coverage [[article/2026-07/9392325082-diungkap-polri-kini-ditangani-kejagung-kasus-eks-jampidsus-bukan-pelim|Diungkap Polri Kini Ditangani Kejagung, Kasus Eks Jampidsus Bukan Pelimpahan Tapi Pengambilalihan]] to [[kompas-com|KOMPAS.com]].
+- 2026-08-04 - Created [[tirto-id|tirto.id]] from Generic ingest Goal 2026-08-04 batch 05.
+- 2026-08-04 - Created [[idn-times|IDN Times]] from Generic ingest Goal 2026-08-04 batch 05.
+- 2026-08-04 - Added coverage [[article/2026-07/9392669642-kejagung-meski-jadi-tersangka-korupsi-dan-tppu-febrie-ardiansyah-masih|Kejagung: Meski Jadi Tersangka Korupsi dan TPPU, Febrie Ardiansyah Masih Berstatus ASN : Okezone News]] to [[okezone-news|Okezone News]].
+- 2026-08-04 - Created [[warta-kota|Warta Kota]] from Generic ingest Goal 2026-08-04 batch 05.
+- 2026-08-04 - Added coverage [[article/2026-07/9392708302-kasus-eks-jampidsus-jadi-barometer-tantangan-pemerintahan-prabowo-tunt|Kasus Eks Jampidsus Jadi Barometer, Tantangan Pemerintahan Prabowo Tuntaskan Korupsi Kelas Kakap]] to [[tribun-jakarta|Tribun Jakarta]].
+- 2026-08-04 - Added coverage [[article/2026-07/9392821689-sosok-tan-kian-konglomerat-diperiksa-di-3-perkara-korupsi-profil-gurit|Sosok Tan Kian Konglomerat Diperiksa di 3 Perkara Korupsi: Profil, Gurita Bisnis & Jejak Kasus Hukum]] to [[bangka-pos|Bangka Pos]].
+- 2026-08-04 - Created [[sindonews|SINDOnews]] from Generic ingest Goal 2026-08-04 batch 05.
+- 2026-08-04 - Created [[jawa-pos-national-network|Jawa Pos National Network]] from Generic ingest Goal 2026-08-04 batch 05.
+- 2026-08-04 - Added coverage [[article/2026-07/9393566576-mengapa-kpk-harus-ambil-alih-kasus-dugaan-korupsi-febrie|Mengapa KPK Harus Ambil Alih Kasus Dugaan Korupsi Febrie]] to [[tempo-co|TEMPO.CO]].
+- 2026-08-04 - Added coverage [[article/2026-07/9393717772-momen-ketua-kpk-jaksa-agung-dan-kapolri-kumpul-di-dpr-usai-kasus-febri|Momen Ketua KPK, Jaksa Agung, dan Kapolri Kumpul di DPR Usai Kasus Febrie]] to [[idn-times|IDN Times]].
+- 2026-08-04 - Added coverage [[article/2026-07/9393977954-profil-kuntadi-kepala-bpa-kejagung-diisukan-jadi-jampidsus-gantikan-fe|Profil Kuntadi Kepala BPA Kejagung Diisukan Jadi Jampidsus Gantikan Febrie Adriansyah]] to [[bangka-pos|Bangka Pos]].
+- 2026-08-04 - Created [[tribun-jateng|Tribun Jateng]] from Generic ingest Goal 2026-08-04 batch 06.
+- 2026-08-04 - Added coverage [[article/2026-07/9394177270-ketua-komisi-iii-dpr-dukung-kasus-febrie-ditangani-kejagung|Ketua Komisi III DPR Dukung Kasus Febrie Ditangani Kejagung]] to [[tempo-co|TEMPO.CO]].
+- 2026-08-04 - Added coverage [[article/2026-07/9394391763-rafia-jadi-tali-sepatu|Rafia Jadi Tali Sepatu]] to [[tribun-jogja|Tribun Jogja]].
+- 2026-08-04 - Added coverage [[article/2026-07/9394827998-tanggapan-irit-kapolri-jenderal-listyo-sigit-soal-kritik-mahfud-md-ter|Tanggapan Irit Kapolri Jenderal Listyo Sigit Soal Kritik Mahfud MD Terkait Perkara Febrie Adriansyah]] to [[tribun-sumsel|Tribun Sumsel]].
+- 2026-08-04 - Added coverage [[article/2026-07/9394874059-kpk-siap-bantu-kejagung-telusuri-lhkpn-eks-jampidsus-febrie-adriansyah|KPK Siap Bantu Kejagung Telusuri LHKPN Eks Jampidsus Febrie Adriansyah]] to [[beritasatu-com|beritasatu.com]].
+- 2026-08-04 - Added coverage [[article/2026-07/9394886136-respons-istana-soal-mahfud-md-usul-kasus-febrie-adriansyah-ditangani-k|Respons Istana soal Mahfud MD Usul Kasus Febrie Adriansyah Ditangani KPK]] to [[idn-times|IDN Times]].
+- 2026-08-04 - Added coverage [[article/2026-07/9394999350-kolaborasi-dengan-kpk-jadi-sinyal-kuat-kejagung-usut-kasus-eks-jampids|Kolaborasi dengan KPK Jadi Sinyal Kuat Kejagung Usut Kasus Eks Jampidsus]] to [[jawa-pos-national-network|Jawa Pos National Network]].
+- 2026-08-04 - Created [[media-indonesia-news-and-views|Media Indonesia - News & Views -]] from Generic ingest Goal 2026-08-04 batch 06.
+- 2026-08-04 - Added coverage [[article/2026-07/9395439705-febrie-adriansyah-punya-dua-status-hukum-dalam-kasus-yang-sama-ini-kat|Febrie Adriansyah Punya Dua Status Hukum dalam Kasus yang Sama, Ini Kata Pakar]] to [[kompas-com|KOMPAS.com]].
+- 2026-08-04 - Added coverage [[article/2026-07/9396129772-sahroni-nilai-kuntadi-sosok-tepat-jadi-jampidsus-ingatkan-pr-benahi-in|Sahroni Nilai Kuntadi Sosok Tepat Jadi Jampidsus, Ingatkan PR Benahi Internal]] to [[detik-news|detik News]].
+- 2026-08-04 - Created [[viva-co-id|VIVA.co.id]] from Generic ingest Goal 2026-08-04 batch 07.
+- 2026-08-04 - Added coverage [[article/2026-07/9396869421-kejagung-tunjuk-9-eks-jaksa-kpk-tangani-kasus-febrie-pakar-harus-jawab|Kejagung Tunjuk 9 Eks Jaksa KPK Tangani Kasus Febrie, Pakar: Harus Jawab Harapan Masyarakat]] to [[sindonews|SINDOnews]].
+- 2026-08-04 - Added coverage [[article/2026-07/9397181496-perubahan-status-febrie-dinilai-picu-kebingungan-publik|Perubahan Status Febrie Dinilai Picu Kebingungan Publik]] to [[beritasatu-com|beritasatu.com]].
+- 2026-08-04 - Added coverage [[article/2026-07/9397195355-pakar-minta-kasus-febrie-adriansyah-diproses-tanpa-intervensi|Pakar Minta Kasus Febrie Adriansyah Diproses Tanpa Intervensi]] to [[beritasatu-com|beritasatu.com]].
+- 2026-08-04 - Created [[investor-daily|Investor Daily]] from Generic ingest Goal 2026-08-04 batch 07.
+- 2026-08-04 - Added coverage [[article/2026-07/9397596449-don-ritto-dan-8-koper-isi-emas-duit-barbuk-3-kasus-korupsi-tiba-di-kej|Don Ritto dan 8 Koper Isi Emas-Duit Barbuk 3 Kasus Korupsi Tiba di Kejagung]] to [[detik-news|detik News]].
+- 2026-08-04 - Added coverage [[article/2026-07/9397772122-kejagung-tegaskan-febrie-adriansyah-tersangka-kasus-korupsi-tppu-terka|Kejagung Tegaskan Febrie Adriansyah Tersangka Kasus Korupsi-TPPU Terkait Asabri]] to [[detik-news|detik News]].
+- 2026-08-04 - Added coverage [[article/2026-07/9398672882-eks-jampidsus-febrie-tidak-ditahan-usai-diperiksa-pengamat-tidak-adil-|Eks Jampidsus Febrie Tidak Ditahan Usai Diperiksa, Pengamat: Tidak Adil, Terkesan Tebang Pilih]] to [[tribun-pekanbaru|Tribun Pekanbaru]].
+- 2026-08-04 - Created [[kontan-co-id|kontan.co.id]] from Generic ingest Goal 2026-08-04 batch 08.
+- 2026-08-04 - Added coverage [[article/2026-07/9399399519-hotman-paris-sebut-tangkap-jaksa-harus-izin-presiden-anggota-komisi-ii|Hotman Paris Sebut Tangkap Jaksa Harus Izin Presiden, Anggota Komisi III DPR dan MAKI Bantah Keras]] to [[tribun-medan|Tribun Medan]].
+- 2026-08-04 - Created [[tribun-kaltim|Tribun Kaltim]] from Generic ingest Goal 2026-08-04 batch 08.
+- 2026-08-04 - Added coverage [[article/2026-07/9399610936-pengakuan-hotman-bela-febrie-atas-dasar-sosial-saya-tak-pikirkan-bayar|Pengakuan Hotman Bela Febrie atas Dasar Sosial, "Saya Tak Pikirkan Bayaran!"]] to [[tribun-lampung|Tribun Lampung]].
+- 2026-08-04 - Added coverage [[article/2026-07/9399693440-waka-komisi-iii-dpr-kritik-hotman-soal-febrie-gak-usah-bawa-bawa-presi|Waka Komisi III DPR Kritik Hotman soal Febrie: Gak Usah Bawa-bawa Presiden]] to [[detik-news|detik News]].
+- 2026-08-04 - Added coverage [[article/2026-07/9400222026-mensesneg-minta-hotman-jangan-kaitkan-kasus-febrie-adriansyah-dengan-p|Mensesneg Minta Hotman Jangan Kaitkan Kasus Febrie Adriansyah dengan Presiden]] to [[detik-news|detik News]].
+- 2026-08-04 - Added coverage [[article/2026-07/9400247667-mensesneg-minta-hotman-tak-bawa-nama-presiden-di-kasus-febrie|Mensesneg Minta Hotman Tak Bawa Nama Presiden di Kasus Febrie]] to [[tirto-id|tirto.id]].
+- 2026-08-04 - Added coverage [[article/2026-07/9400321033-kasus-febrie-bergulir-sorotan-justru-ke-hotman-paris-ramai-ramai-banta|Kasus Febrie Bergulir Sorotan Justru ke Hotman Paris, Ramai-ramai Bantah soal Izin Presiden]] to [[tribun-batam|Tribun Batam]].
+- 2026-08-04 - Added coverage [[article/2026-07/9401559127-soal-jampidsus-pengganti-febrie-adriansyah-begini-kata-sufmi-dasco|Soal Jampidsus Pengganti Febrie Adriansyah, Begini Kata Sufmi Dasco]] to [[kontan-co-id|kontan.co.id]].
+- 2026-08-04 - Added coverage [[article/2026-07/9401709620-istana-sebut-keppres-jampidsus-baru-diteken-prabowo-besok-atau-lusa|Istana Sebut Keppres Jampidsus Baru Diteken Prabowo Besok atau Lusa]] to [[cnn-indonesia|CNN Indonesia]].
+- 2026-08-04 - Added coverage [[article/2026-07/9404321512-alasan-eks-jampidsus-febrie-ardiansyah-mangkir-saat-hendak-diperiksa-d|Alasan Eks Jampidsus Febrie Ardiansyah Mangkir Saat Hendak Diperiksa dalam Kasus Pencucian Uang]] to [[kompas-com|KOMPAS.com]].
+- 2026-08-04 - Created [[tribun-timur|Tribun Timur]] from Generic ingest Goal 2026-08-04 batch 09.
+- 2026-08-04 - Created [[antara-news|ANTARA News]] from Generic ingest Goal 2026-08-04 batch 09.
+- 2026-08-04 - Added coverage [[article/2026-07/9405089613-politik-hukum-terkini-kpk-siap-ambil-alih-kasus-febrie|Politik-Hukum Terkini: KPK Siap Ambil Alih Kasus Febrie]] to [[beritasatu-com|beritasatu.com]].
+- 2026-08-04 - Added coverage [[article/2026-07/9405740452-eks-penyidik-kpk-yudi-purnomo-desak-kejagung-tahan-febrie-ini-alasanny|Eks Penyidik KPK Yudi Purnomo Desak Kejagung Tahan Febrie, Ini Alasannya]] to [[viva-co-id|VIVA.co.id]].
+- 2026-08-04 - Created [[surya|Surya]] from Generic ingest Goal 2026-08-04 batch 09.
+- 2026-08-04 - Added coverage [[article/2026-07/9406392325-top-5-news-as-ancam-china-rusia-hingga-febrie-adriansyah-tak-diborgol|Top 5 News: AS Ancam China-Rusia hingga Febrie Adriansyah Tak Diborgol]] to [[beritasatu-com|beritasatu.com]].
+- 2026-08-04 - Added coverage [[article/2026-07/9406395663-kpk-bantah-klaim-eks-jampidsus-febrie-soal-kriminalisasi-kasus|KPK Bantah Klaim Eks Jampidsus Febrie soal Kriminalisasi Kasus]] to [[cnn-indonesia|CNN Indonesia]].
+- 2026-08-04 - Created [[serambi-indonesia|Serambi Indonesia]] from Generic ingest Goal 2026-08-04 batch 09.
+- 2026-08-04 - Added coverage [[article/2026-07/9410727984-bukti-sudah-diserahkan-kortas-tipidkor-kejagung-diyakini-bisa-ungkap-k|Bukti Sudah Diserahkan Kortas Tipidkor, Kejagung Diyakini Bisa Ungkap Kasus Febrie]] to [[sindonews|SINDOnews]].
+- 2026-08-04 - Created [[katadata-co-id|katadata.co.id]] from Generic ingest Goal 2026-08-04 batch 10.
+- 2026-08-04 - Added coverage [[article/2026-07/9411306811-bisakah-kejagung-tangani-laporan-gsf-terkait-kekerasan-israel|Bisakah Kejagung Tangani Laporan GSF terkait Kekerasan Israel?]] to [[tirto-id|tirto.id]].
+- 2026-08-04 - Added coverage [[article/2026-07/9411408073-profil-anom-widiyantoro-bupati-pemalang-yang-terjaring-ott-kpk-hartany|Profil Anom Widiyantoro, Bupati Pemalang yang Terjaring OTT KPK, Hartanya Tembus Rp21,3 Miliar]] to [[bangka-pos|Bangka Pos]].
+- 2026-08-04 - Added coverage [[article/2026-07/9411412449-oc-kaligis-dapur-mbg-milik-istri-lodewyk-pusung-sudah-diverifikasi-bgn|OC Kaligis: Dapur MBG Milik Istri Lodewyk Pusung Sudah Diverifikasi BGN]] to [[kompas-com|KOMPAS.com]].
+- 2026-08-04 - Added coverage [[article/2026-07/9411461900-sutrimo-ditemukan-meninggal-eks-kabareskrim-minta-dugaan-perselisihan-|Sutrimo Ditemukan Meninggal, Eks Kabareskrim Minta Dugaan Perselisihan dengan Keluarga Febrie Diusut]] to [[tribun-kaltim|Tribun Kaltim]].
+- 2026-08-04 - Added coverage [[article/2026-07/9411512286-polda-metro-tentang-lah-tkp-kasus-kematian-sutrimo|Polda Metro tentang lah TKP Kasus Kematian Sutrimo]] to [[harianterbit-com|HarianTerbit.com]].
+- 2026-08-04 - Added coverage [[article/2026-07/9411519979-lsak-sarankan-jaksa-agung-tetap-tegas-dan-jaga-profesionalisme-penegak|LSAK Sarankan Jaksa Agung Tetap Tegas dan Jaga Profesionalisme Penegakan Hukum]] to [[sindonews|SINDOnews]].
+- 2026-08-04 - Added coverage [[article/2026-07/9411632601-indonesian-gaza-flotilla-activists-file-ago-report-against-netanyahu-i|Indonesian Gaza Flotilla Activists File AGO Report Against Netanyahu, Israel]] to [[tempo-co|TEMPO.CO]].
+- 2026-08-04 - Added coverage [[article/2026-07/9411778407-gus-falah-minta-komjak-lakukan-eksaminasi-khusus-terhadap-kasus-febrie|Gus Falah Minta Komjak Lakukan Eksaminasi Khusus Terhadap Kasus Febrie Adriansyah]] to [[sindonews|SINDOnews]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412153658-peta-kekuatan-kaesang-pangarep-nyaleg-dpri-ri-di-jateng-v-gen-z-persis|Peta Kekuatan Kaesang Pangarep Nyaleg DPRI RI di Jateng V: Gen Z, Persis Solo dan Jokowi]] to [[tribun-kaltim|Tribun Kaltim]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412170816-guru-besar-al-azhar-dukung-jaksa-agung-selamatkan-uang-negara|Guru Besar Al Azhar Dukung Jaksa Agung Selamatkan Uang Negara]] to [[media-indonesia-news-and-views|Media Indonesia - News & Views -]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412213214-pakar-soroti-aspek-konstitusional-dan-metodologi-audit-bpkp|Pakar Soroti Aspek Konstitusional dan Metodologi Audit BPKP]] to [[harianterbit-com|HarianTerbit.com]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412234485-pengakuan-saksi-temukan-sutrimo-karumga-eks-jampidsus-febrie-dengan-ko|Pengakuan Saksi Temukan Sutrimo Karumga Eks Jampidsus Febrie dengan Kondisi Mulut Berbusa]] to [[tribun-medan|Tribun Medan]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412254904-bupati-pemalang-anom-widiyantoro-digelandang-ke-mobil-tahanan-kpk|Bupati Pemalang Anom Widiyantoro Digelandang ke Mobil Tahanan KPK]] to [[harianterbit-com|HarianTerbit.com]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412260843-kasus-febrie-adriansyah-jaksa-agung-berantas-korupsi-tanpa-pandang-bul|Kasus Febrie Adriansyah, Jaksa Agung Berantas Korupsi Tanpa Pandang Bulu : Okezone News]] to [[okezone-news|Okezone News]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412308050-eks-pejabat-bin-bongkar-perang-geng-dan-niat-tersembunyi-di-kasus-febr|Eks Pejabat BIN Bongkar Perang Geng dan Niat Tersembunyi di Kasus Febrie Adriansyah]] to [[warta-kota|Warta Kota]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412348481-kejagung-mutasi-176-pejabat-jaksa-penuntut-nadiem-ikut-digeser|Kejagung Mutasi 176 Pejabat, Jaksa Penuntut Nadiem Ikut Digeser]] to [[tirto-id|tirto.id]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412379045-kejagung-kembali-lakukan-mutasi-90-kajari|Kejagung kembali lakukan mutasi 90 Kajari]] to [[antara-news|ANTARA News]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412509103-kasus-eks-jampidsus-kejagung-periksa-tan-kian-dan-ferry-boboho|Kasus Eks Jampidsus: Kejagung Periksa Tan Kian dan Ferry Boboho]] to [[tirto-id|tirto.id]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412512185-tim-9-kejagung-periksa-tan-kian-ferry-boboho-terkait-tppu-febrie-adria|Tim 9 Kejagung Periksa Tan Kian-Ferry 'Boboho' Terkait TPPU Febrie Adriansyah : Okezone News]] to [[okezone-news|Okezone News]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412517518-kelakar-menteri-perumahan-jaksa-agung-dan-kapolri-sudah-dekat-duduknya|Kelakar Menteri Perumahan: Jaksa Agung dan Kapolri Sudah Dekat Duduknya, Paten]] to [[kompas-com|KOMPAS.com]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412538846-jaksa-periksa-ferry-hongkiriwang-dan-tan-kian-sebagai-saksi|Jaksa Periksa Ferry Hongkiriwang dan Tan Kian sebagai Saksi]] to [[tempo-co|TEMPO.CO]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412570613-kasus-tppu-febrie-adriansyah-kejagung-periksa-tan-kian-hingga-ferry-bo|Kasus TPPU Febrie Adriansyah, Kejagung Periksa Tan Kian hingga Ferry Boboho]] to [[sindonews|SINDOnews]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412615840-baru-setahun-menjabat-nasib-terbaru-hellyana-divonis-4-bulan-bakal-sid|Baru Setahun Menjabat, Nasib Terbaru Hellyana Divonis 4 Bulan, Bakal Sidang Lagi Kasus Ijazah Palsu]] to [[bangka-pos|Bangka Pos]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412677612-ironi-status-tersangka-korupsi|Ironi Status Tersangka Korupsi]] to [[media-indonesia-news-and-views|Media Indonesia - News & Views -]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412680337-polri-diimbau-waspadai-serangan-balik-koruptor-usai-ungkap-kasus-febri|Polri Diimbau Waspadai Serangan Balik Koruptor Usai Ungkap Kasus Febrie Adriansyah]] to [[viva-co-id|VIVA.co.id]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412686372-profil-kuntadi-jampidsus-kejagung-yang-bakal-ganyang-para-koruptor|Profil Kuntadi, Jampidsus Kejagung yang Bakal Ganyang para Koruptor]] to [[sindonews|SINDOnews]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412688533-soroti-pemberantasan-korupsi-akademisi-kritisi-status-mantan-pejabat-n|Soroti Pemberantasan Korupsi, Akademisi Kritisi Status Mantan Pejabat Negara Masih Tersangka Korupsi]] to [[warta-kota|Warta Kota]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412723441-pakar-soroti-kasus-payment-gateway-denny-indrayana-yang-menggantung|Pakar Soroti Kasus Payment Gateway Denny Indrayana yang Menggantung]] to [[idn-times|IDN Times]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412723797-opini-menyoal-krisis-karakter-pejabat-publik|Opini: Menyoal Krisis Karakter Pejabat Publik]] to [[pos-kupang|Pos Kupang]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412779177-kajari-pati-dimutasi-ke-kejagung-saat-gelombang-protes-ampb-tegaskan-a|Kajari Pati Dimutasi ke Kejagung saat Gelombang Protes, AMPB Tegaskan Aksi Lanjut Hingga Hari ke-5]] to [[tribun-jateng|Tribun Jateng]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412819878-prabowo-jaksa-agung-dan-kapolri-tetap-akur-duduk-bareng|Prabowo: Jaksa Agung dan Kapolri Tetap Akur, Duduk Bareng]] to [[beritasatu-com|beritasatu.com]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412855596-menolak-ditahan-di-rutan-kpk-pihak-eks-jampidsus-singgung-ham|Menolak Ditahan di Rutan KPK, Pihak Eks Jampidsus Singgung HAM]] to [[warta-kota|Warta Kota]].
+- 2026-08-04 - Added coverage [[article/2026-07/9412937853-permohonan-praperadilan-lodewyk-pusung-ditolak-hakim|Permohonan Praperadilan Lodewyk Pusung Ditolak Hakim]] to [[tempo-co|TEMPO.CO]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413024832-kejagung-tetapkan-satu-tersangka-baru-di-kasus-tppu-febrie-adriansyah|Kejagung Tetapkan Satu Tersangka Baru di Kasus TPPU Febrie Adriansyah]] to [[cnn-indonesia|CNN Indonesia]].
+- 2026-08-04 - Created [[bisnis-indonesia-online|Bisnis Indonesia Online]] from Generic ingest Goal 2026-08-04 batch 13.
+- 2026-08-04 - Added coverage [[article/2026-07/9413035255-breaking-news-kejagung-tetapkan-nurman-herin-tersangka-baru-kasus-tppu|Breaking News! Kejagung Tetapkan Nurman Herin Tersangka Baru Kasus TPPU Febrie Adriansyah : Okezone News]] to [[okezone-news|Okezone News]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413049280-kpk-gelar-12-ott-sepanjang-semester-i-2026|KPK Gelar 12 OTT Sepanjang Semester I-2026]] to [[investor-daily|Investor Daily]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413073332-tim-9-kejagung-ungkap-7-perusahaan-yang-diduga-pakai-jasa-hukum-don-ri|Tim 9 Kejagung Ungkap 7 Perusahaan yang Diduga Pakai Jasa Hukum Don Ritto]] to [[kompas-com|KOMPAS.com]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413073856-nurman-herin-tersangka-baru-kasus-dugaan-tppu-febrie-ditahan-di-rutan-|Nurman Herin Tersangka Baru Kasus Dugaan TPPU Febrie Ditahan di Rutan Kejari Jaksel]] to [[sindonews|SINDOnews]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413073945-pakar-sinergitas-tni-polri-dan-kejaksaan-penting-demi-menjaga-stabilit|Pakar: Sinergitas TNI, Polri dan Kejaksaan Penting Demi Menjaga Stabilitas Negara | tempo.co]] to [[tempo-co|TEMPO.CO]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413090966-demi-keamanan-kejagung-titipkan-ferry-boboho-ke-lpsk-okezone-news|Demi Keamanan, Kejagung Titipkan Ferry 'Boboho' ke LPSK : Okezone News]] to [[okezone-news|Okezone News]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413095234-kejagung-tetapkan-nurman-herin-tersangka-baru-kasus-tppu-febrie-adrian|Kejagung tetapkan Nurman Herin tersangka baru kasus TPPU Febrie Adriansyah]] to [[antara-news|ANTARA News]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413111582-dalami-kasus-tppu-febrie-adriansyah-kejagung-periksa-7-perusahaan-dan-|Dalami Kasus TPPU Febrie Adriansyah, Kejagung Periksa 7 Perusahaan dan 24 Saksi]] to [[detik-news|detik News]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413114302-usai-diperiksa-kejagung-bakal-titipkan-ferry-boboho-ke-lpsk|Usai Diperiksa, Kejagung Bakal Titipkan Ferry Boboho ke LPSK]] to [[bisnis-indonesia-online|Bisnis Indonesia Online]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413115381-kejagung-tahan-nurman-herin-dalam-kasus-tppu-febrie-tanpa-diborgol|Kejagung Tahan Nurman Herin dalam Kasus TPPU Febrie Tanpa Diborgol]] to [[idn-times|IDN Times]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413146399-usut-kasus-febrie-adriansyah-kejagung-titipkan-ferry-hongkiriwang-ke-l|Usut Kasus Febrie Adriansyah, Kejagung Titipkan Ferry Hongkiriwang ke LPSK]] to [[sindonews|SINDOnews]].
+- 2026-08-04 - Created [[tribun-wow|Tribun Wow]] from Generic ingest Goal 2026-08-04 batch 14.
+- 2026-08-04 - Added coverage [[article/2026-07/9413202338-eks-pejabat-bin-nilai-kasus-febrie-adriansyah-cerminkan-perseteruan-an|Eks Pejabat BIN Nilai Kasus Febrie Adriansyah Cerminkan Perseteruan Antaroknum Penegak Hukum - TribunWow.com]] to [[tribun-wow|Tribun Wow]].
+- 2026-08-04 - Created [[tribun-manado|Tribun Manado]] from Generic ingest Goal 2026-08-04 batch 14.
+- 2026-08-04 - Added coverage [[article/2026-07/9413466906-politik-hukum-terkini-pembocor-dokumen-perkara-kpk|Politik-Hukum Terkini: Pembocor Dokumen Perkara KPK]] to [[beritasatu-com|beritasatu.com]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413486421-kpk-bisa-ambil-alih-kasus-eks-jampidsus-jika-penyidikan-terhambat|KPK Bisa Ambil Alih Kasus Eks Jampidsus Jika Penyidikan Terhambat]] to [[sindonews|SINDOnews]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413500756-hukum-kemarin-kejagung-periksa-kasus-tppo-hingga-korupsi-jasindo|Hukum kemarin, Kejagung periksa kasus TPPO hingga korupsi Jasindo]] to [[antara-news|ANTARA News]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413506834-tersangka-baru-kasus-eks-jampidsus-febrie-nurman-herin-ditahan-terkait|Tersangka Baru Kasus Eks Jampidsus Febrie, Nurman Herin Ditahan Terkait Dugaan Pencucian Uang]] to [[tribun-medan|Tribun Medan]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413539214-terungkap-sosok-gatekeeper-bisnis-di-balik-kasus-pencucian-uang-eks-ja|Terungkap Sosok 'Gatekeeper' Bisnis di Balik Kasus Pencucian Uang Eks Jampidsus Febrie Adriansyah]] to [[tribun-batam|Tribun Batam]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413547220-kasus-dugaan-tppu-febrie-adriansyah-kejagung-periksa-24-saksi-dan-teta|Kasus Dugaan TPPU Febrie Adriansyah: Kejagung Periksa 24 Saksi dan Tetapkan Tersangka Baru : Okezone News]] to [[okezone-news|Okezone News]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413581384-bakom-tegaskan-presiden-prabowo-tak-campur-tangan-dalam-penanganan-per|Bakom Tegaskan Presiden Prabowo Tak Campur Tangan dalam Penanganan Perkara Febrie Adriansyah : Okezone News]] to [[okezone-news|Okezone News]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413632177-usut-aliran-dana-tppu-febrie-adriansyah-kejagung-periksa-7-perusahaan-|Usut Aliran Dana TPPU Febrie Adriansyah, Kejagung Periksa 7 Perusahaan dan 24 Saksi]] to [[media-indonesia-news-and-views|Media Indonesia - News & Views -]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413661861-sosok-setya-budi-dias-oktavianto-staf-kpk-peras-bupati-pemalang-anom-u|Sosok Setya Budi Dias Oktavianto, Staf KPK Peras Bupati Pemalang Anom, Uang Rp2,7 Miliar Diamankan]] to [[bangka-pos|Bangka Pos]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413677127-pengacara-sebut-penahanan-febrie-adriansyah-tidak-sah|Pengacara Sebut Penahanan Febrie Adriansyah Tidak Sah]] to [[tempo-co|TEMPO.CO]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413735963-kubu-febrie-adriansyah-beberkan-soal-penahanan-kasus-tppu|Kubu Febrie Adriansyah Beberkan Soal Penahanan Kasus TPPU]] to [[investor-daily|Investor Daily]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413766307-nurman-herin-jadi-tersangka-baru-dalam-kasus-dugaan-tppu-febrie-adrian|Nurman Herin Jadi Tersangka Baru dalam Kasus Dugaan TPPU Febrie Adriansyah - TribunWow.com]] to [[tribun-wow|Tribun Wow]].
+- 2026-08-04 - Created [[tribun-cirebon|Tribun Cirebon]] from Generic ingest Goal 2026-08-04 batch 16.
+- 2026-08-04 - Added coverage [[article/2026-07/9413874849-lima-kejari-di-sumut-dirotasi-berikut-namanya|Lima Kejari di Sumut Dirotasi, Berikut Namanya]] to [[tribun-medan|Tribun Medan]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413979871-polisi-panggil-dokter-rs-dalami-kabar-sutrimo-meninggal-dengan-mulut-b|Polisi Panggil Dokter RS Dalami Kabar Sutrimo Meninggal dengan Mulut Berbusa]] to [[detik-news|detik News]].
+- 2026-08-04 - Added coverage [[article/2026-07/9413980583-sutrimo-meninggal-dengan-mulut-dan-hidung-berbusa-polisi-periksa-dokte|Sutrimo Meninggal dengan Mulut dan Hidung Berbusa, Polisi Periksa Dokter]] to [[idn-times|IDN Times]].
+- 2026-08-04 - Added coverage [[article/2026-07/9414061966-eks-jampidsus-diduga-manfaatkan-bekas-teman-kuliah-untuk-cuci-uang|Eks Jampidsus Diduga Manfaatkan Bekas Teman Kuliah untuk Cuci Uang]] to [[warta-kota|Warta Kota]].
+- 2026-08-04 - Added coverage [[article/2026-07/9414076930-nurman-herin-siapa-tersangka-baru-yang-ditetapkan-kejagung-dalam-kasus|Nurman Herin Siapa? Tersangka Baru yang Ditetapkan Kejagung dalam Kasus Febrie Andriansyah]] to [[pikiran-rakyat-com|Pikiran-Rakyat.com]].
+- 2026-08-04 - Added coverage [[article/2026-07/9414091363-daftar-7-perusahaan-yang-diperiksa-kejagung-dalam-kasus-dugaan-tppu-fe|Daftar 7 Perusahaan yang Diperiksa Kejagung dalam Kasus Dugaan TPPU Febrie Adriansyah]] to [[pikiran-rakyat-com|Pikiran-Rakyat.com]].
+- 2026-08-04 - Added coverage [[article/2026-07/9414107496-kematiannya-janggal-polisi-akan-bongkar-handphone-sutrimo-yang-tewas-d|Kematiannya Janggal, Polisi Akan Bongkar Handphone Sutrimo yang Tewas di Klinik Jaksel : Okezone News]] to [[okezone-news|Okezone News]].
+- 2026-08-04 - Added coverage [[article/2026-07/9414122684-kasus-tppu-febrie-adriansyah-kejagung-periksa-saksi-dari-pihak-swasta|Kasus TPPU Febrie Adriansyah, Kejagung Periksa Saksi dari Pihak Swasta]] to [[media-indonesia-news-and-views|Media Indonesia - News & Views -]].
+- 2026-08-04 - Added coverage [[article/2026-07/9414135745-kejagung-periksa-7-saksi-kasus-tppu-febrie-adriansyah-hanya-hadir-dua|Kejagung Periksa 7 Saksi Kasus TPPU Febrie Adriansyah, Hanya Hadir Dua]] to [[idn-times|IDN Times]].
+- 2026-08-04 - Added coverage [[article/2026-07/9414256273-polisi-bakal-bongkar-hp-sutrimo-untuk-ungkap-penyebab-kematiannya|Polisi Bakal Bongkar HP Sutrimo untuk Ungkap Penyebab Kematiannya]] to [[sindonews|SINDOnews]].
+- 2026-08-04 - Added coverage [[article/2026-07/9414294006-polisi-periksa-5-saksi-kasus-kematian-sutrimo|Polisi Periksa 5 Saksi Kasus Kematian Sutrimo]] to [[tempo-co|TEMPO.CO]].
+- 2026-08-04 - Created [[liputan-6|Liputan 6]] from Generic ingest Goal 2026-08-04 batch 17.
+- 2026-08-04 - Added coverage [[article/2026-07/9414346252-siapa-sutrimo-fakta-sosok-yang-penyebab-kematiannya-disorot-hubungan-d|Siapa Sutrimo? Fakta Sosok yang Penyebab Kematiannya Disorot, Hubungan dengan Eks Jampidsus Febrie]] to [[tribun-kaltim|Tribun Kaltim]].
+- 2026-08-04 - Added coverage [[article/2026-07/9414347430-hasan-nasbi-sebut-londo-ireng-istilah-untuk-kelompok-suka-buat-gaduh|Hasan Nasbi sebut "londo ireng" istilah untuk kelompok suka buat gaduh]] to [[antara-news|ANTARA News]].
+- 2026-08-04 - Added coverage [[article/2026-07/9414406417-kata-polisi-soal-misteri-kematian-sutrimo-dan-hubungan-dengan-febrie-a|Kata Polisi Soal Misteri Kematian Sutrimo dan Hubungan dengan Febrie Adriansyah, 5 Saksi Diperiksa]] to [[tribunnews-bogor|Tribunnews Bogor]].
+- 2026-08-04 - Created [[antara-news-mataram|ANTARA News Mataram]] from Generic ingest Goal 2026-08-04 batch 17.
+- 2026-08-04 - Added coverage [[article/2026-07/9414791596-termasuk-sopir-ambulans-5-saksi-diperiksa-polisi-terkait-kematian-sutr|Termasuk Sopir Ambulans, 5 Saksi Diperiksa Polisi Terkait Kematian Sutrimo]] to [[detik-news|detik News]].
+- 2026-08-04 - Added coverage [[article/2026-08/9414807340-siapa-nurman-herin-sosok-pengusaha-yang-jadi-tersangka-baru-kasus-tppu|Siapa Nurman Herin? Sosok Pengusaha yang Jadi Tersangka Baru Kasus TPPU Febrie Adriansyah]] to [[pikiran-rakyat-com|Pikiran-Rakyat.com]].
+- 2026-08-04 - Added coverage [[article/2026-08/9414818888-isu-politik-hukum-pengungkapan-korupsi-mbg-dongkrak-kinerja-prabowo|Isu Politik-Hukum: Pengungkapan Korupsi MBG Dongkrak Kinerja Prabowo]] to [[beritasatu-com|beritasatu.com]].
+- 2026-08-04 - Added coverage [[article/2026-08/9414850452-cari-petunjuk-kematian-sutrimo-polisi-periksa-cctv|Cari Petunjuk Kematian Sutrimo, Polisi Periksa CCTV]] to [[detik-news|detik News]].
+- 2026-08-04 - Added coverage [[article/2026-08/9414859345-pelimpahan-kasus-dugaan-ijazah-palsu-wagub-babel-hellyana-di-kejari-pa|Pelimpahan Kasus Dugaan Ijazah Palsu Wagub Babel Hellyana di Kejari Pangkalpinang - Video]] to [[bangka-pos|Bangka Pos]].
+- 2026-08-04 - Added coverage [[article/2026-08/9414960945-sembilan-hari-berlalu-misteri-kematian-sutrimo-tak-kunjung-terungkap|Sembilan Hari Berlalu, Misteri Kematian Sutrimo Tak Kunjung Terungkap]] to [[kompas-com|KOMPAS.com]].
+- 2026-08-04 - Added coverage [[article/2026-08/9414992522-kejagung-geledah-rumah-febrie-adriansyah-di-kebayoran-baru-sejumlah-do|Kejagung Geledah Rumah Febrie Adriansyah di Kebayoran Baru, Sejumlah Dokumen Disita]] to [[idn-times|IDN Times]].
+- 2026-08-04 - Added coverage [[article/2026-08/9415005175-tim-9-kejagung-geledah-rumah-febrie-adriansyah-di-jaksel|Tim 9 Kejagung Geledah Rumah Febrie Adriansyah di Jaksel]] to [[cnn-indonesia|CNN Indonesia]].
+- 2026-08-04 - Added coverage [[article/2026-08/9415009399-selidiki-kematian-sutrimo-karumga-eks-jampidsus-febrie-adriansyah-poli|Selidiki Kematian Sutrimo Karumga Eks Jampidsus Febrie Adriansyah, Polisi Periksa Saksi hingga CCTV]] to [[warta-kota|Warta Kota]].
+- 2026-08-04 - Added coverage [[article/2026-08/9415021264-kejagung-geledah-rumah-febrie-adriansyah-di-kebayoran-baru-dokumen-ter|Kejagung Geledah Rumah Febrie Adriansyah di Kebayoran Baru, Dokumen Terkait TPPU Disita]] to [[viva-co-id|VIVA.co.id]].
+- 2026-08-04 - Created [[okezone-economy|Okezone Economy]] from Generic ingest Goal 2026-08-04 batch 18.
+- 2026-08-04 - Created [[tribun-jambi|Tribun Jambi]] from Generic ingest Goal 2026-08-04 batch 19.
+- 2026-08-04 - Added coverage [[article/2026-08/9415068398-partai-gelora-usul-pembentukan-peradilan-etika-untuk-cegah-korupsi|Partai Gelora usul pembentukan peradilan etika untuk cegah korupsi]] to [[antara-news|ANTARA News]].
+- 2026-08-04 - Added coverage [[article/2026-08/9415072235-kejagung-geledah-rumah-febrie-sita-sejumlah-dokumen-terkait-kasus-tppu|Kejagung Geledah Rumah Febrie, Sita Sejumlah Dokumen Terkait Kasus TPPU]] to [[katadata-co-id|katadata.co.id]].
+- 2026-08-04 - Created [[antara-news-kepri|ANTARA News Kepri]] from Generic ingest Goal 2026-08-04 batch 19.
+- 2026-08-04 - Added coverage [[article/2026-08/9415167602-tim-9-kejagung-geledah-rumah-eks-jampidsus-febrie-adriansyah-kasus-tpp|Tim 9 Kejagung Geledah Rumah Eks Jampidsus Febrie Adriansyah Kasus TPPU]] to [[harianterbit-com|HarianTerbit.com]].
+- 2026-08-04 - Added coverage [[article/2026-08/9415172699-alasan-kejagung-geledah-rumah-eks-jampidsus-febrie-adriansyah-lagi-ini|Alasan Kejagung Geledah Rumah Eks Jampidsus Febrie Adriansyah Lagi, Ini yang Akan Jadi Bukti Baru]] to [[surya|Surya]].
+- 2026-08-04 - Added coverage [[article/2026-08/9415205995-kapuspenkum-beberkan-temuan-tim-9-kejagung-hasil-penggeledahan-di-ruma|Kapuspenkum Beberkan Temuan Tim 9 Kejagung Hasil Penggeledahan di Rumah Febrie Adriansyah]] to [[harianterbit-com|HarianTerbit.com]].
+- 2026-08-04 - Added coverage [[article/2026-08/9415290287-fahri-hamzah-dorong-pembentukan-peradilan-etika-untuk-cegah-korupsi-se|Fahri Hamzah Dorong Pembentukan Peradilan Etika untuk Cegah Korupsi Sejak Dini]] to [[sindonews|SINDOnews]].
+- 2026-08-04 - Added coverage [[article/2026-08/9415356521-kasus-kematian-sutrimo-didalami-polda-metro-periksa-5-saksi-dan-amanka|Kasus Kematian Sutrimo Didalami, Polda Metro Periksa 5 Saksi dan Amankan CCTV Klinik]] to [[warta-kota|Warta Kota]].
+- 2026-08-04 - Created [[tribun-jatim|Tribun Jatim]] from Generic ingest Goal 2026-08-04 batch 19.
+- 2026-08-04 - Added coverage [[article/2026-08/9415625411-rumah-eks-jampidsus-febrie-adriansyah-digeledah-ada-dokumen-tppu-perna|Rumah Eks Jampidsus Febrie Adriansyah Digeledah: Ada Dokumen TPPU, Pernah Dijaga TNI]] to [[kompas-com|KOMPAS.com]].
+- 2026-08-04 - Added coverage [[article/2026-08/9415629037-politik-hukum-sepekan-febrie-minta-maaf-hingga-istana-respons-survei|Politik-Hukum Sepekan: Febrie Minta Maaf hingga Istana Respons Survei]] to [[beritasatu-com|beritasatu.com]].
+- 2026-08-04 - Added coverage [[article/2026-08/9415657211-hukum-sepekan-ott-bupati-pemalang-hingga-jaksa-geledah-rumah-febrie|Hukum sepekan, OTT Bupati Pemalang hingga jaksa geledah rumah Febrie]] to [[antara-news|ANTARA News]].
+- 2026-08-04 - Added coverage [[article/2026-08/9415669355-5-upaya-polisi-selidiki-kematian-sutrimo|5 Upaya Polisi Selidiki Kematian Sutrimo]] to [[detik-news|detik News]].
+- 2026-08-04 - Added coverage [[article/2026-08/9415675387-masuknya-tni-ke-ranah-sipil-dinilai-melebihi-orde-baru-kawal-pajak-hin|Masuknya TNI ke Ranah Sipil Dinilai Melebihi Orde Baru, Kawal Pajak Hingga Rumah Febrie Adriansyah]] to [[tribun-kaltim|Tribun Kaltim]].
+- 2026-08-04 - Added coverage [[article/2026-08/9415681138-viral-terpopuler-pengakuan-berbeda-istri-pencuri-ayam-di-bali-hingga-r|Viral Terpopuler: Pengakuan Berbeda Istri Pencuri Ayam di Bali hingga Ruben Bantah Cerita Sarwendah]] to [[tribun-jatim|Tribun Jatim]].
+- 2026-08-04 - Added coverage [[article/2026-08/9415690524-menguak-isi-ponsel-anak-buah-febrie-adriansyah-yang-tewas-polisi-selid|Menguak Isi Ponsel Anak Buah Febrie Adriansyah yang Tewas, Polisi Selidiki Meski Keluarga Ikhlas]] to [[tribun-jatim|Tribun Jatim]].
+- 2026-08-04 - Added coverage [[article/2026-08/9415721793-misteri-kematian-sutrimo-karumga-eks-jampidsus-febrie-adriansyah-polis|Misteri Kematian Sutrimo, Karumga Eks Jampidsus Febrie Adriansyah, Polisi Telusuri Isi Ponsel]] to [[tribun-kaltim|Tribun Kaltim]].
+- 2026-08-04 - Added coverage [[article/2026-08/9415722507-polisi-telusuri-isi-hp-sutrimo-riwayat-telepon-dan-chat-jadi-fokus-pen|Polisi Telusuri Isi HP Sutrimo, Riwayat Telepon dan Chat Jadi Fokus Penyelidikan]] to [[warta-kota|Warta Kota]].
+- 2026-08-04 - Added coverage [[article/2026-08/9415726724-usut-penyebab-kematian-sutrimo-polisi-akan-periksa-dokter-yang-nyataka|Usut Penyebab Kematian Sutrimo, Polisi Akan Periksa Dokter yang Nyatakan Korban Meninggal Dunia]] to [[tribun-jakarta|Tribun Jakarta]].
+- 2026-08-04 - Added coverage [[article/2026-08/9415756801-soroti-tni-masuk-ranah-sipil-tb-hasanuddin-terkesan-lebih-over-dibandi|Soroti TNI Masuk Ranah Sipil, TB Hasanuddin: Terkesan Lebih Over Dibanding Orde Baru]] to [[tribun-kaltim|Tribun Kaltim]].
+- 2026-08-04 - Added coverage [[article/2026-08/9416874116-kejati-akan-limpahkan-kasus-reklamasi-pantai-amahami-ke-kejari-bima|Kejati akan limpahkan kasus reklamasi Pantai Amahami ke Kejari Bima]] to [[antara-news-mataram|ANTARA News Mataram]].
+- 2026-08-04 - Added coverage [[article/2026-08/9416921542-alasan-polisi-tak-ajukan-visum-sutrimo-karumga-febrie-menurut-prof-her|Alasan Polisi Tak Ajukan Visum Sutrimo Karumga Febrie Menurut Prof Hermawan, Curiga Ada Tekanan]] to [[surya|Surya]].
+- 2026-08-04 - Added coverage [[article/2026-08/9416937426-tim-kuasa-nadiem-siapkan-bukti-dan-saksi-untuk-sidang-banding|Tim Kuasa Nadiem Siapkan Bukti dan Saksi untuk Sidang Banding]] to [[katadata-co-id|katadata.co.id]].
+- 2026-08-04 - Added coverage [[article/2026-08/9417043289-kuasa-hukum-ungkap-9-kejanggalan-kasus-febrie-adriansyah|Kuasa Hukum Ungkap 9 Kejanggalan Kasus Febrie Adriansyah]] to [[tirto-id|tirto.id]].
+- 2026-08-04 - Added coverage [[article/2026-08/9417093276-kronologi-aipda-m-diduga-tembak-pria-terduga-selingkuhan-sang-istri-hi|Kronologi Aipda M Diduga Tembak Pria Terduga Selingkuhan Sang Istri hingga Tewas]] to [[tribun-lampung|Tribun Lampung]].
+- 2026-08-04 - Added coverage [[article/2026-08/9417176626-tim-9-kejagung-geledah-kantor-don-ritto-dan-rumah-nurman-herin|Tim 9 Kejagung Geledah Kantor Don Ritto dan Rumah Nurman Herin]] to [[idn-times|IDN Times]].
+- 2026-08-04 - Added coverage [[article/2026-08/9417180960-tim-9-kejagung-diminta-ungkap-pemilik-rp476-m-dan-emas-74-kg-di-kasus-|Tim 9 Kejagung Diminta Ungkap Pemilik Rp476 M dan Emas 74 Kg di Kasus TPPU Febrie Adriansyah]] to [[media-indonesia-news-and-views|Media Indonesia - News & Views -]].
+- 2026-08-04 - Added coverage [[article/2026-08/9417199204-usut-kasus-tppu-febrie-adriansyah-kejagung-periksa-4-saksi-swasta-dan-|Usut Kasus TPPU Febrie Adriansyah, Kejagung Periksa 4 Saksi Swasta dan Geledah Sejumlah Lokasi]] to [[media-indonesia-news-and-views|Media Indonesia - News & Views -]].
+- 2026-08-04 - Added coverage [[article/2026-08/9417202610-kantor-don-ritto-dan-rumah-nurman-herin-digeledah-terkait-kasus-febrie|Kantor Don Ritto dan Rumah Nurman Herin Digeledah Terkait Kasus Febrie]] to [[cnn-indonesia|CNN Indonesia]].
+- 2026-08-04T00:28:14+08:00 - Reconciled [[antara-news-mataram|ANTARA News Mataram]] articleCount from 1 to 2 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[antara-news|ANTARA News]] articleCount from 1 to 7 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[bangka-pos|Bangka Pos]] articleCount from 1 to 9 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[beritasatu-com|beritasatu.com]] articleCount from 1 to 10 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[bisnis-indonesia-online|Bisnis Indonesia Online]] articleCount from 1 to 2 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[cnn-indonesia|CNN Indonesia]] articleCount from 1 to 8 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[detik-news|detik News]] articleCount from 1 to 11 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[harianterbit-com|HarianTerbit.com]] articleCount from 1 to 7 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[idn-times|IDN Times]] articleCount from 1 to 9 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[investor-daily|Investor Daily]] articleCount from 1 to 3 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[jawa-pos-national-network|Jawa Pos National Network]] articleCount from 1 to 2 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[katadata-co-id|katadata.co.id]] articleCount from 1 to 3 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[kompas-com|KOMPAS.com]] articleCount from 2 to 17 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[kontan-co-id|kontan.co.id]] articleCount from 1 to 2 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[media-indonesia-news-and-views|Media Indonesia - News & Views -]] articleCount from 1 to 7 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[okezone-news|Okezone News]] articleCount from 1 to 9 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[pikiran-rakyat-com|Pikiran-Rakyat.com]] articleCount from 3 to 7 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[pos-kupang|Pos Kupang]] articleCount from 1 to 3 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[sindonews|SINDOnews]] articleCount from 1 to 12 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[suara-merdeka|Suara Merdeka]] articleCount from 1 to 3 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[surya|Surya]] articleCount from 1 to 3 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[tempo-co|TEMPO.CO]] articleCount from 2 to 13 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[the-jakarta-post|The Jakarta Post]] articleCount from 1 to 2 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[tirto-id|tirto.id]] articleCount from 1 to 6 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[tribun-batam|Tribun Batam]] articleCount from 1 to 4 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[tribun-jakarta|Tribun Jakarta]] articleCount from 1 to 3 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[tribun-jateng|Tribun Jateng]] articleCount from 1 to 2 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[tribun-jatim|Tribun Jatim]] articleCount from 1 to 3 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[tribun-jogja|Tribun Jogja]] articleCount from 1 to 2 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[tribun-kaltim|Tribun Kaltim]] articleCount from 1 to 7 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[tribun-lampung|Tribun Lampung]] articleCount from 1 to 3 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[tribun-medan|Tribun Medan]] articleCount from 1 to 7 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[tribun-pekanbaru|Tribun Pekanbaru]] articleCount from 1 to 2 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[tribun-sumsel|Tribun Sumsel]] articleCount from 1 to 4 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[tribun-wow|Tribun Wow]] articleCount from 1 to 3 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[tribunnews-bogor|Tribunnews Bogor]] articleCount from 1 to 2 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[viva-co-id|VIVA.co.id]] articleCount from 1 to 4 using unique Coverage backlinks.
+- 2026-08-04T00:28:14+08:00 - Reconciled [[warta-kota|Warta Kota]] articleCount from 1 to 8 using unique Coverage backlinks.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[antara-news|antara-news]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[antara-news-kepri|antara-news-kepri]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[antara-news-mataram|antara-news-mataram]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[bangka-pos|bangka-pos]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[beritasatu-com|beritasatu-com]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[bisnis-indonesia-online|bisnis-indonesia-online]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[detik-news|detik-news]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[idn-times|idn-times]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[investor-daily|investor-daily]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[jawa-pos-national-network|jawa-pos-national-network]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[katadata-co-id|katadata-co-id]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[kompasiana|kompasiana]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[kontan-co-id|kontan-co-id]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[liputan-6|liputan-6]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[media-indonesia-news-and-views|media-indonesia-news-and-views]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[okezone-economy|okezone-economy]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[okezone-news|okezone-news]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[serambi-indonesia|serambi-indonesia]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[sindonews|sindonews]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[suara-merdeka|suara-merdeka]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[surya|surya]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[the-jakarta-post|the-jakarta-post]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[tirto-id|tirto-id]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[tribun-batam|tribun-batam]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[tribun-cirebon|tribun-cirebon]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[tribun-jakarta|tribun-jakarta]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[tribun-jambi|tribun-jambi]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[tribun-jateng|tribun-jateng]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[tribun-jatim|tribun-jatim]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[tribun-jogja|tribun-jogja]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[tribun-kaltim|tribun-kaltim]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[tribun-lampung|tribun-lampung]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[tribun-manado|tribun-manado]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[tribun-medan|tribun-medan]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[tribun-pekanbaru|tribun-pekanbaru]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[tribun-sumsel|tribun-sumsel]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[tribun-timur|tribun-timur]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[tribun-wow|tribun-wow]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[tribunnews-bogor|tribunnews-bogor]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[viva-co-id|viva-co-id]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13T10:37:50+08:00 - Backfilled required registry field outletId for [[warta-kota|warta-kota]] from the canonical note filename, matching the existing conforming records.
+- 2026-08-13 - Added coverage [[article/2026-05/crawl-1233b717d1-national-defense-strengthened-by-its-equipment-president|National defense strengthened by its equipment: President]] to [[antara-news|ANTARA News]].
+- 2026-08-13T11:15:18+08:00 - Reconciled [[antara-news|ANTARA News]] articleCount from 7 to 8 using unique Coverage backlinks.
+- 2026-08-13 - Added coverage [[article/2026-06/crawl-1b7f2bb2e1-pro-and-anti-free-meal-program-protests-intensify-across-the-country|Pro- and anti-free meal program protests intensify across the country]] to [[the-jakarta-post|The Jakarta Post]].
+- 2026-08-13 - Added coverage [[article/2026-06/crawl-5a153f1d44-dpr-government-review-danantara-led-resource-export-scheme|DPR, government review Danantara-led resource export scheme]] to [[antara-news|ANTARA News]].
+- 2026-08-13 - Added coverage [[article/2026-06/crawl-61af9cab70-minister-mahendra-to-relay-student-board-demands-to-prabowo|Minister Mahendra to relay student board demands to Prabowo]] to [[antara-news|ANTARA News]].
+- 2026-08-13 - Created [[al-jazeera|al-jazeera]] from quality-check-backlog-2026-06.
+- 2026-08-13 - Added coverage [[article/2026-06/crawl-88b7945ea8-pressure-mounts-to-halt-review-prabowos-free-meals-program|Pressure mounts to halt, review Prabowo’s free meals program]] to [[the-jakarta-post|The Jakarta Post]].
+- 2026-08-13T11:15:20+08:00 - Reconciled [[antara-news|ANTARA News]] articleCount from 8 to 10 using unique Coverage backlinks.
+- 2026-08-13T11:15:20+08:00 - Reconciled [[the-jakarta-post|The Jakarta Post]] articleCount from 2 to 4 using unique Coverage backlinks.
+- 2026-08-13 - Added coverage [[article/2026-07/crawl-01604621db-graft-probe-draws-scrutiny-over-police-military-roles-in-free-meals-pr|Graft probe draws scrutiny over police, military roles in free meals program]] to [[the-jakarta-post|The Jakarta Post]].
+- 2026-08-13 - Created [[liputan6-com|liputan6-com]] from quality-check-backlog-2026-07.
+- 2026-08-13 - Added coverage [[article/2026-07/crawl-112e1d64d3-police-name-former-prosecutor-febrie-adriansyah-graft-suspect|Police name former prosecutor Febrie Adriansyah graft suspect]] to [[antara-news|ANTARA News]].
+- 2026-08-13 - Added coverage [[article/2026-07/crawl-13e7a16f6a-ago-detains-ex-top-prosecutor-febrie-after-questioning|AGO detains ex-top prosecutor Febrie after questioning]] to [[the-jakarta-post|The Jakarta Post]].
+- 2026-08-13 - Added coverage [[article/2026-07/crawl-16990b23c8-bgn-prioritizes-nutrition-as-free-meals-resume|BGN prioritizes nutrition as free meals resume]] to [[antara-news|ANTARA News]].
+- 2026-08-13 - Created [[detik-bali|detik-bali]] from quality-check-backlog-2026-07.
+- 2026-08-13 - Added coverage [[article/2026-07/crawl-4ac884e8a5-bank-indonesia-governor-perry-warjiyo-resigns|Bank Indonesia Governor Perry Warjiyo resigns]] to [[antara-news|ANTARA News]].
+- 2026-08-13 - Created [[detik-sumut|detik-sumut]] from quality-check-backlog-2026-07.
+- 2026-08-13 - Created [[suara-com|suara-com]] from quality-check-backlog-2026-07.
+- 2026-08-13 - Added coverage [[article/2026-07/crawl-731ed50483-kembali-panggil-febrie-adriansyah-kejagung-siapkan-upaya-paksa|Kembali Panggil Febrie Adriansyah, Kejagung Siapkan Upaya Paksa]] to [[tirto-id|tirto.id]].
+- 2026-08-13 - Created [[antara|antara]] from quality-check-backlog-2026-07.
+- 2026-08-13 - Added coverage [[article/2026-07/crawl-9294142327-mystery-over-ex-prosecutors-whereabouts-adds-to-scrutiny-of-ago-probe|Mystery over ex-prosecutor’s whereabouts adds to scrutiny of AGO probe]] to [[the-jakarta-post|The Jakarta Post]].
+- 2026-08-13 - Created [[bloomberg-technoz|bloomberg-technoz]] from quality-check-backlog-2026-07.
+- 2026-08-13 - Added coverage [[article/2026-07/crawl-aaf863d7c2-economist-urges-new-bi-governor-to-lead-rupiah-stability|Economist urges new BI governor to lead rupiah stability]] to [[antara-news|ANTARA News]].
+- 2026-08-13 - Added coverage [[article/2026-07/crawl-ab45023ae3-prabowo-orders-reviews-of-flagship-programs-signals-possible-shift|Prabowo orders reviews of flagship programs, signals possible shift]] to [[the-jakarta-post|The Jakarta Post]].
+- 2026-08-13 - Added coverage [[article/2026-07/crawl-b07a3038a7-prabowo-renews-antigraft-pledge-as-scrutiny-grows-over-ex-top-prosecut|Prabowo renews antigraft pledge as scrutiny grows over ex-top prosecutor’s case]] to [[the-jakarta-post|The Jakarta Post]].
+- 2026-08-13 - Added coverage [[article/2026-07/crawl-b0894a6b17-breaking-bi-governor-perry-warjiyo-resigns|BREAKING: BI Governor Perry Warjiyo resigns]] to [[the-jakarta-post|The Jakarta Post]].
+- 2026-08-13 - Created [[media-indonesia|media-indonesia]] from quality-check-backlog-2026-07.
+- 2026-08-13 - Added coverage [[article/2026-07/crawl-d231f5f786-bank-indonesia-ensures-uninterrupted-services-after-governors-exit|Bank Indonesia ensures uninterrupted services after governor’s exit]] to [[antara-news|ANTARA News]].
+- 2026-08-13 - Added coverage [[article/2026-07/crawl-e77bcee511-purbaya-says-he-will-follow-prabowos-lead-on-next-bi-governor-post|Purbaya says he will follow Prabowo’s lead on next BI Governor post]] to [[antara-news|ANTARA News]].
+- 2026-08-13 - Created [[tvone-news|tvone-news]] from quality-check-backlog-2026-07.
+- 2026-08-13 - Created [[jpnn-com|jpnn-com]] from quality-check-backlog-2026-07.
+- 2026-08-13T11:15:21+08:00 - Reconciled [[antara-news|ANTARA News]] articleCount from 10 to 16 using unique Coverage backlinks.
+- 2026-08-13T11:15:21+08:00 - Reconciled [[the-jakarta-post|The Jakarta Post]] articleCount from 4 to 10 using unique Coverage backlinks.
+- 2026-08-13T11:15:21+08:00 - Reconciled [[tirto-id|tirto.id]] articleCount from 6 to 7 using unique Coverage backlinks.
+- 2026-08-13T11:16:48+08:00 - Backfilled required registry field outletId for [[al-jazeera|al-jazeera]] from the canonical note filename.
+- 2026-08-13T11:16:48+08:00 - Backfilled required registry field outletId for [[antara|antara]] from the canonical note filename.
+- 2026-08-13T11:16:48+08:00 - Backfilled required registry field outletId for [[bloomberg-technoz|bloomberg-technoz]] from the canonical note filename.
+- 2026-08-13T11:16:48+08:00 - Backfilled required registry field outletId for [[detik-bali|detik-bali]] from the canonical note filename.
+- 2026-08-13T11:16:48+08:00 - Backfilled required registry field outletId for [[detik-sumut|detik-sumut]] from the canonical note filename.
+- 2026-08-13T11:16:48+08:00 - Backfilled required registry field outletId for [[jpnn-com|jpnn-com]] from the canonical note filename.
+- 2026-08-13T11:16:48+08:00 - Backfilled required registry field outletId for [[liputan6-com|liputan6-com]] from the canonical note filename.
+- 2026-08-13T11:16:48+08:00 - Backfilled required registry field outletId for [[media-indonesia|media-indonesia]] from the canonical note filename.
+- 2026-08-13T11:16:48+08:00 - Backfilled required registry field outletId for [[suara-com|suara-com]] from the canonical note filename.
+- 2026-08-13T11:16:48+08:00 - Backfilled required registry field outletId for [[tvone-news|tvone-news]] from the canonical note filename.
+- 2026-08-13T11:30:41+08:00 - Enriched [[al-jazeera|al-jazeera]] publisher metadata: country Qatar, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[antara-news-kepri|antara-news-kepri]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[antara-news-mataram|antara-news-mataram]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[antara-news|antara-news]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[antara|antara]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[bangka-pos|bangka-pos]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[beritasatu-com|beritasatu-com]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[bisnis-indonesia-online|bisnis-indonesia-online]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[bloomberg-technoz|bloomberg-technoz]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[detik-bali|detik-bali]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[detik-news|detik-news]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[detik-sumut|detik-sumut]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[idn-times|idn-times]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[investor-daily|investor-daily]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[jawa-pos-national-network|jawa-pos-national-network]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[jpnn-com|jpnn-com]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[katadata-co-id|katadata-co-id]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[kompasiana|kompasiana]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[kontan-co-id|kontan-co-id]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[liputan-6|liputan-6]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[liputan6-com|liputan6-com]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[media-indonesia-news-and-views|media-indonesia-news-and-views]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[media-indonesia|media-indonesia]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[okezone-economy|okezone-economy]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[okezone-news|okezone-news]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[serambi-indonesia|serambi-indonesia]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[sindonews|sindonews]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[suara-com|suara-com]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[suara-merdeka|suara-merdeka]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[surya|surya]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[the-jakarta-post|the-jakarta-post]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[tirto-id|tirto-id]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[tribun-batam|tribun-batam]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[tribun-cirebon|tribun-cirebon]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[tribun-jakarta|tribun-jakarta]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[tribun-jambi|tribun-jambi]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[tribun-jateng|tribun-jateng]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[tribun-jatim|tribun-jatim]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[tribun-jogja|tribun-jogja]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[tribun-kaltim|tribun-kaltim]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[tribun-lampung|tribun-lampung]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[tribun-manado|tribun-manado]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[tribun-medan|tribun-medan]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[tribun-pekanbaru|tribun-pekanbaru]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[tribun-sumsel|tribun-sumsel]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[tribun-timur|tribun-timur]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[tribun-wow|tribun-wow]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[tribunnews-bogor|tribunnews-bogor]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[tvone-news|tvone-news]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[viva-co-id|viva-co-id]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:30:41+08:00 - Enriched [[warta-kota|warta-kota]] publisher metadata: country Indonesia, mediaCategory Online News, channels [website]. Source: publisher's own masthead/about page.
+- 2026-08-13T11:37:22+08:00 - Merged duplicate outlet [[antara-news|ANTARA News]] <- `antara` (crawl inputs supplied a machine slug as the publisher name). 1 article link(s) repointed, articleCount reconciled to 17, `antara` registered as an alias and the duplicate note deleted.
+- 2026-08-13T11:37:22+08:00 - Merged duplicate outlet [[liputan-6|Liputan 6]] <- `liputan6-com` (crawl inputs supplied a machine slug as the publisher name). 1 article link(s) repointed, articleCount reconciled to 2, `liputan6-com` registered as an alias and the duplicate note deleted.
+- 2026-08-13T11:37:22+08:00 - Merged duplicate outlet [[jawa-pos-national-network|Jawa Pos National Network]] <- `jpnn-com` (crawl inputs supplied a machine slug as the publisher name). 1 article link(s) repointed, articleCount reconciled to 3, `jpnn-com` registered as an alias and the duplicate note deleted.
+- 2026-08-13T11:37:22+08:00 - Merged duplicate outlet [[media-indonesia|Media Indonesia]] <- `media-indonesia-news-and-views` (crawl inputs supplied a machine slug as the publisher name). 7 article link(s) repointed, articleCount reconciled to 8, `media-indonesia-news-and-views` registered as an alias and the duplicate note deleted.

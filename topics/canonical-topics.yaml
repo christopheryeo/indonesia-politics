@@ -1,0 +1,922 @@
+schemaVersion: indonesia-politics-canonical-topics.v1
+maximumActiveTopics: 90
+assignmentLimit: 3
+updated: '2026-09-17'
+scope:
+  domain: Indonesian politics
+  regions:
+  - Indonesia
+  languages:
+  - eng
+  - ind
+topics:
+- topicId: amahami-beach-reclamation-prosecution
+  displayName: Amahami Beach reclamation prosecution
+  category: Imported article topic
+  aliases:
+  - Amahami Beach reclamation prosecution
+  keywords:
+  - Amahami Beach reclamation prosecution
+  definition: Monitors Indonesian political reporting materially related to Amahami Beach reclamation prosecution.
+  crawlPrompt: ("Amahami Beach reclamation prosecution") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: ampi-leadership-reshuffle-and-internal-governance-dispute
+  displayName: AMPI leadership reshuffle and internal governance dispute
+  category: Imported article topic
+  aliases:
+  - AMPI leadership reshuffle and internal governance dispute
+  keywords:
+  - AMPI leadership reshuffle and internal governance dispute
+  definition: Monitors Indonesian political reporting materially related to AMPI leadership reshuffle and internal governance
+    dispute.
+  crawlPrompt: ("AMPI leadership reshuffle and internal governance dispute") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: asset-recovery-and-beneficial-ownership-in-corruption-and-tppu-cases
+  displayName: Asset recovery and beneficial ownership in corruption and TPPU cases
+  category: Crawl expansion
+  aliases:
+  - Asset recovery and beneficial ownership in corruption and TPPU cases
+  - asset recovery in corruption cases
+  - perampasan aset TPPU
+  - pemulihan aset korupsi
+  - pemilik manfaat korupsi
+  keywords:
+  - Asset recovery and beneficial ownership in corruption and TPPU cases
+  - asset recovery in corruption cases
+  - perampasan aset TPPU
+  - pemulihan aset korupsi
+  - pemilik manfaat korupsi
+  definition: Monitors Indonesian political reporting materially related to Asset recovery and beneficial ownership in corruption
+    and TPPU cases.
+  crawlPrompt: ("Asset recovery and beneficial ownership in corruption and TPPU cases" OR "asset recovery in corruption cases"
+    OR "perampasan aset TPPU" OR "pemulihan aset korupsi" OR "pemilik manfaat korupsi") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: attorney-generals-office-leadership-prosecution-reform-and-personnel-reshuffles
+  displayName: Attorney General's Office leadership, prosecution reform, and personnel reshuffles
+  category: Crawl expansion
+  aliases:
+  - Attorney General's Office leadership, prosecution reform, and personnel reshuffles
+  - Kejaksaan Agung kepemimpinan dan reformasi penuntutan
+  - mutasi dan rotasi jaksa
+  keywords:
+  - Attorney General's Office leadership, prosecution reform, and personnel reshuffles
+  - Kejaksaan Agung kepemimpinan dan reformasi penuntutan
+  - mutasi dan rotasi jaksa
+  definition: Monitors Indonesian political reporting materially related to Attorney General's Office leadership, prosecution
+    reform, and personnel reshuffles.
+  crawlPrompt: ("Attorney General's Office leadership, prosecution reform, and personnel reshuffles" OR "Kejaksaan Agung kepemimpinan
+    dan reformasi penuntutan" OR "mutasi dan rotasi jaksa") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: bangka-belitung-deputy-governor-diploma-case
+  displayName: Bangka Belitung deputy governor diploma case
+  category: Imported article topic
+  aliases:
+  - Bangka Belitung deputy governor diploma case
+  keywords:
+  - Bangka Belitung deputy governor diploma case
+  definition: Monitors Indonesian political reporting materially related to Bangka Belitung deputy governor diploma case.
+  crawlPrompt: ("Bangka Belitung deputy governor diploma case") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: bank-indonesia-social-program-corruption-probe
+  displayName: Bank Indonesia social program corruption probe
+  category: Imported article topic
+  aliases:
+  - Bank Indonesia social program corruption probe
+  keywords:
+  - Bank Indonesia social program corruption probe
+  definition: Monitors Indonesian political reporting materially related to Bank Indonesia social program corruption probe.
+  crawlPrompt: ("Bank Indonesia social program corruption probe") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: batang-policy-on-retaining-low-enrolment-public-schools
+  displayName: Batang policy on retaining low-enrolment public schools
+  category: Imported article topic
+  aliases:
+  - Batang policy on retaining low-enrolment public schools
+  keywords:
+  - Batang policy on retaining low-enrolment public schools
+  definition: Monitors Indonesian political reporting materially related to Batang policy on retaining low-enrolment public
+    schools.
+  crawlPrompt: ("Batang policy on retaining low-enrolment public schools") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: bgn-meal-program-governance-and-conflict-of-interest-scrutiny
+  displayName: BGN meal-program governance and conflict-of-interest scrutiny
+  category: Imported article topic
+  aliases:
+  - BGN meal-program governance and conflict-of-interest scrutiny
+  keywords:
+  - BGN meal-program governance and conflict-of-interest scrutiny
+  definition: Monitors Indonesian political reporting materially related to BGN meal-program governance and conflict-of-interest
+    scrutiny.
+  crawlPrompt: ("BGN meal-program governance and conflict-of-interest scrutiny") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: central-bank-independence-and-macroeconomic-governance
+  displayName: Central-bank independence and macroeconomic governance
+  category: Crawl expansion
+  aliases:
+  - Central-bank independence and macroeconomic governance
+  - Bank Indonesia independence
+  - independensi Bank Indonesia
+  - tata kelola makroekonomi Indonesia
+  keywords:
+  - Central-bank independence and macroeconomic governance
+  - Bank Indonesia independence
+  - independensi Bank Indonesia
+  - tata kelola makroekonomi Indonesia
+  definition: Monitors Indonesian political reporting materially related to Central-bank independence and macroeconomic governance.
+  crawlPrompt: ("Central-bank independence and macroeconomic governance" OR "Bank Indonesia independence" OR "independensi
+    Bank Indonesia" OR "tata kelola makroekonomi Indonesia") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: civil-military-boundaries-in-domestic-governance
+  displayName: Civil-military boundaries in domestic governance
+  category: Crawl expansion
+  aliases:
+  - Civil-military boundaries in domestic governance
+  - civil-military relations in Indonesia
+  - batas sipil-militer
+  - TNI di ranah sipil
+  - perbantuan TNI
+  keywords:
+  - Civil-military boundaries in domestic governance
+  - civil-military relations in Indonesia
+  - batas sipil-militer
+  - TNI di ranah sipil
+  - perbantuan TNI
+  definition: Monitors Indonesian political reporting materially related to Civil-military boundaries in domestic governance.
+  crawlPrompt: ("Civil-military boundaries in domestic governance" OR "civil-military relations in Indonesia" OR "batas sipil-militer"
+    OR "TNI di ranah sipil" OR "perbantuan TNI") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: coal-corruption-investigation-linked-to-electricity-outages
+  displayName: Coal-corruption investigation linked to electricity outages
+  category: Imported article topic
+  aliases:
+  - Coal-corruption investigation linked to electricity outages
+  keywords:
+  - Coal-corruption investigation linked to electricity outages
+  definition: Monitors Indonesian political reporting materially related to Coal-corruption investigation linked to electricity
+    outages.
+  crawlPrompt: ("Coal-corruption investigation linked to electricity outages") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: conflict
+  displayName: Conflict
+  category: Imported article topic
+  aliases:
+  - Conflict
+  - Konflik
+  keywords:
+  - Conflict
+  - Konflik
+  definition: Monitors Indonesian political reporting materially related to Conflict.
+  crawlPrompt: ("Conflict" OR "Konflik") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: constitutional-scrutiny-of-bpkp-audit-methodology
+  displayName: Constitutional scrutiny of BPKP audit methodology
+  category: Imported article topic
+  aliases:
+  - Constitutional scrutiny of BPKP audit methodology
+  keywords:
+  - Constitutional scrutiny of BPKP audit methodology
+  definition: Monitors Indonesian political reporting materially related to Constitutional scrutiny of BPKP audit methodology.
+  crawlPrompt: ("Constitutional scrutiny of BPKP audit methodology") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: corruption
+  displayName: Corruption
+  category: Imported article topic
+  aliases:
+  - Corruption
+  - Korupsi
+  keywords:
+  - Corruption
+  - Korupsi
+  definition: Monitors Indonesian political reporting materially related to Corruption.
+  crawlPrompt: ("Corruption" OR "Korupsi") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: danantara-governance-and-state-asset-consolidation
+  displayName: Danantara governance and state-asset consolidation
+  category: Crawl expansion
+  aliases:
+  - Danantara governance and state-asset consolidation
+  - Danantara governance
+  - tata kelola Danantara
+  - konsolidasi aset negara Danantara
+  keywords:
+  - Danantara governance and state-asset consolidation
+  - Danantara governance
+  - tata kelola Danantara
+  - konsolidasi aset negara Danantara
+  definition: Monitors Indonesian political reporting materially related to Danantara governance and state-asset consolidation.
+  crawlPrompt: ("Danantara governance and state-asset consolidation" OR "Danantara governance" OR "tata kelola Danantara"
+    OR "konsolidasi aset negara Danantara") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: danantara-participation-in-financial-stability-policy
+  displayName: Danantara participation in financial stability policy
+  category: Imported article topic
+  aliases:
+  - Danantara participation in financial stability policy
+  keywords:
+  - Danantara participation in financial stability policy
+  definition: Monitors Indonesian political reporting materially related to Danantara participation in financial stability
+    policy.
+  crawlPrompt: ("Danantara participation in financial stability policy") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: danantara-role-in-financial-stability-oversight
+  displayName: Danantara role in financial stability oversight
+  category: Imported article topic
+  aliases:
+  - Danantara role in financial stability oversight
+  keywords:
+  - Danantara role in financial stability oversight
+  definition: Monitors Indonesian political reporting materially related to Danantara role in financial stability oversight.
+  crawlPrompt: ("Danantara role in financial stability oversight") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: direct-local-election-legitimacy-after-constitutional-court-ruling
+  displayName: Direct local election legitimacy after Constitutional Court ruling
+  category: Imported article topic
+  aliases:
+  - Direct local election legitimacy after Constitutional Court ruling
+  keywords:
+  - Direct local election legitimacy after Constitutional Court ruling
+  definition: Monitors Indonesian political reporting materially related to Direct local election legitimacy after Constitutional
+    Court ruling.
+  crawlPrompt: ("Direct local election legitimacy after Constitutional Court ruling") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: economy
+  displayName: Economy
+  category: Imported article topic
+  aliases:
+  - Economy
+  - Ekonomi
+  keywords:
+  - Economy
+  - Ekonomi
+  definition: Monitors Indonesian political reporting materially related to Economy.
+  crawlPrompt: ("Economy" OR "Ekonomi") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: electoral-competition-party-governance-and-2029-positioning
+  displayName: Electoral competition, party governance, and 2029 positioning
+  category: Crawl expansion
+  aliases:
+  - Electoral competition, party governance, and 2029 positioning
+  - dinamika partai politik dan Pemilu 2029
+  - kompetisi elektoral Indonesia
+  keywords:
+  - Electoral competition, party governance, and 2029 positioning
+  - dinamika partai politik dan Pemilu 2029
+  - kompetisi elektoral Indonesia
+  definition: Monitors Indonesian political reporting materially related to Electoral competition, party governance, and 2029
+    positioning.
+  crawlPrompt: ("Electoral competition, party governance, and 2029 positioning" OR "dinamika partai politik dan Pemilu 2029"
+    OR "kompetisi elektoral Indonesia") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: equitable-business-financing-for-indonesia-emas-2045
+  displayName: Equitable business financing for Indonesia Emas 2045
+  category: Imported article topic
+  aliases:
+  - Equitable business financing for Indonesia Emas 2045
+  keywords:
+  - Equitable business financing for Indonesia Emas 2045
+  definition: Monitors Indonesian political reporting materially related to Equitable business financing for Indonesia Emas
+    2045.
+  crawlPrompt: ("Equitable business financing for Indonesia Emas 2045") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: febrie-adriansyah-money-laundering-investigation
+  displayName: Febrie Adriansyah money-laundering investigation
+  category: Imported article topic
+  aliases:
+  - Febrie Adriansyah money-laundering investigation
+  keywords:
+  - Febrie Adriansyah money-laundering investigation
+  definition: Monitors Indonesian political reporting materially related to Febrie Adriansyah money-laundering investigation.
+  crawlPrompt: ("Febrie Adriansyah money-laundering investigation") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: fortified-rice-procurement-investigation
+  displayName: Fortified-rice procurement investigation
+  category: Imported article topic
+  aliases:
+  - Fortified-rice procurement investigation
+  keywords:
+  - Fortified-rice procurement investigation
+  definition: Monitors Indonesian political reporting materially related to Fortified-rice procurement investigation.
+  crawlPrompt: ("Fortified-rice procurement investigation") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: governance
+  displayName: Governance
+  category: Imported article topic
+  aliases:
+  - Governance
+  - Tata Kelola
+  keywords:
+  - Governance
+  - Tata Kelola
+  definition: Monitors Indonesian political reporting materially related to Governance.
+  crawlPrompt: ("Governance" OR "Tata Kelola") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: government-messaging-about-political-disruption
+  displayName: Government messaging about political disruption
+  category: Imported article topic
+  aliases:
+  - Government messaging about political disruption
+  keywords:
+  - Government messaging about political disruption
+  definition: Monitors Indonesian political reporting materially related to Government messaging about political disruption.
+  crawlPrompt: ("Government messaging about political disruption") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: government-policies
+  displayName: Government Policies
+  category: Imported article topic
+  aliases:
+  - Government Policies
+  - Kebijakan Pemerintah
+  keywords:
+  - Government Policies
+  - Kebijakan Pemerintah
+  definition: Monitors Indonesian political reporting materially related to Government Policies.
+  crawlPrompt: ("Government Policies" OR "Kebijakan Pemerintah") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: independence
+  displayName: Independence
+  category: Imported article topic
+  aliases:
+  - Independence
+  - Independensi
+  keywords:
+  - Independence
+  - Independensi
+  definition: Monitors Indonesian political reporting materially related to Independence.
+  crawlPrompt: ("Independence" OR "Independensi") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: indonesian-gaza-activists-legal-complaint-against-israeli-officials
+  displayName: Indonesian Gaza activists legal complaint against Israeli officials
+  category: Imported article topic
+  aliases:
+  - Indonesian Gaza activists legal complaint against Israeli officials
+  keywords:
+  - Indonesian Gaza activists legal complaint against Israeli officials
+  definition: Monitors Indonesian political reporting materially related to Indonesian Gaza activists legal complaint against
+    Israeli officials.
+  crawlPrompt: ("Indonesian Gaza activists legal complaint against Israeli officials") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: indonesian-law-and-politics-news-roundup
+  displayName: Indonesian law-and-politics news roundup
+  category: Imported article topic
+  aliases:
+  - Indonesian law-and-politics news roundup
+  keywords:
+  - Indonesian law-and-politics news roundup
+  definition: Monitors Indonesian political reporting materially related to Indonesian law-and-politics news roundup.
+  crawlPrompt: ("Indonesian law-and-politics news roundup") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: investigation
+  displayName: Investigation
+  category: Imported article topic
+  aliases:
+  - Investigation
+  - Penyelidikan
+  keywords:
+  - Investigation
+  - Penyelidikan
+  definition: Monitors Indonesian political reporting materially related to Investigation.
+  crawlPrompt: ("Investigation" OR "Penyelidikan") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: investment
+  displayName: Investment
+  category: Imported article topic
+  aliases:
+  - Investment
+  - Investasi
+  keywords:
+  - Investment
+  - Investasi
+  definition: Monitors Indonesian political reporting materially related to Investment.
+  crawlPrompt: ("Investment" OR "Investasi") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: kaesang-pangarep-parliamentary-candidacy
+  displayName: Kaesang Pangarep parliamentary candidacy
+  category: Imported article topic
+  aliases:
+  - Kaesang Pangarep parliamentary candidacy
+  keywords:
+  - Kaesang Pangarep parliamentary candidacy
+  definition: Monitors Indonesian political reporting materially related to Kaesang Pangarep parliamentary candidacy.
+  crawlPrompt: ("Kaesang Pangarep parliamentary candidacy") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: kejagung-polri-kpk-jurisdiction-and-case-transfer-disputes
+  displayName: Kejagung-Polri-KPK jurisdiction and case-transfer disputes
+  category: Crawl expansion
+  aliases:
+  - Kejagung-Polri-KPK jurisdiction and case-transfer disputes
+  - Kejaksaan-Polri-KPK jurisdiction disputes
+  - sengketa kewenangan Kejaksaan Polri KPK
+  - pengambilalihan perkara KPK
+  keywords:
+  - Kejagung-Polri-KPK jurisdiction and case-transfer disputes
+  - Kejaksaan-Polri-KPK jurisdiction disputes
+  - sengketa kewenangan Kejaksaan Polri KPK
+  - pengambilalihan perkara KPK
+  definition: Monitors Indonesian political reporting materially related to Kejagung-Polri-KPK jurisdiction and case-transfer
+    disputes.
+  crawlPrompt: ("Kejagung-Polri-KPK jurisdiction and case-transfer disputes" OR "Kejaksaan-Polri-KPK jurisdiction disputes"
+    OR "sengketa kewenangan Kejaksaan Polri KPK" OR "pengambilalihan perkara KPK") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: kpk-enforcement-activity-in-the-first-half-of-2026
+  displayName: KPK enforcement activity in the first half of 2026
+  category: Imported article topic
+  aliases:
+  - KPK enforcement activity in the first half of 2026
+  keywords:
+  - KPK enforcement activity in the first half of 2026
+  definition: Monitors Indonesian political reporting materially related to KPK enforcement activity in the first half of
+    2026.
+  crawlPrompt: ("KPK enforcement activity in the first half of 2026") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: law
+  displayName: Law
+  category: Imported article topic
+  aliases:
+  - Law
+  - Hukum
+  keywords:
+  - Law
+  - Hukum
+  definition: Monitors Indonesian political reporting materially related to Law.
+  crawlPrompt: ("Law" OR "Hukum") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: military-involvement-in-law-enforcement-institutional-rivalry
+  displayName: Military involvement in law-enforcement institutional rivalry
+  category: Imported article topic
+  aliases:
+  - Military involvement in law-enforcement institutional rivalry
+  keywords:
+  - Military involvement in law-enforcement institutional rivalry
+  definition: Monitors Indonesian political reporting materially related to Military involvement in law-enforcement institutional
+    rivalry.
+  crawlPrompt: ("Military involvement in law-enforcement institutional rivalry") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: mixed-current-affairs-news-roundup
+  displayName: Mixed current-affairs news roundup
+  category: Imported article topic
+  aliases:
+  - Mixed current-affairs news roundup
+  keywords:
+  - Mixed current-affairs news roundup
+  definition: Monitors Indonesian political reporting materially related to Mixed current-affairs news roundup.
+  crawlPrompt: ("Mixed current-affairs news roundup") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: mixed-international-and-indonesian-news-roundup
+  displayName: Mixed international and Indonesian news roundup
+  category: Imported article topic
+  aliases:
+  - Mixed international and Indonesian news roundup
+  keywords:
+  - Mixed international and Indonesian news roundup
+  definition: Monitors Indonesian political reporting materially related to Mixed international and Indonesian news roundup.
+  crawlPrompt: ("Mixed international and Indonesian news roundup") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: money-laundering
+  displayName: Money Laundering
+  category: Imported article topic
+  aliases:
+  - Money Laundering
+  - Pencucian Uang
+  keywords:
+  - Money Laundering
+  - Pencucian Uang
+  definition: Monitors Indonesian political reporting materially related to Money Laundering.
+  crawlPrompt: ("Money Laundering" OR "Pencucian Uang") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: nadiem-makarim-criminal-appeal
+  displayName: Nadiem Makarim criminal appeal
+  category: Imported article topic
+  aliases:
+  - Nadiem Makarim criminal appeal
+  - Nadiem Makarim banding
+  - sidang banding Nadiem Makarim
+  keywords:
+  - Nadiem Makarim criminal appeal
+  - Nadiem Makarim banding
+  - sidang banding Nadiem Makarim
+  definition: Monitors Indonesian political reporting materially related to Nadiem Makarim criminal appeal.
+  crawlPrompt: ("Nadiem Makarim criminal appeal" OR "Nadiem Makarim banding" OR "sidang banding Nadiem Makarim") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: national-judicial-ethics-court-proposal
+  displayName: National judicial ethics court proposal
+  category: Imported article topic
+  aliases:
+  - National judicial ethics court proposal
+  keywords:
+  - National judicial ethics court proposal
+  definition: Monitors Indonesian political reporting materially related to National judicial ethics court proposal.
+  crawlPrompt: ("National judicial ethics court proposal") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: pdip-positioning-as-a-government-balancing-party
+  displayName: PDIP positioning as a government balancing party
+  category: Imported article topic
+  aliases:
+  - PDIP positioning as a government balancing party
+  keywords:
+  - PDIP positioning as a government balancing party
+  definition: Monitors Indonesian political reporting materially related to PDIP positioning as a government balancing party.
+  crawlPrompt: ("PDIP positioning as a government balancing party") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: pemalang-regent-corruption-investigation
+  displayName: Pemalang regent corruption investigation
+  category: Imported article topic
+  aliases:
+  - Pemalang regent corruption investigation
+  keywords:
+  - Pemalang regent corruption investigation
+  definition: Monitors Indonesian political reporting materially related to Pemalang regent corruption investigation.
+  crawlPrompt: ("Pemalang regent corruption investigation") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: pgn-gas-transaction-corruption-prosecution
+  displayName: PGN gas transaction corruption prosecution
+  category: Imported article topic
+  aliases:
+  - PGN gas transaction corruption prosecution
+  keywords:
+  - PGN gas transaction corruption prosecution
+  definition: Monitors Indonesian political reporting materially related to PGN gas transaction corruption prosecution.
+  crawlPrompt: ("PGN gas transaction corruption prosecution") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: police-officer-fatal-shooting-investigation
+  displayName: Police officer fatal shooting investigation
+  category: Imported article topic
+  aliases:
+  - Police officer fatal shooting investigation
+  keywords:
+  - Police officer fatal shooting investigation
+  definition: Monitors Indonesian political reporting materially related to Police officer fatal shooting investigation.
+  crawlPrompt: ("Police officer fatal shooting investigation") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: police-protocol-for-responding-to-prosecutor-summonses
+  displayName: Police protocol for responding to prosecutor summonses
+  category: Imported article topic
+  aliases:
+  - Police protocol for responding to prosecutor summonses
+  keywords:
+  - Police protocol for responding to prosecutor summonses
+  definition: Monitors Indonesian political reporting materially related to Police protocol for responding to prosecutor summonses.
+  crawlPrompt: ("Police protocol for responding to prosecutor summonses") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: prabowo-administration-delivery-and-cabinet-accountability
+  displayName: Prabowo administration delivery and cabinet accountability
+  category: Crawl expansion
+  aliases:
+  - Prabowo administration delivery and cabinet accountability
+  - pelaksanaan program pemerintahan Prabowo
+  - akuntabilitas kabinet Prabowo
+  keywords:
+  - Prabowo administration delivery and cabinet accountability
+  - pelaksanaan program pemerintahan Prabowo
+  - akuntabilitas kabinet Prabowo
+  definition: Monitors Indonesian political reporting materially related to Prabowo administration delivery and cabinet accountability.
+  crawlPrompt: ("Prabowo administration delivery and cabinet accountability" OR "pelaksanaan program pemerintahan Prabowo"
+    OR "akuntabilitas kabinet Prabowo") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: proposed-cabinet-appointments-for-legal-reform
+  displayName: Proposed cabinet appointments for legal reform
+  category: Imported article topic
+  aliases:
+  - Proposed cabinet appointments for legal reform
+  keywords:
+  - Proposed cabinet appointments for legal reform
+  definition: Monitors Indonesian political reporting materially related to Proposed cabinet appointments for legal reform.
+  crawlPrompt: ("Proposed cabinet appointments for legal reform") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: proposed-corruptor-amnesty-clause-in-prosecutor-s-office-bill
+  displayName: Proposed corruptor-amnesty clause in Prosecutor's Office bill
+  category: Imported article topic
+  aliases:
+  - Proposed corruptor-amnesty clause in Prosecutor's Office bill
+  keywords:
+  - Proposed corruptor-amnesty clause in Prosecutor's Office bill
+  definition: Monitors Indonesian political reporting materially related to Proposed corruptor-amnesty clause in Prosecutor's
+    Office bill.
+  crawlPrompt: ("Proposed corruptor-amnesty clause in Prosecutor's Office bill") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: prosecutorial-discipline-complaints-in-west-nusa-tenggara
+  displayName: Prosecutorial discipline complaints in West Nusa Tenggara
+  category: Imported article topic
+  aliases:
+  - Prosecutorial discipline complaints in West Nusa Tenggara
+  keywords:
+  - Prosecutorial discipline complaints in West Nusa Tenggara
+  definition: Monitors Indonesian political reporting materially related to Prosecutorial discipline complaints in West Nusa
+    Tenggara.
+  crawlPrompt: ("Prosecutorial discipline complaints in West Nusa Tenggara") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: prosecutorial-leadership-and-personnel-changes
+  displayName: Prosecutorial leadership and personnel changes
+  category: Imported article topic
+  aliases:
+  - Prosecutorial leadership and personnel changes
+  keywords:
+  - Prosecutorial leadership and personnel changes
+  definition: Monitors Indonesian political reporting materially related to Prosecutorial leadership and personnel changes.
+  crawlPrompt: ("Prosecutorial leadership and personnel changes") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: public-official-ethics-and-character
+  displayName: Public-official ethics and character
+  category: Imported article topic
+  aliases:
+  - Public-official ethics and character
+  keywords:
+  - Public-official ethics and character
+  definition: Monitors Indonesian political reporting materially related to Public-official ethics and character.
+  crawlPrompt: ("Public-official ethics and character") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: public-sector-ethics-judicial-accountability-and-institutional-trust
+  displayName: Public-sector ethics, judicial accountability, and institutional trust
+  category: Crawl expansion
+  aliases:
+  - Public-sector ethics, judicial accountability, and institutional trust
+  - etika sektor publik dan akuntabilitas peradilan
+  - kepercayaan publik terhadap lembaga hukum
+  keywords:
+  - Public-sector ethics, judicial accountability, and institutional trust
+  - etika sektor publik dan akuntabilitas peradilan
+  - kepercayaan publik terhadap lembaga hukum
+  definition: Monitors Indonesian political reporting materially related to Public-sector ethics, judicial accountability,
+    and institutional trust.
+  crawlPrompt: ("Public-sector ethics, judicial accountability, and institutional trust" OR "etika sektor publik dan akuntabilitas
+    peradilan" OR "kepercayaan publik terhadap lembaga hukum") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: regional-executive-corruption-and-local-government-integrity
+  displayName: Regional executive corruption and local-government integrity
+  category: Crawl expansion
+  aliases:
+  - Regional executive corruption and local-government integrity
+  - korupsi kepala daerah
+  - integritas pemerintah daerah
+  keywords:
+  - Regional executive corruption and local-government integrity
+  - korupsi kepala daerah
+  - integritas pemerintah daerah
+  definition: Monitors Indonesian political reporting materially related to Regional executive corruption and local-government
+    integrity.
+  crawlPrompt: ("Regional executive corruption and local-government integrity" OR "korupsi kepala daerah" OR "integritas pemerintah
+    daerah") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: sidaanyar-bridge-completion-and-local-economic-access
+  displayName: Sidaanyar bridge completion and local economic access
+  category: Imported article topic
+  aliases:
+  - Sidaanyar bridge completion and local economic access
+  keywords:
+  - Sidaanyar bridge completion and local economic access
+  definition: Monitors Indonesian political reporting materially related to Sidaanyar bridge completion and local economic
+    access.
+  crawlPrompt: ("Sidaanyar bridge completion and local economic access") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: stability
+  displayName: Stability
+  category: Imported article topic
+  aliases:
+  - Stability
+  - Stabilitas
+  keywords:
+  - Stability
+  - Stabilitas
+  definition: Monitors Indonesian political reporting materially related to Stability.
+  crawlPrompt: ("Stability" OR "Stabilitas") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: state-coercion-security-sector-incentives-and-social-justice
+  displayName: State coercion, security-sector incentives, and social justice
+  category: Imported article topic
+  aliases:
+  - State coercion, security-sector incentives, and social justice
+  keywords:
+  - State coercion, security-sector incentives, and social justice
+  definition: Monitors Indonesian political reporting materially related to State coercion, security-sector incentives, and
+    social justice.
+  crawlPrompt: ("State coercion, security-sector incentives, and social justice") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: state-owned-enterprise-and-strategic-commodity-corruption
+  displayName: State-owned enterprise and strategic-commodity corruption
+  category: Crawl expansion
+  aliases:
+  - State-owned enterprise and strategic-commodity corruption
+  - korupsi BUMN dan komoditas strategis
+  - tata kelola komoditas strategis
+  keywords:
+  - State-owned enterprise and strategic-commodity corruption
+  - korupsi BUMN dan komoditas strategis
+  - tata kelola komoditas strategis
+  definition: Monitors Indonesian political reporting materially related to State-owned enterprise and strategic-commodity
+    corruption.
+  crawlPrompt: ("State-owned enterprise and strategic-commodity corruption" OR "korupsi BUMN dan komoditas strategis" OR "tata
+    kelola komoditas strategis") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: sutrimo-death-investigation-linked-to-the-febrie-case
+  displayName: Sutrimo death investigation linked to the Febrie case
+  category: Imported article topic
+  aliases:
+  - Sutrimo death investigation linked to the Febrie case
+  keywords:
+  - Sutrimo death investigation linked to the Febrie case
+  definition: Monitors Indonesian political reporting materially related to Sutrimo death investigation linked to the Febrie
+    case.
+  crawlPrompt: ("Sutrimo death investigation linked to the Febrie case") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: uncategorised
+  displayName: Uncategorised
+  category: Imported article topic
+  aliases:
+  - Uncategorised
+  keywords:
+  - Uncategorised
+  definition: Monitors Indonesian political reporting materially related to Uncategorised.
+  crawlPrompt: ("Uncategorised") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: unresolved-denny-indrayana-payment-gateway-investigation
+  displayName: Unresolved Denny Indrayana payment-gateway investigation
+  category: Imported article topic
+  aliases:
+  - Unresolved Denny Indrayana payment-gateway investigation
+  keywords:
+  - Unresolved Denny Indrayana payment-gateway investigation
+  definition: Monitors Indonesian political reporting materially related to Unresolved Denny Indrayana payment-gateway investigation.
+  crawlPrompt: ("Unresolved Denny Indrayana payment-gateway investigation") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind

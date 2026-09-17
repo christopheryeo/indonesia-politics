@@ -47,6 +47,14 @@ from typing import Any
 
 from patch_coverage import apply_update as patch_apply_update
 from run_logger import RunLogger
+from language_support import (
+    COUNTRY_ALIASES,
+    canonical_country,
+    canonical_topic,
+    normalize_language,
+    normalize_match_text,
+    phrase_in_text,
+)
 
 try:
     import yaml
@@ -132,6 +140,61 @@ def slugify(value: str) -> str:
     normalized = unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode("ascii")
     normalized = normalized.lower().replace("&", " and ")
     return re.sub(r"[^a-z0-9]+", "-", normalized).strip("-") or "untitled"
+
+
+_OUTLET_NOISE_WORDS = {
+    "com", "co", "id", "net", "org", "www", "news", "online", "daily",
+    "the", "and", "views",
+}
+
+
+def outlet_identity_keys(label: str) -> set[str]:
+    """Return loose identity keys for an outlet label.
+
+    Feed intake supplies human display names ("Liputan 6", "ANTARA News") while
+    crawl intake often supplies the machine slug of the same publisher
+    ("liputan6-com", "antara"). Slugifying both yields different filenames, so
+    the cascade used to create a second note for a publisher already in the
+    vault. These keys collapse the two spellings onto a common form: domain
+    suffixes and generic masthead words are dropped, separators and case are
+    discarded, and the initials of a multi-word name are kept so that an
+    acronym slug ("jpnn-com") can meet its expansion ("Jawa Pos National
+    Network").
+    """
+
+    normalized = unicodedata.normalize("NFKD", str(label or "")).encode("ascii", "ignore").decode()
+    words = [w for w in re.split(r"[^a-z0-9]+", normalized.lower()) if w]
+    meaningful = [w for w in words if w not in _OUTLET_NOISE_WORDS] or words
+    if not meaningful:
+        return set()
+    keys = {"".join(meaningful)}
+    # Acronyms are only distinctive from three initials up. Two-letter forms
+    # collide across the regional networks ("Tribun Jogja" and "Tribun Jateng"
+    # would both reduce to "tj"), which would merge genuinely separate editions.
+    if len(meaningful) >= 3:
+        keys.add("".join(w[0] for w in meaningful))
+    return keys
+
+
+def resolve_outlet_by_identity(display: str, outlet_records: dict[str, Any]) -> str | None:
+    """Match a supplied outlet label to an existing note, or return None.
+
+    Only an unambiguous match counts: if two existing outlets share an identity
+    key, the label is left to create its own note rather than guessing. Regional
+    editions stay distinct because their locality survives noise-word stripping
+    ("antaranewskepri" != "antara").
+    """
+
+    wanted = outlet_identity_keys(display)
+    if not wanted:
+        return None
+    hits = set()
+    for slug, record in outlet_records.items():
+        labels = [slug, getattr(record, "display", "") or ""]
+        labels.extend(getattr(record, "aliases", None) or [])
+        if any(wanted & outlet_identity_keys(label) for label in labels if label):
+            hits.add(slug)
+    return next(iter(hits)) if len(hits) == 1 else None
 
 
 def title_from_slug(slug: str) -> str:
@@ -232,7 +295,14 @@ def load_entities() -> tuple[dict[str, dict[str, EntityRecord]], dict[str, dict[
             alias_values = {display, path.stem.replace("-", " "), *yaml_list(frontmatter.get("aliases"))}
             for value in alias_values:
                 if value.strip():
-                    aliases[domain][value.strip().lower()] = path.stem
+                    key = normalize_match_text(value)
+                    existing = aliases[domain].get(key)
+                    if existing and existing != path.stem:
+                        raise RuntimeError(
+                            f"ambiguous normalized alias {value!r} in {domain}: "
+                            f"{existing!r} and {path.stem!r}; review before cascade"
+                        )
+                    aliases[domain][key] = path.stem
     return records, aliases
 
 
@@ -242,6 +312,28 @@ def append_log(domain: str, line: str, dry_run: bool) -> None:
     LOGS[domain].parent.mkdir(parents=True, exist_ok=True)
     with LOGS[domain].open("a", encoding="utf-8") as handle:
         handle.write(line.rstrip() + "\n")
+
+
+def reconcile_log_entry_counts(dry_run: bool) -> dict[str, int]:
+    """Refresh log frontmatter counters without rewriting historical entries."""
+
+    counts = {}
+    for domain, path in LOGS.items():
+        text = path.read_text(encoding="utf-8")
+        count = len(re.findall(r"^- ", text, re.MULTILINE))
+        counts[domain] = count
+        if not dry_run:
+            updated, replacements = re.subn(
+                r"(?m)^entry_count:\s*\d+\s*$",
+                f"entry_count: {count}",
+                text,
+                count=1,
+            )
+            if replacements != 1:
+                raise RuntimeError(f"missing entry_count field in {path.relative_to(ROOT)}")
+            if updated != text:
+                path.write_text(updated, encoding="utf-8")
+    return counts
 
 
 def append_coverage(domain: str, record: EntityRecord, article_link: str, timestamp: str, dry_run: bool) -> bool:
@@ -295,12 +387,21 @@ def ensure_outlet(
     """Create or update the outlet note for the article's publishing outlet."""
 
     display = yaml_scalar(name) or "Unknown Outlet"
-    slug = aliases["outlets"].get(display.lower()) or slugify(display)
+    slug = (
+        aliases["outlets"].get(normalize_match_text(display))
+        or resolve_outlet_by_identity(display, records["outlets"])
+        or slugify(display)
+    )
     path = DOMAIN_DIRS["outlets"] / f"{slug}.md"
     if slug not in records["outlets"]:
         body = f"# {display}\n\n## Coverage\n- {article_link}\n"
         frontmatter = [
             "type: entity", "subtype: outlet", "domain: Outlets", "status: active",
+            # outletId is required by entities/outlet/index.md and is the unique
+            # id_field in schemas/outlet.yaml. It is the note slug; omitting it
+            # left generate_catalog.py to paper over the gap with a filename
+            # fallback while the source of truth stayed non-conformant.
+            f"outletId: {slug}",
             f"displayName: {yaml_quote(display)}", "aliases:", f"  - {yaml_quote(display)}",
             "owner: Alex", f"created: {timestamp}", f"last_updated: {timestamp}",
             "articleCount: 1", "tags:", '  - "#outlet"',
@@ -308,7 +409,7 @@ def ensure_outlet(
         if not dry_run:
             dump_note(path, frontmatter, body)
         records["outlets"][slug] = EntityRecord(slug, path, display, {})
-        aliases["outlets"][display.lower()] = slug
+        aliases["outlets"][normalize_match_text(display)] = slug
         append_log("outlets", f"- {today} - Created [[{slug}|{display}]] from {batch}.", dry_run)
         return slug, display, True
     record = records["outlets"][slug]
@@ -329,10 +430,10 @@ def ensure_country(
 ) -> tuple[str, str, bool] | None:
     """Create or update a country note from explicit/inferred country metadata."""
 
-    raw_name = yaml_scalar(name)
+    raw_name = canonical_country(yaml_scalar(name))
     if not raw_name:
         return None
-    slug = aliases["countries"].get(raw_name.lower()) or slugify(raw_name)
+    slug = aliases["countries"].get(normalize_match_text(raw_name)) or slugify(raw_name)
     display = title_from_slug(slug) if slug in {"us", "usa", "u-s", "u-s-a", "uk", "uae"} else raw_name
     path = DOMAIN_DIRS["countries"] / f"{slug}.md"
     if slug not in records["countries"]:
@@ -346,7 +447,7 @@ def ensure_country(
         if not dry_run:
             dump_note(path, frontmatter, body)
         records["countries"][slug] = EntityRecord(slug, path, display, {})
-        aliases["countries"][raw_name.lower()] = slug
+        aliases["countries"][normalize_match_text(raw_name)] = slug
         append_log("countries", f"- {today} - Created [[{slug}|{display}]] from {batch}.", dry_run)
         return slug, display, True
     record = records["countries"][slug]
@@ -367,10 +468,10 @@ def ensure_topic(
 ) -> tuple[str, str, bool] | None:
     """Create or update a topic note from raw topic/category/tag metadata."""
 
-    display = yaml_scalar(name)
+    display = canonical_topic(yaml_scalar(name))
     if not display:
         return None
-    slug = aliases["topics"].get(display.lower()) or slugify(display)
+    slug = aliases["topics"].get(normalize_match_text(display)) or slugify(display)
     path = DOMAIN_DIRS["topics"] / f"{slug}.md"
     if slug not in records["topics"]:
         body = f"# {display}\n\n## Coverage\n- {article_link}\n"
@@ -384,7 +485,7 @@ def ensure_topic(
         if not dry_run:
             dump_note(path, frontmatter, body)
         records["topics"][slug] = EntityRecord(slug, path, display, {})
-        aliases["topics"][display.lower()] = slug
+        aliases["topics"][normalize_match_text(display)] = slug
         append_log("topics", f"- {today} - Created [[{slug}|{display}]] from {batch}.", dry_run)
         return slug, display, True
     record = records["topics"][slug]
@@ -466,11 +567,13 @@ def infer_countries(search_text: str) -> list[str]:
 
     out = []
     seen = set()
-    for country in sorted(COUNTRY_SEED, key=len, reverse=True):
+    candidates = {country: country for country in COUNTRY_SEED}
+    candidates.update(COUNTRY_ALIASES)
+    for country in sorted(candidates, key=len, reverse=True):
         if country in seen:
             continue
-        if re.search(r"\b" + re.escape(country) + r"\b", search_text):
-            out.append(country)
+        if phrase_in_text(country, search_text):
+            out.append(candidates[country])
             seen.add(country)
         if len(out) >= 8:
             break
@@ -497,11 +600,18 @@ def compile_one(
 
     text = raw_path.read_text(encoding="utf-8")
     frontmatter, body = parse_frontmatter(text)
+    language = normalize_language(canonical_field(frontmatter, "language", "lang"))
+    if language not in {"eng", "ind"}:
+        raise ValueError(
+            f"{raw_path.relative_to(ROOT)} has missing or unsupported language; "
+            "review the intake note to eng or ind before cascade"
+        )
+    metrics = defaultdict(int)
+    metrics[f"language:{language}"] += 1
     title = yaml_scalar(canonical_field(frontmatter, "title", "headline", "articleTitle")) or raw_path.stem
     out_path = ARTICLE_ROOT / month / article_filename(frontmatter, raw_path)
     article_slug = out_path.stem
     article_link = wikilink(f"article/{month}/{article_slug}", title)
-    metrics = defaultdict(int)
 
     outlet_names = yaml_list(canonical_field(frontmatter, "outlets", "outlet", "sourceOutlet")) or ["Unknown Outlet"]
     countries = yaml_list(canonical_field(frontmatter, "countries", "country"))
@@ -509,12 +619,14 @@ def compile_one(
     source_tags = yaml_list(frontmatter.get("tags"))
     for tag in source_tags:
         cleaned = tag.strip("#")
-        if cleaned and cleaned.lower() not in {"source", "article"} and cleaned not in topics:
-            topics.append(cleaned.replace("-", " "))
+        if cleaned and cleaned.lower() not in {"source", "article"}:
+            candidate_topic = canonical_topic(cleaned.replace("-", " "))
+            if candidate_topic not in topics:
+                topics.append(candidate_topic)
     if not topics:
         topics = ["Uncategorised"]
 
-    raw_search = " ".join([title, body, " ".join(source_tags)]).lower()
+    raw_search = " ".join([title, body, " ".join(source_tags)])
     if not countries:
         countries = infer_countries(raw_search)
 
@@ -535,9 +647,10 @@ def compile_one(
     topic_links = []
     seen_topics = set()
     for topic in topics[:12]:
-        if topic.lower() in seen_topics:
+        topic_key = normalize_match_text(topic)
+        if topic_key in seen_topics:
             continue
-        seen_topics.add(topic.lower())
+        seen_topics.add(topic_key)
         result = ensure_topic(topic, article_link, records, aliases, timestamp, today, batch, dry_run)
         if result:
             slug, display, was_created = result
@@ -548,7 +661,7 @@ def compile_one(
     for domain in ["organisations", "people", "places"]:
         matches = []
         for name, slug in aliases[domain].items():
-            if len(name) >= 4 and re.search(r"\b" + re.escape(name) + r"\b", raw_search):
+            if len(name) >= 4 and phrase_in_text(name, raw_search):
                 matches.append(slug)
         for slug in sorted(set(matches))[:15]:
             if update_existing_entity(domain, slug, article_link, records, timestamp, today, dry_run):
@@ -570,6 +683,7 @@ def compile_one(
         "owner: Alex", f"created: {timestamp}", f"last_updated: {timestamp}",
         f"sourceId: {yaml_quote(source_id)}", f"sourceUrl: {yaml_quote(source_url)}",
         f"sourceType: {yaml_quote(source_type)}", f"publishedDate: {yaml_quote(published)}",
+        f"language: {yaml_quote(language)}",
         f"tone: {yaml_quote(frontmatter.get('tone'))}",
         f"toneSentiment: {yaml_quote(frontmatter.get('toneSentiment'))}",
         f"eventType: {yaml_quote(frontmatter.get('eventType'))}",
@@ -626,6 +740,23 @@ def rebuild_catalogs(dry_run: bool) -> list[str]:
         subprocess.run([sys.executable, str(ROOT / "scripts" / "generate_catalog.py"), domain], cwd=ROOT, check=True)
         rebuilt.append(domain)
     return rebuilt
+
+
+def reconcile_outlet_counts(dry_run: bool) -> None:
+    """Derive corpus-wide outlet articleCount values after Coverage updates."""
+
+    if dry_run:
+        return
+    subprocess.run(
+        [
+            sys.executable,
+            str(ROOT / "scripts" / "reconcile_outlet_counts.py"),
+            "--write",
+            "--no-run-log",
+        ],
+        cwd=ROOT,
+        check=True,
+    )
 
 
 def focused_validation(month: str) -> dict[str, int | list[str]]:
@@ -745,11 +876,24 @@ def update_article_status(month: str, processed_count: int, dry_run: bool) -> di
         text,
         count=1,
     )
-    note = f"A full-folder batch of {processed_count:,} files from `Inputs/articles/{month}/` was compiled/cascaded on {today}; the folder is now empty and the {month} row is fully cascaded."
-    marker = "Note:"
-    if note not in text and marker in text:
-        text = text.replace(marker, marker + " " + note + " ", 1)
-    index_path.write_text(text, encoding="utf-8")
+    # The note is REPLACED, not appended to. Accumulating one sentence per run
+    # produced an unbounded, self-contradicting paragraph (every batch claimed
+    # "the folder is now empty", including batches later superseded). Per-batch
+    # history is already the append-only ledger's job in log.md; this line
+    # reports current state only.
+    pending = (
+        "all input folders are empty" if input_total == 0
+        else f"{input_total:,} input file(s) remain uncascaded"
+    )
+    note = (
+        f"Note: Counts are recomputed from `Inputs/articles/` and `entities/article/` on every "
+        f"cascade run, not accreted from batch receipts. Last run {today}: "
+        f"{processed_count:,} file(s) from `Inputs/articles/{month}/`; {pending}. "
+        f"Per-batch history is in `log.md`."
+    )
+    text = re.sub(r"(?ms)^Note:.*?(?=\n\n|\Z)", note, text, count=1)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    index_path.write_text(text.rstrip("\n") + "\n", encoding="utf-8")
     return {"cascaded": cascaded_total, "inputs": input_total, "total": total}
 
 
@@ -790,7 +934,9 @@ def run_batch(args: argparse.Namespace) -> int:
                 for raw_path in raw_files:
                     for key, value in compile_one(raw_path, month, records, aliases, timestamp, today, batch, args.dry_run).items():
                         aggregate[key] += value
+            reconcile_outlet_counts(args.dry_run)
             rebuilt = rebuild_catalogs(args.dry_run)
+            log_counts = reconcile_log_entry_counts(args.dry_run)
             validation = {"notes_scanned": 0, "wikilinks_checked": 0, "errors": 0, "error_samples": []}
             if not args.dry_run:
                 with run.stage("focused_validation", file_count=0):
@@ -807,6 +953,7 @@ def run_batch(args: argparse.Namespace) -> int:
             )
             run.set_file_metrics(scannedCount=int(validation["notes_scanned"]))
             run.add_output("catalogsRebuilt", rebuilt)
+            run.add_output("logEntryCounts", log_counts)
             run.add_output("focusedValidation", validation)
             run.add_output("entityUpdates", dict(aggregate))
             run.add_output("statusCounts", status_counts)

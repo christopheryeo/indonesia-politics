@@ -3,6 +3,7 @@ import datetime
 import importlib.util
 import json
 import pathlib
+import tempfile
 import unittest
 
 
@@ -78,6 +79,38 @@ class IssueRadarTests(unittest.TestCase):
         self.assertIn("COUNT(DISTINCT article_id)", query)
         self.assertIn("GROUP BY BINARY tag", query)
         self.assertIn("`MSM_dataset`.`article_tags`", query)
+
+    def test_file_bundle_loads_without_mysql(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            bundle = pathlib.Path(temporary)
+            article = [
+                "batch", "1", "1", "1", "-1", "-1", "42", "Example", "Example",
+                "Body", "Topic", "Parliament", "Opinionated", "Neutral", "Unfacilitated",
+                "2", "Article", "NEWS", "A", r"\N", "crawl", "2026-07-22 12:30:00",
+                "2026-07-22 12:30:00", "2026-07-22 12:30:00", "2026-07-22 12:30:00",
+                "radar", "radar", "{}", "[]", "{}", "hash", "ready",
+            ]
+            (bundle / "articles.tsv").write_text("\t".join(article) + "\n", encoding="utf-8")
+            (bundle / "article_tags.tsv").write_text(
+                "\t".join(["batch", "1", "-1", "1", "Corruption", "hash"]) + "\n",
+                encoding="utf-8",
+            )
+            (bundle / "article_coverage.tsv").write_text(
+                "\t".join([
+                    "batch", "1", "-1", "1", "online", r"\N", "Example Outlet",
+                    "Indonesia", "Online News", "https://example.test", "hash",
+                ]) + "\n",
+                encoding="utf-8",
+            )
+            articles, label = RADAR.load_bundle_articles(bundle)
+        self.assertEqual(len(articles), 1)
+        self.assertEqual(articles[0]["id"], 42)
+        self.assertEqual(articles[0]["tags"], {"corruption"})
+        self.assertEqual(articles[0]["outlets"], {"Example Outlet"})
+        self.assertEqual(articles[0]["countries"], {"Indonesia"})
+        self.assertTrue(articles[0]["unfac"])
+        self.assertTrue(articles[0]["opin"])
+        self.assertIn("file bundle", label)
 
     @staticmethod
     def article(day, tag):

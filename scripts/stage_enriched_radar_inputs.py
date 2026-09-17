@@ -6,7 +6,7 @@ articles under Inputs/articles, combines them with enrichment assessment JSON,
 and writes an existing-schema-compatible UAT staging bundle. It never connects
 to or writes a database itself.
 
-Automatic admission is strict: tone, event type, metadata and tags must all be
+Automatic admission is strict: topic, tone, tone sentiment, event type, metadata and tags must all be
 auto-applicable, and neither model pass may have requested review. Other
 articles remain in staging with explicit review reasons and are excluded from
 the canonical UAT load. A reviewed approval JSON can admit them on a later run.
@@ -34,15 +34,18 @@ if str(SCRIPT_DIR) not in sys.path:
 
 from enrich_radar_inputs import parse_frontmatter, split_note  # noqa: E402
 from stage_mysql_feeds import render_load_sql, render_validation_sql  # noqa: E402
+from language_support import normalize_language  # noqa: E402
 
 
-LOADER_VERSION = "enriched-radar-input-stager.v1"
-MAPPING_CONTRACT = "enriched-markdown-to-uat.v1"
+LOADER_VERSION = "enriched-radar-input-stager.v2"
+MAPPING_CONTRACT = "enriched-markdown-to-uat.v2"
 TARGET_DATABASE = "MSM_dataset_UAT"
 TONE_VALUES = {"Factual", "Opinionated"}
+SENTIMENT_VALUES = {"Positive", "Neutral"}
 EVENT_VALUES = {"Facilitated", "Unfacilitated"}
 APPROVAL_FIELDS = {
-    "tone", "eventType", "tags", "outletName", "outletCountry", "category",
+    "language", "topic", "tone", "toneSentiment", "eventType", "tags", "outletName",
+    "outletCountry", "category",
 }
 
 
@@ -147,7 +150,10 @@ def assessment_state(
     approval: dict[str, Any] | None,
 ) -> tuple[dict[str, Any], list[dict[str, str]]]:
     values = {
+        "language": normalize_language(metadata.get("language") or metadata.get("lang")),
+        "topic": metadata.get("topic"),
         "tone": metadata.get("tone"),
+        "toneSentiment": metadata.get("toneSentiment"),
         "eventType": metadata.get("eventType"),
         "tags": list(metadata.get("tags") or []),
         "outletName": "",
@@ -171,6 +177,8 @@ def assessment_state(
     else:
         consensus = assessment.get("consensus") or {}
         auto = consensus.get("autoApplicable") or {}
+        if auto.get("topic"):
+            values["topic"] = consensus.get("topic") or values["topic"]
         if auto.get("metadata"):
             values["outletName"] = consensus.get("outletName") or values["outletName"]
             values["outletCountry"] = consensus.get("outletCountry") or values["outletCountry"]
@@ -181,10 +189,12 @@ def assessment_state(
             values["tags"] = list(consensus.get("issueTags") or values["tags"])
         if auto.get("tone"):
             values["tone"] = consensus.get("tone") or values["tone"]
+        if auto.get("toneSentiment"):
+            values["toneSentiment"] = consensus.get("toneSentiment") or values["toneSentiment"]
         if auto.get("eventType"):
             values["eventType"] = consensus.get("eventType") or values["eventType"]
 
-        for field in ("tone", "eventType", "metadata", "tags"):
+        for field in ("topic", "tone", "toneSentiment", "eventType", "metadata", "tags"):
             if not auto.get(field):
                 problems.append({
                     "rule": "ENRICHMENT_NOT_AUTO_APPLICABLE",
@@ -199,13 +209,30 @@ def assessment_state(
                 "field": "assessment",
                 "details": "; ".join(consensus.get("reviewReasons") or ["A model pass requested review."]),
             })
+        location_validation = consensus.get("outletLocationValidation") or {}
+        if location_validation.get("status") != "validated":
+            problems.append({
+                "rule": "PUBLISHER_LOCATION_NOT_VALIDATED",
+                "severity": "warning",
+                "field": "outletCountry",
+                "details": "; ".join(
+                    location_validation.get("reviewReasons")
+                    or ["Publisher country did not pass enrichment location validation."]
+                ),
+            })
 
     checks = [
+        ("language", values["language"] in {"eng", "ind"}, "Language must be reviewed to eng or ind."),
+        ("topic", bool(str(values["topic"] or "").strip()), "A reusable topic is required."),
         ("tags", bool(values["tags"]), "At least one approved issue tag is required."),
         ("outletName", bool(str(values["outletName"]).strip()), "An approved outlet name is required."),
         ("outletCountry", bool(str(values["outletCountry"]).strip()), "An approved outlet country is required."),
         ("category", bool(str(values["category"]).strip()), "A category is required."),
         ("tone", values["tone"] in TONE_VALUES, "Tone must be Factual or Opinionated."),
+        (
+            "toneSentiment", values["toneSentiment"] in SENTIMENT_VALUES,
+            "Tone sentiment must be Positive or Neutral for the current UAT contract.",
+        ),
         ("eventType", values["eventType"] in EVENT_VALUES, "Event type must be Facilitated or Unfacilitated."),
     ]
     existing_fields = {item["field"] for item in problems}
@@ -250,7 +277,7 @@ def phase4_transform_sql(
 ) -> str:
     bid, tid = sql_string(batch_id), sql_string(transform_id)
     return f"""-- Generated enriched-input transformation. UAT candidate tables only.
-SET NAMES utf8mb4;
+SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci;
 SET SESSION sql_mode='STRICT_ALL_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 USE `{TARGET_DATABASE}`;
 SET @source_batch_id={bid};
@@ -264,7 +291,9 @@ SELECT a.`batch_id`,a.`staging_article_id`,a.`source_article_id`,
        'DUPLICATE_EXTERNAL_ID_IN_UAT','warning','vendorArticleId',a.`vendor_article_id`,
        'The external article ID already exists in canonical UAT; review rather than duplicate.'
 FROM `UAT_stg_articles` a
-JOIN `UAT_articles` u ON u.`vendor_article_id`=a.`vendor_article_id`
+JOIN `UAT_articles` u
+  ON u.`vendor_article_id` COLLATE utf8mb4_unicode_ci
+   = a.`vendor_article_id` COLLATE utf8mb4_unicode_ci
 WHERE a.`batch_id`=@source_batch_id
 ON DUPLICATE KEY UPDATE `details`=VALUES(`details`);
 
@@ -575,6 +604,7 @@ def prepare(args: argparse.Namespace) -> int:
             values, problems = assessment_state(
                 external_id, metadata, assessment, approval,
             )
+            counts[f"language:{values['language']}"] += 1
             title = str(metadata.get("articleTitle") or "").strip()
             if not title:
                 problems.append({
@@ -627,8 +657,8 @@ def prepare(args: argparse.Namespace) -> int:
                 handles["articles"],
                 [
                     batch_id, staging_id, staging_id, 1, synthetic_id, synthetic_id,
-                    external_id, title, title, body.strip(), metadata.get("topic"),
-                    values["category"], values["tone"], metadata.get("toneSentiment") or "Neutral",
+                    external_id, title, title, body.strip(), values["topic"],
+                    values["category"], values["tone"], values["toneSentiment"],
                     values["eventType"], 2, "Article", "NEWS", "A", None,
                     metadata.get("sourceType") or "news", published, published, published,
                     published, "radar-enrichment", "radar-enrichment", "{}", "[]",
@@ -693,8 +723,11 @@ def prepare(args: argparse.Namespace) -> int:
                     "externalArticleId": external_id,
                     "path": relative_path(path),
                     "status": status,
+                    "language": values["language"],
                     "reasons": " | ".join(reasons),
+                    "proposedTopic": values["topic"],
                     "proposedTone": values["tone"],
+                    "proposedToneSentiment": values["toneSentiment"],
                     "proposedEventType": values["eventType"],
                     "proposedTags": " | ".join(values["tags"]),
                     "proposedOutlet": outlet_name,
@@ -716,9 +749,9 @@ def prepare(args: argparse.Namespace) -> int:
     counts["readyArticles"] = ready_counts["articles"]
     with (output_dir / "review_queue.csv").open("w", encoding="utf-8", newline="") as handle:
         fieldnames = [
-            "externalArticleId", "path", "status", "reasons", "proposedTone",
-            "proposedEventType", "proposedTags", "proposedOutlet", "proposedCountry",
-            "proposedCategory",
+            "externalArticleId", "path", "status", "language", "reasons", "proposedTopic",
+            "proposedTone", "proposedToneSentiment", "proposedEventType", "proposedTags",
+            "proposedOutlet", "proposedCountry", "proposedCategory",
         ]
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
         writer.writeheader()
@@ -729,7 +762,7 @@ def prepare(args: argparse.Namespace) -> int:
     )
 
     batch = {
-        "bundleVersion": "enriched-radar-uat-bundle.v1",
+        "bundleVersion": "enriched-radar-uat-bundle.v2",
         "loaderVersion": LOADER_VERSION,
         "targetDatabase": TARGET_DATABASE,
         "sourceSetName": args.source_set_name,

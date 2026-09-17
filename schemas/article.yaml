@@ -1,21 +1,35 @@
 entity: article
-id_field: articleId
+id_field: sourceId
 title_field: articleTitle
 date_field: publishedDate
 fields:
-  articleId:     {type: string, unique: true}
-  articleTitle:  {type: string}
+  sourceId:      {type: string, unique: true}
   publishedDate: {type: datetime}
-  category:      {type: enum}
-  topic:         {type: string}
+  sourceType:    {type: enum, values: [feed, crawl]}
+  sourceUrl:     {type: string}
+  language:      {type: enum, values: [eng, ind, und]}
+  status:        {type: enum, values: [active, superseded, contested]}
   tone:          {type: enum, values: [Factual, Opinionated]}
   toneSentiment: {type: enum, values: [Positive, Neutral, Negative]}
   eventType:     {type: enum, values: [Facilitated, Unfacilitated]}
-  tags:          {type: list}
-  outlets:       {type: relation, target: outlet, many: true}
-  countries:     {type: list}
   coverageCount: {type: number}
-  mediaCount:    {type: number}
-  sourceType:    {type: enum, values: [feed, crawl]}
-  url:           {type: string}
+  aliases:       {type: list}
+  tags:          {type: list}
 body_field: contentDescription
+notes: |
+  Field names follow the frozen registry in entities/article/index.md, which
+  governs live intake and is enforced by scripts/article_quality.py.
+
+  articleTitle is not a frontmatter field. An article note's title is its H1,
+  and generate_catalog.py derives the catalog Title column from the filename
+  slug. title_field is retained to name the display concept, not a stored key.
+
+  Entity relations (outlets, countries, people, organisations, place, topic)
+  are not frontmatter fields either. They are canonical piped wikilinks in the
+  note body, cascaded by scripts/ingest_cascade.py and validated by
+  scripts/check_links.py, per AGENTS.md rule 6.
+
+  Superseded 2026-08-13: the pre-migration draft declared articleId,
+  articleTitle, url, outlets, countries, category, topic and mediaCount. None
+  of those keys were ever written by the compiler and none appear in any of the
+  222 compiled notes. See docs/SYSTEM_RULE_CHANGES.md.

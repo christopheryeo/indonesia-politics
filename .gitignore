@@ -33,8 +33,8 @@ index/*.sqlite-*
 entities/**/catalog.md
 dashboards/site/app/dashboard-data.json
 
-# Corpus and source-data vault areas kept outside Git.
-# Negated placeholders preserve the empty directory skeleton.
+# Large/source-data vault areas kept outside Git (aligned with Tampines Wiki).
+# Negated placeholders preserve this repository's empty directory skeleton.
 Inputs/**
 !Inputs/articles/
 !Inputs/articles/.gitkeep
@@ -44,6 +44,18 @@ entities/article/**
 !entities/article/index.md
 !entities/article/log.md
 !entities/article/.gitkeep
+entities/articles/
+entities/appointments/
+entities/country/
+entities/decisions/
+entities/issues/
+entities/organisations/
+entities/outlet/
+entities/people/
+entities/place/
+entities/search/
+entities/tag/
+entities/topic/
 
 # Generated run/debug output
 runs/**
@@ -52,6 +64,7 @@ tmp/**
 !tmp/.gitkeep
 topics/*
 !topics/.gitkeep
+!topics/canonical-topics.yaml
 *.tmp
 *.log
 

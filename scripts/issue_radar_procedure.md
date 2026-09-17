@@ -2,7 +2,7 @@
 type: procedure
 name: issue-radar
 status: active
-last_updated: 2026-07-23
+last_updated: 2026-08-03
 ---
 
 # Issue Radar Procedure
@@ -13,6 +13,9 @@ read-only canonical product tables (velocity, breadth, institutional attachment,
 procedure does the judgment (clustering, ramification, catalysts, posture). Neither replaces the
 other: the radar over-generates by design (~20x at tag level), and the judgment pass must never
 invent signals the radar did not report.
+
+English and Bahasa articles contribute to the same canonical English radar tags. Assessment claims
+may cite evidence in either source language; quotations remain verbatim and are never silently translated.
 
 **Cadence:** run after every ingest/cascade batch, before the nightly catalog rebuild. A pass with
 no new flags still updates `lastScored` on active (`hot`/`warm`) issues.
@@ -44,6 +47,7 @@ values beginning with `#`; append-only logs.
    articles means same issue. Never cluster on tag-name similarity alone.
 5. Name the issue by its risk, not its keyword (`ns-enforcement-enlistment-act`, not `amos-yee` —
    people are carriers of issues, not issues).
+   Do not split one issue merely because its articles or synonyms use different languages.
 
 ## Step 3 — Ramification questionnaire (judgment, answered only from vault content)
 

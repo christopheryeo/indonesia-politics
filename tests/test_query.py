@@ -44,6 +44,8 @@ class QueryFastPathTests(unittest.TestCase):
             result = QUERY.run_query("What happened?", cache_write=False)
         self.assertEqual(result["status"], "unresolved")
         self.assertIn("No matching data", result["answer"])
+        self.assertEqual(result["questionLanguage"], "eng")
+        self.assertEqual(result["answerLanguage"], "eng")
         self.assertFalse(result["cache_written"])
 
     def test_exact_name_alias_and_acronym_resolution_uses_synthetic_catalog(self):
@@ -66,6 +68,23 @@ class QueryFastPathTests(unittest.TestCase):
                 [("people", "synthetic-person")],
             )
 
+    def test_cache_candidates_do_not_cross_answer_languages(self):
+        with tempfile.TemporaryDirectory() as folder:
+            entities = pathlib.Path(folder)
+            search = entities / "search"
+            search.mkdir()
+            (search / "catalog.md").write_text(
+                "| queryId | query | answerLanguage | File |\n"
+                "|---|---|---|---|\n"
+                "| english | What happened to KPK | eng | [english.md](english.md) |\n"
+                "| bahasa | Apa yang terjadi dengan KPK | ind | [bahasa.md](bahasa.md) |\n",
+                encoding="utf-8",
+            )
+            with mock.patch.object(QUERY, "ENTITIES", entities):
+                QUERY._CATALOG_CACHE.clear()
+                result = QUERY.tool_search_cache("Apa yang terjadi dengan KPK?")
+        self.assertEqual([row["queryId"] for row in result["candidates"]], ["bahasa"])
+
     def test_query_shape_classification_is_corpus_independent(self):
         appointment = [{
             "domain": "appointments", "id": "example-office",
@@ -78,10 +97,24 @@ class QueryFastPathTests(unittest.TestCase):
             "Give me a list of people related to reform": ("roster", []),
             "Who is the current office holder?": ("appointment", appointment),
             "There is no corruption issue, correct?": ("existence", []),
+            "Siapa Prabowo Subianto?": ("identity", []),
+            "Apa yang terjadi terkait KPK?": ("coverage", []),
+            "Berikan daftar semua organisasi terkait reformasi": ("roster", []),
+            "Bagaimana hubungan kabinet dengan DPR?": ("relationship", []),
         }
         for question, (expected, matches) in cases.items():
             with self.subTest(question=question):
                 self.assertEqual(QUERY._query_shape(question, matches), expected)
+
+    def test_empty_vault_bahasa_answer_matches_question_language(self):
+        with tempfile.TemporaryDirectory() as folder, \
+             mock.patch.object(QUERY, "ENTITIES", pathlib.Path(folder)), \
+             mock.patch.object(QUERY, "load_local_env"), \
+             mock.patch.dict(os.environ, {}, clear=True):
+            QUERY._CATALOG_CACHE.clear()
+            result = QUERY.run_query("Apa yang terjadi?", cache_write=False)
+        self.assertEqual(result["answerLanguage"], "ind")
+        self.assertIn("Tidak ada data", result["answer"])
 
     def test_fast_model_uses_one_low_reasoning_request_and_filters_sources(self):
         payload = answered()
@@ -142,6 +175,19 @@ class QueryFastPathTests(unittest.TestCase):
         legacy.assert_not_called()
         self.assertFalse(result["cache_written"])
         self.assertFalse(result["sensitive"])
+        self.assertEqual(result["questionLanguage"], "eng")
+        self.assertEqual(result["answerLanguage"], "eng")
+
+    def test_fast_model_is_instructed_to_answer_bahasa(self):
+        payload = answered("Jawaban")
+        response = {"output": [{
+            "type": "function_call", "name": "submit_answer",
+            "arguments": json.dumps(payload),
+        }]}
+        context = {"resolved_entities": [], "shared_coverage": [], "entities": []}
+        with mock.patch.object(QUERY, "_call_responses", return_value=response) as call:
+            QUERY._run_fast_model("key", "gpt-5.6", "Siapa dia?", context)
+        self.assertIn("Answer in Bahasa Indonesia", call.call_args.args[2])
 
     def test_ambiguous_resolution_routes_to_legacy_fallback(self):
         ambiguous = [

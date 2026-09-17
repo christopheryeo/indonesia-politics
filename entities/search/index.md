@@ -18,6 +18,8 @@ Reusable answers produced by the query workflow.
 | status | enum: answered, unresolved | yes |
 | reuseCount | number | yes |
 | timeSensitive | boolean | yes |
+| questionLanguage | enum: eng, ind | yes |
+| answerLanguage | enum: eng, ind | yes |
 | procedureVersion | string | yes |
 | tags | list | no |
 

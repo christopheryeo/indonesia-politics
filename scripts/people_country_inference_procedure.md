@@ -49,6 +49,8 @@ for the update pass or explicitly accepts the proposed table.
    - at least two articles for high-profile people whose coverage spans multiple countries or topics.
 9. Read `## Summary` and `## Related Entities` in each article before reading further. These sections
    usually contain the country-bearing context.
+   Accept direct evidence written in English or Bahasa Indonesia, but preserve the evidence phrase in
+   its source language and resolve country exonyms through the canonical country note's aliases.
 10. If needed, follow only directly relevant wikilinks from the article to organisation, country, or
     appointment notes. Do not expand into a general research trail.
 
@@ -66,7 +68,8 @@ for the update pass or explicitly accepts the proposed table.
 13. Assign **low confidence** when the country is plausible but rests on weak context, a single
     ambiguous article, or a multinational setting. Low-confidence rows are not write candidates.
 14. Assign **no inference** when the evidence is missing, conflicting, or only available from
-    background knowledge. Leave `country` blank.
+background knowledge. Leave `country` blank.
+Language of the article or person's name is never country evidence.
 
 ## Step 5 - Produce the review table
 

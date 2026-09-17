@@ -22,4 +22,5 @@ Publishers and media channels responsible for monitored coverage.
 
 ## Operating rules
 
-Create outlets through cascade, keep article counts and Coverage backlinks idempotent, and follow `schemas/outlet.yaml`.
+Create outlets through cascade using the publisher's official name, register reviewed English/Bahasa
+variants as aliases, keep article counts and Coverage backlinks idempotent, and follow `schemas/outlet.yaml`.

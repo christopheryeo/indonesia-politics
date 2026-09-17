@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
-"""Early-warning issue radar over canonical MySQL product tables.
+"""Early-warning issue radar over canonical MySQL tables or a verified staging bundle.
 
 The radar reads articles, article_tags, and article_coverage using a read-only,
 consistent-snapshot transaction. UAT is the safe default; production requires
 an explicit ``--source production`` selection. It never writes to MySQL or the
 Markdown vault.
+
+For explicitly database-free validation, ``--bundle-dir`` reads the canonical-shaped
+TSV files produced by ``stage_enriched_radar_inputs.py``. The bundle must be verified
+separately before use; radar scoring and thresholds are identical in both modes.
 
 Authentication is delegated to the MySQL client. Prefer ``--defaults-file`` or
 ``--login-path`` with a SELECT-only account. Environment variables are also
@@ -178,6 +182,84 @@ def parse_product_rows(output):
     return articles
 
 
+def mysql_tsv_value(value):
+    """Decode one field written by stage_enriched_radar_inputs.mysql_tsv."""
+
+    if value == r"\N":
+        return None
+    mapping = {"0": "\0", "t": "\t", "n": "\n", "r": "\r", "Z": "\x1a", "\\": "\\"}
+    output = []
+    index = 0
+    while index < len(value):
+        if value[index] == "\\" and index + 1 < len(value):
+            output.append(mapping.get(value[index + 1], value[index + 1]))
+            index += 2
+        else:
+            output.append(value[index])
+            index += 1
+    return "".join(output)
+
+
+def bundle_rows(path, expected_columns):
+    try:
+        with path.open(encoding="utf-8", newline="") as handle:
+            rows = []
+            for line_number, row in enumerate(csv.reader(handle, delimiter="\t"), start=1):
+                if len(row) != expected_columns:
+                    raise RadarError(
+                        f"invalid bundle row {path.name}:{line_number}; "
+                        f"expected {expected_columns} columns, found {len(row)}"
+                    )
+                rows.append([mysql_tsv_value(value) for value in row])
+            return rows
+    except FileNotFoundError as exc:
+        raise RadarError(f"bundle file not found: {path}") from exc
+
+
+def load_bundle_articles(bundle_dir):
+    """Load radar inputs from an immutable UAT-shaped file bundle without MySQL."""
+
+    bundle = Path(bundle_dir).expanduser().resolve()
+    article_rows = bundle_rows(bundle / "articles.tsv", 32)
+    tag_rows = bundle_rows(bundle / "article_tags.tsv", 6)
+    coverage_rows = bundle_rows(bundle / "article_coverage.tsv", 11)
+
+    tags = collections.defaultdict(set)
+    outlets = collections.defaultdict(set)
+    countries = collections.defaultdict(set)
+    for row in tag_rows:
+        tags[row[1]].add(str(row[4]).strip().lower())
+    for row in coverage_rows:
+        if row[6]:
+            outlets[row[1]].add(str(row[6]).strip())
+        if row[7]:
+            countries[row[1]].add(str(row[7]).strip())
+
+    articles = []
+    for row in article_rows:
+        if row[31] != "ready":
+            continue
+        try:
+            published = datetime.datetime.fromisoformat(str(row[21])).date()
+            article_id = int(row[6])
+        except (TypeError, ValueError) as exc:
+            raise RadarError(f"invalid article row for staging ID {row[1]}: {exc}") from exc
+        articles.append({
+            "id": article_id,
+            "title": row[7] or "",
+            "date": published,
+            "cat": row[11] or "",
+            "tags": tags[row[1]],
+            "outlets": outlets[row[1]],
+            "countries": countries[row[1]],
+            "unfac": row[14] == "Unfacilitated",
+            "opin": row[12] == "Opinionated",
+        })
+    if not articles:
+        raise RadarError("the file bundle contains no ready articles")
+    return articles, f"file bundle {bundle}"
+
+
 def resolve_source(args):
     database, prefix = SOURCE_DEFAULTS[args.source]
     return args.database or database, args.table_prefix if args.table_prefix is not None else prefix
@@ -340,7 +422,7 @@ def series(selected, asof):
 
 def build_parser():
     parser = argparse.ArgumentParser(
-        description="Read-only issue radar over canonical MySQL product tables",
+        description="Read-only issue radar over canonical MySQL tables or a verified file bundle",
         epilog=(
             "Connection values may also come from ISSUE_RADAR_MYSQL_HOST, _PORT, _USER, "
             "_PASSWORD, _DEFAULTS_FILE, _LOGIN_PATH, _PROGRAM, and _SSL_MODE. "
@@ -349,6 +431,8 @@ def build_parser():
     )
     parser.add_argument("--source", choices=sorted(SOURCE_DEFAULTS), default="uat",
                         help="uat (default) or production; controls database/table defaults")
+    parser.add_argument("--bundle-dir", type=Path,
+                        help="read a verified UAT-shaped TSV bundle without connecting to MySQL")
     parser.add_argument("--database", help="override the selected MySQL database")
     parser.add_argument("--table-prefix", help="override the table prefix, e.g. UAT_ or empty")
     parser.add_argument("--mysql-program", default=os.environ.get("ISSUE_RADAR_MYSQL_PROGRAM", "mysql"))
@@ -374,11 +458,16 @@ def build_parser():
 
 def run(args):
     if args.export_tags:
+        if args.bundle_dir:
+            raise RadarError("--export-tags cannot be combined with --bundle-dir")
         export_tags(args, args.export_tags)
         return
-    articles, database, prefix = load_articles(args)
+    if args.bundle_dir:
+        articles, source_label = load_bundle_articles(args.bundle_dir)
+    else:
+        articles, database, prefix = load_articles(args)
+        source_label = f"{database}.{prefix}articles"
     asof = datetime.date.fromisoformat(args.asof) if args.asof else max(article["date"] for article in articles)
-    source_label = f"{database}.{prefix}articles"
 
     if args.issue:
         needle = args.issue.strip().lower()

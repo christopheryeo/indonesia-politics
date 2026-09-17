@@ -40,30 +40,30 @@ COUNTRY_ALIASES = {
     "Australia": ["Australia", "Australian"],
     "Canada": ["Canada", "Canadian"],
     "Cambodia": ["Cambodia", "Cambodian"],
-    "China": ["China", "Chinese"],
+    "China": ["China", "Chinese", "Tiongkok", "Republik Rakyat Tiongkok"],
     "Croatia": ["Croatia", "Croatian"],
     "Denmark": ["Denmark", "Danish"],
     "Egypt": ["Egypt", "Egyptian"],
     "Finland": ["Finland", "Finnish"],
     "France": ["France", "French"],
-    "Germany": ["Germany", "German"],
+    "Germany": ["Germany", "German", "Jerman"],
     "India": ["India", "Indian"],
     "Indonesia": ["Indonesia", "Indonesian"],
     "Iran": ["Iran", "Iranian"],
     "Israel": ["Israel", "Israeli"],
     "Italy": ["Italy", "Italian"],
-    "Japan": ["Japan", "Japanese"],
+    "Japan": ["Japan", "Japanese", "Jepang"],
     "Malaysia": ["Malaysia", "Malaysian"],
     "Myanmar": ["Myanmar", "Burmese"],
-    "Netherlands": ["Netherlands", "Dutch"],
-    "North Korea": ["North Korea", "North Korean"],
+    "Netherlands": ["Netherlands", "Dutch", "Belanda"],
+    "North Korea": ["North Korea", "North Korean", "Korea Utara"],
     "Norway": ["Norway", "Norwegian"],
     "Pakistan": ["Pakistan", "Pakistani"],
-    "Philippines": ["Philippines", "Philippine", "Filipino"],
+    "Philippines": ["Philippines", "Philippine", "Filipino", "Filipina"],
     "Russia": ["Russia", "Russian"],
-    "Saudi Arabia": ["Saudi Arabia", "Saudi"],
+    "Saudi Arabia": ["Saudi Arabia", "Saudi", "Arab Saudi"],
     "Singapore": ["Singapore", "Singaporean"],
-    "South Korea": ["South Korea", "South Korean", "S. Korea"],
+    "South Korea": ["South Korea", "South Korean", "S. Korea", "Korea Selatan"],
     "Spain": ["Spain", "Spanish"],
     "Sweden": ["Sweden", "Swedish"],
     "Switzerland": ["Switzerland", "Swiss"],
@@ -71,16 +71,18 @@ COUNTRY_ALIASES = {
     "Thailand": ["Thailand", "Thai"],
     "Turkey": ["Turkey", "Turkish", "Türkiye"],
     "Ukraine": ["Ukraine", "Ukrainian"],
-    "United Arab Emirates": ["United Arab Emirates", "UAE", "Emirati"],
-    "United Kingdom": ["United Kingdom", "UK", "U.K.", "British"],
-    "United States": ["United States", "US", "U.S.", "American"],
+    "United Arab Emirates": ["United Arab Emirates", "UAE", "Emirati", "Uni Emirat Arab", "UEA"],
+    "United Kingdom": ["United Kingdom", "UK", "U.K.", "British", "Inggris", "Britania Raya"],
+    "United States": ["United States", "US", "U.S.", "American", "Amerika Serikat"],
     "Vietnam": ["Vietnam", "Vietnamese"],
 }
 
 TITLE_WORDS = (
     r"(?:President|Prime Minister|PM|Defen[cs]e Minister|Defen[cs]e Secretary|"
     r"Foreign Minister|Foreign Ministry spokes(?:man|woman|person)|Minister|Senator|Premier|leader|official|spokes(?:man|woman|person)|"
-    r"chief|commander|general|admiral|ambassador|secretary|transport minister)"
+    r"chief|commander|general|admiral|ambassador|secretary|transport minister|"
+    r"Presiden|Perdana Menteri|Menteri Pertahanan|Menteri Luar Negeri|Menteri|Senator|"
+    r"pemimpin|pejabat|juru bicara|panglima|jenderal|laksamana|duta besar|sekretaris)"
 )
 TITLE_RE = re.compile(TITLE_WORDS, re.I)
 
@@ -169,10 +171,10 @@ def country_in_direct_text(text: str, person_name: str) -> Evidence:
                 patterns = [
                     rf"\b{alias_re}\b(?:'s)?\s+{TITLE_WORDS}\s+{before_name}\b{re.escape(person_name)}\b",
                     rf"\b{alias_re}\b(?:'s)?\s+{TITLE_WORDS}\s+{before_name}\b{re.escape(surname)}\b",
-                    rf"\b{re.escape(person_name)}\b[^.]*?\b{TITLE_WORDS}\b[^.]*?\b(?:of|for|in)\s+\b{alias_re}\b",
-                    rf"\b{re.escape(surname)}\b[^.]*?\b{TITLE_WORDS}\b[^.]*?\b(?:of|for|in)\s+\b{alias_re}\b",
-                    rf"\b{re.escape(person_name)}\b[^.]*?\b(?:is|was|as)\s+(?:an?|the)?\s*\b{alias_re}\b\s+{TITLE_WORDS}",
-                    rf"\b{re.escape(surname)}\b[^.]*?\b(?:is|was|as)\s+(?:an?|the)?\s*\b{alias_re}\b\s+{TITLE_WORDS}",
+                    rf"\b{re.escape(person_name)}\b[^.]*?\b{TITLE_WORDS}\b[^.]*?\b(?:of|for|in|dari|untuk|di)\s+\b{alias_re}\b",
+                    rf"\b{re.escape(surname)}\b[^.]*?\b{TITLE_WORDS}\b[^.]*?\b(?:of|for|in|dari|untuk|di)\s+\b{alias_re}\b",
+                    rf"\b{re.escape(person_name)}\b[^.]*?\b(?:is|was|as|adalah|merupakan|sebagai)\s+(?:an?|the|seorang)?\s*\b{alias_re}\b\s+{TITLE_WORDS}",
+                    rf"\b{re.escape(surname)}\b[^.]*?\b(?:is|was|as|adalah|merupakan|sebagai)\s+(?:an?|the|seorang)?\s*\b{alias_re}\b\s+{TITLE_WORDS}",
                 ]
                 if any(re.search(pattern, sentence, re.I) for pattern in patterns):
                     return Evidence(country, "high", sentence)
@@ -198,7 +200,7 @@ def country_in_person_note(person: Person, person_text: str) -> Evidence:
                 alias_re = re.escape(alias)
                 if re.search(rf"\b{alias_re}\b(?:'s)?\s+{TITLE_WORDS}\b", first_summary_sentence, re.I):
                     return Evidence(country, "high", first_summary_sentence, f"{person.person_id}.md")
-                if re.search(rf"\b{TITLE_WORDS}\b[^.]*\b(?:of|for|in)\s+\b{alias_re}\b", first_summary_sentence, re.I):
+                if re.search(rf"\b{TITLE_WORDS}\b[^.]*\b(?:of|for|in|dari|untuk|di)\s+\b{alias_re}\b", first_summary_sentence, re.I):
                     return Evidence(country, "high", first_summary_sentence, f"{person.person_id}.md")
 
     evidence = country_in_direct_text(context, person.display_name)

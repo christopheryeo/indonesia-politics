@@ -54,6 +54,7 @@ from typing import Any
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from local_env import load_local_env  # noqa: E402
+from language_support import normalize_match_text, question_language  # noqa: E402
 
 try:
     import yaml
@@ -182,7 +183,7 @@ def tool_resolve_entity(name: str, domains: list[str] | None = None) -> dict[str
     acronyms cells across every entity domain (or the subset given). Returns
     candidate records only — disambiguation is the caller's job (Step 1).
     """
-    needle = name.strip().lower()
+    needle = normalize_match_text(name)
     search_domains = domains or _domains_with_catalog()
     matches: list[dict[str, str]] = []
     for domain in search_domains:
@@ -192,7 +193,7 @@ def tool_resolve_entity(name: str, domains: list[str] | None = None) -> dict[str
                 row.get(col, "") for col in ("displayName", "aliases", "acronyms", "query") if col in row
             )
             ident, label, file = _row_id_and_label(domain, row)
-            hay = f"{hay} {ident}".lower()
+            hay = normalize_match_text(f"{hay} {ident}")
             if needle and needle in hay:
                 matches.append({"domain": domain, "id": ident, "displayName": label, "file": file})
             if len(matches) >= RESOLVE_MATCH_CAP:
@@ -249,8 +250,12 @@ def tool_search_cache(question: str, limit: int = 8) -> dict[str, Any]:
     """
     q_tokens = set(_TOKEN_RE.findall(question.lower()))
     _, rows = parse_catalog("search")
+    requested_language = question_language(question)
     scored = []
     for row in rows:
+        cached_language = row.get("answerLanguage", "") or "eng"
+        if cached_language != requested_language:
+            continue
         cand = row.get("query", "")
         c_tokens = set(_TOKEN_RE.findall(cand.lower()))
         overlap = len(q_tokens & c_tokens)
@@ -277,11 +282,13 @@ _FAST_STOP = {
     "did", "do", "for", "from", "give", "has", "have", "how", "in", "is",
     "it", "list", "me", "more", "of", "on", "say", "said", "so", "the",
     "there", "to", "was", "what", "who", "with", "your",
+    "apa", "apakah", "bagaimana", "dengan", "ini", "siapa", "tentang",
+    "terkait", "yang",
 }
 
 
 def _normal_tokens(value: str) -> list[str]:
-    return _TOKEN_RE.findall(value.lower())
+    return _TOKEN_RE.findall(normalize_match_text(value))
 
 
 def _cell_values(value: str) -> list[str]:
@@ -310,7 +317,7 @@ def _term_in_question(term: str, question: str) -> bool:
     for index in range(len(question_tokens) - size + 1):
         if question_tokens[index:index + size] == tokens:
             if size == 1 and len(tokens[0]) <= 3:
-                return bool(re.search(rf"\b{re.escape(term)}\b", question))
+                return bool(re.search(rf"\b{re.escape(term)}\b", question, re.IGNORECASE))
             return True
     return False
 
@@ -548,22 +555,24 @@ def _enrich_evidence(link: dict[str, str]) -> dict[str, Any]:
 
 
 def _query_shape(question: str, matches: list[dict[str, str]]) -> str:
-    lowered = question.lower()
-    if re.search(r"\b(list|all|every)\b", lowered):
+    lowered = normalize_match_text(question)
+    if re.search(r"\b(list|all|every|daftar|semua)\b", lowered):
         return "roster"
-    if re.search(r"\b(current|who (?:is|was))\b", lowered) and any(
+    if re.search(r"\b(current|who (?:is|was)|saat ini|siapa)\b", lowered) and any(
         item["domain"] == "appointments" for item in matches
     ):
         return "appointment"
-    if re.search(r"\b(related|relationship|connection|connected)\b", lowered):
+    if re.search(r"\b(apa yang terjadi)\b", lowered):
+        return "coverage"
+    if re.search(r"\b(related|relationship|connection|connected|terkait|hubungan)\b", lowered):
         return "relationship"
-    if re.search(r"\b(no|none|any)\b", lowered) and re.search(
-        r"\b(issue|incident|breach|attack)\b", lowered
+    if re.search(r"\b(no|none|any|tidak|adakah)\b", lowered) and re.search(
+        r"\b(issue|incident|breach|attack|isu|insiden|serangan)\b", lowered
     ):
         return "existence"
-    if re.search(r"\b(who is|what is)\b", lowered):
+    if re.search(r"\b(who is|what is|siapa|apa itu)\b", lowered):
         return "identity"
-    if re.search(r"\b(say|said|talk|tell me more|what happened)\b", lowered):
+    if re.search(r"\b(say|said|talk|tell me more|what happened|mengatakan|membahas|apa yang terjadi)\b", lowered):
         return "coverage"
     return "entity"
 
@@ -595,14 +604,14 @@ def _subsection(text: str, heading: str) -> str:
 
 
 def _direct_roster_answer(question: str, matches: list[dict[str, str]]) -> dict[str, Any] | None:
-    lowered = question.lower()
+    lowered = normalize_match_text(question)
     domain_words = {
-        "people": ("people", "person"),
-        "organisations": ("organisations", "organizations", "organisation", "organization"),
-        "outlet": ("outlets", "outlet"),
-        "place": ("places", "place"),
-        "country": ("countries", "country"),
-        "topic": ("topics", "topic"),
+        "people": ("people", "person", "orang", "tokoh"),
+        "organisations": ("organisations", "organizations", "organisation", "organization", "organisasi"),
+        "outlet": ("outlets", "outlet", "media"),
+        "place": ("places", "place", "tempat"),
+        "country": ("countries", "country", "negara"),
+        "topic": ("topics", "topic", "topik"),
     }
     requested = next(
         (domain for domain, words in domain_words.items() if any(
@@ -628,12 +637,23 @@ def _direct_roster_answer(question: str, matches: list[dict[str, str]]) -> dict[
     if not links:
         return None
     labels = [label or target.replace("-", " ").title() for target, label in links]
-    answer = (
-        f"{len(labels)} {heading.lower()} are directly related to "
-        f"{anchor['displayName']}:\n\n"
-        + "\n".join(f"{index}. {label}" for index, label in enumerate(labels, 1))
-        + "\n\nThis is a relationship-based roster rather than an article-by-article citation list."
-    )
+    if question_language(question) == "ind":
+        localized = {
+            "People": "orang", "Organisations": "organisasi", "Outlets": "media",
+            "Places": "tempat", "Countries": "negara", "Topics": "topik",
+        }[heading]
+        answer = (
+            f"{len(labels)} {localized} terkait langsung dengan {anchor['displayName']}:\n\n"
+            + "\n".join(f"{index}. {label}" for index, label in enumerate(labels, 1))
+            + "\n\nDaftar ini berdasarkan hubungan entitas, bukan kutipan artikel satu per satu."
+        )
+    else:
+        answer = (
+            f"{len(labels)} {heading.lower()} are directly related to "
+            f"{anchor['displayName']}:\n\n"
+            + "\n".join(f"{index}. {label}" for index, label in enumerate(labels, 1))
+            + "\n\nThis is a relationship-based roster rather than an article-by-article citation list."
+        )
     return {
         "answer": answer,
         "entities_resolved": [anchor["id"]],
@@ -649,7 +669,7 @@ def _direct_appointment_answer(question: str,
                                matches: list[dict[str, str]]) -> dict[str, Any] | None:
     appointment_matches = [item for item in matches if item["domain"] == "appointments"]
     if len(appointment_matches) != 1 or not re.search(
-        r"\b(current|who is)\b", question, re.IGNORECASE
+        r"\b(current|who is|siapa|saat ini)\b", normalize_match_text(question), re.IGNORECASE
     ):
         return None
     appointment = appointment_matches[0]
@@ -667,7 +687,11 @@ def _direct_appointment_answer(question: str,
             break
     office = re.sub(r"\[\[([^\]|]+)\|([^\]]+)\]\]", r"\2", _section(note, "Office"))
     office = re.sub(r"\[\[([^\]]+)\]\]", r"\1", office).strip()
-    answer = f"{holder_label} is the current {appointment['displayName']}."
+    answer = (
+        f"Pemegang jabatan {appointment['displayName']} saat ini adalah {holder_label}."
+        if question_language(question) == "ind"
+        else f"{holder_label} is the current {appointment['displayName']}."
+    )
     if office:
         answer += f" {office}"
     return {
@@ -1011,6 +1035,7 @@ def persist_answer(question: str, final: dict[str, Any]) -> dict[str, Any]:
     query_id = f"{_slugify(question)}-{hashlib.sha1(question.strip().encode('utf-8')).hexdigest()[:8]}"
     sensitive = bool(final.get("sensitive"))
     status = final.get("status", "answered")
+    answer_language = final.get("answerLanguage") or question_language(question)
     note = f"""---
 queryId: {query_id}
 query: {json.dumps(question, ensure_ascii=False)}
@@ -1018,6 +1043,8 @@ askedDate: {now.strftime('%Y-%m-%dT%H:%M:%S')}
 status: {status}
 reuseCount: 0
 timeSensitive: {str(bool(final.get('time_sensitive'))).lower()}
+questionLanguage: {question_language(question)}
+answerLanguage: {answer_language}
 procedureVersion: {_procedure_version()}
 tags: {"['#sensitive']" if sensitive else "[]"}
 ---
@@ -1235,10 +1262,16 @@ def _submit_answer_tool() -> dict[str, Any]:
     return next(tool for tool in build_tools(False) if tool["name"] == "submit_answer")
 
 
-def _fast_instructions() -> str:
+def _fast_instructions(answer_language: str = "eng") -> str:
     today = datetime.now().astimezone().strftime("%Y-%m-%d")
+    language_instruction = (
+        "Answer in Bahasa Indonesia. Preserve proper names and verbatim evidence in their source language. "
+        if answer_language == "ind"
+        else "Answer in English. Preserve proper names and verbatim evidence in their source language. "
+    )
     return (
-        "Answer one Indonesia-politics entity question from the supplied local evidence packet. "
+        language_instruction
+        + "Answer one Indonesia-politics entity question from the supplied local evidence packet. "
         f"Today's date is {today}. Use only the packet; never use outside knowledge or invent facts. "
         "Treat compiled summaries as synthesis backed by their Coverage evidence. For relationship "
         "questions, distinguish shared mentions from direct interaction. For negative questions, "
@@ -1280,7 +1313,7 @@ def _run_fast_model(api_key: str, model: str, question: str,
     response = _call_responses(
         api_key,
         model,
-        _fast_instructions(),
+        _fast_instructions(question_language(question)),
         input_items,
         [tool],
         reasoning_effort="low",
@@ -1370,6 +1403,9 @@ def _run_legacy_model(api_key: str, model: str, question: str,
     """Run the original procedure-driven multi-turn tool loop unchanged."""
     instructions = (
         _runtime_preamble(cache_read, cache_write)
+        + ("Answer in Bahasa Indonesia; preserve source-language quotations.\n\n"
+           if question_language(question) == "ind"
+           else "Answer in English; preserve source-language quotations.\n\n")
         + PROCEDURE_PATH.read_text(encoding="utf-8")
     )
     tools = build_tools(cache_read)
@@ -1433,11 +1469,18 @@ def run_query(question: str, cache_read: bool | None = None,
 
     read, write = resolve_flags(cache_read, cache_write)
     model = model or DEFAULT_MODEL
+    detected_language = question_language(question)
 
     if not _vault_has_queryable_data():
         return {
             "question": question,
-            "answer": "No matching data is available in the empty vault.",
+            "answer": (
+                "Tidak ada data yang cocok di wiki yang masih kosong."
+                if detected_language == "ind"
+                else "No matching data is available in the empty vault."
+            ),
+            "questionLanguage": detected_language,
+            "answerLanguage": detected_language,
             "status": "unresolved",
             "entities_resolved": [],
             "sources_cited": [],
@@ -1473,6 +1516,8 @@ def run_query(question: str, cache_read: bool | None = None,
     result: dict[str, Any] = {
         "question": question,
         "answer": (final.get("answer") or "").strip(),
+        "questionLanguage": detected_language,
+        "answerLanguage": final.get("answerLanguage") or detected_language,
         "status": final.get("status", "answered"),
         "entities_resolved": final.get("entities_resolved", []),
         "sources_cited": final.get("sources_cited", []),

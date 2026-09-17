@@ -306,7 +306,9 @@ def link_entities_in_article(text, slug_names, name_to_slug):
     cand = {s for s in article_related_slugs(text) if s in slug_names}
     prose_plain = FULL_LINK.sub("  ", "".join(text[s:e] for s, e in prose_spans))
     for name, slugs in name_to_slug.items():
-        if re.search(r"(?<!\w)" + re.escape(name) + r"(?!\w)", prose_plain):
+        if len(slugs) == 1 and re.search(
+            r"(?<!\w)" + re.escape(name) + r"(?!\w)", prose_plain, re.IGNORECASE
+        ):
             cand |= slugs
 
     # Link-on-first-mention: if an entity is already linked ANYWHERE in the note,
@@ -329,7 +331,7 @@ def link_entities_in_article(text, slug_names, name_to_slug):
     for surface, sl in surfaces:
         if sl in used:
             continue
-        pat = re.compile(r"(?<!\w)" + re.escape(surface) + r"(?!\w)")
+        pat = re.compile(r"(?<!\w)" + re.escape(surface) + r"(?!\w)", re.IGNORECASE)
         hit = None
         for s, e in prose_spans:
             for m in pat.finditer(text, s, e):

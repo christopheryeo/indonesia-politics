@@ -41,15 +41,17 @@ SYSTEM_FILES = {"index.md", "catalog.md", "log.md", "_template.md"}
 REGISTRY_FIELDS = {
     "type", "subtype", "domain", "status", "aliases", "owner", "created",
     "last_updated", "sourceId", "sourceUrl", "sourceType", "publishedDate",
-    "tone", "toneSentiment", "eventType", "coverageCount", "tags",
+    "language", "tone", "toneSentiment", "eventType", "coverageCount", "tags",
 }
-REQUIRED_VALUES = REGISTRY_FIELDS - {"aliases", "sourceUrl"}
+LEGACY_OPTIONAL_FIELDS = {"language"}
+REQUIRED_VALUES = REGISTRY_FIELDS - {"aliases", "sourceUrl", "language"}
 ENUMS = {
     "status": {"active", "superseded", "contested"},
     "sourceType": {"feed", "crawl"},
     "tone": {"Factual", "Opinionated"},
     "toneSentiment": {"Positive", "Neutral", "Negative"},
     "eventType": {"Facilitated", "Unfacilitated"},
+    "language": {"eng", "ind", "und"},
 }
 FIXED = {"type": "source", "subtype": "article", "domain": "Sources"}
 CORE_SECTIONS = ("Summary", "Key Points", "Covered By", "AI Context")
@@ -138,11 +140,13 @@ def finding(code: str, path: Path, message: str, severity: str = "error") -> dic
 def validate_note(path: Path, data: dict[str, Any], body: str) -> list[dict[str, str]]:
     out: list[dict[str, str]] = []
     unknown = sorted(set(data) - REGISTRY_FIELDS)
-    missing = sorted(REGISTRY_FIELDS - set(data))
+    missing = sorted((REGISTRY_FIELDS - LEGACY_OPTIONAL_FIELDS) - set(data))
     if unknown:
         out.append(finding("unknown-fields", path, ", ".join(unknown)))
     if missing:
         out.append(finding("missing-fields", path, ", ".join(missing)))
+    if "language" not in data:
+        out.append(finding("legacy-missing-language", path, "language is absent on a grandfathered note", severity="warning"))
     for key in sorted(REQUIRED_VALUES):
         if data.get(key) in (None, "", [], {}):
             out.append(finding("missing-value", path, key))
@@ -150,7 +154,7 @@ def validate_note(path: Path, data: dict[str, Any], body: str) -> list[dict[str,
         if data.get(key) != expected:
             out.append(finding("fixed-value", path, f"{key}={data.get(key)!r}; expected {expected!r}"))
     for key, allowed in ENUMS.items():
-        if data.get(key) not in allowed:
+        if key in data and data.get(key) not in allowed:
             out.append(finding("invalid-enum", path, f"{key}={data.get(key)!r}"))
     source_id = str(data.get("sourceId") or "")
     expected_id = expected_source_id(path, source_id)

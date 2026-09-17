@@ -84,9 +84,10 @@ def gen_article_catalog(domain_dir):
         published = scalar(fm.get("publishedDate"))
         status = scalar(fm.get("status", "active"))
         source_type = scalar(fm.get("sourceType"))
+        language = scalar(fm.get("language")) or "legacy/unknown"
         sentiment = scalar(fm.get("toneSentiment"))
         tags = scalar(fm.get("tags"))
-        rows.append((published, note_id, title, status, source_type, sentiment, tags, rel))
+        rows.append((published, note_id, title, language, status, source_type, sentiment, tags, rel))
     rows.sort(key=lambda r: r[0], reverse=True)
 
     lines = []
@@ -104,11 +105,11 @@ def gen_article_catalog(domain_dir):
     lines.append("")
     lines.append(f"**Note count:** {len(rows)} | **Last generated:** {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     lines.append("")
-    lines.append("| Published | ID | Title | Status | Source | Sentiment | Tags | File |")
-    lines.append("|---|---|---|---|---|---|---|---|")
-    for published, note_id, title, status, source_type, sentiment, tags, rel in rows:
+    lines.append("| Published | ID | Title | Language | Status | Source | Sentiment | Tags | File |")
+    lines.append("|---|---|---|---|---|---|---|---|---|")
+    for published, note_id, title, language, status, source_type, sentiment, tags, rel in rows:
         title_e = title.replace("|", "\\|")
-        lines.append(f"| {published} | {note_id} | {title_e} | {status} | {source_type} | {sentiment} | {tags} | [{rel}]({rel}) |")
+        lines.append(f"| {published} | {note_id} | {title_e} | {language} | {status} | {source_type} | {sentiment} | {tags} | [{rel}]({rel}) |")
     return "\n".join(lines) + "\n"
 
 

@@ -20,4 +20,5 @@ Countries referenced by monitored coverage.
 
 ## Operating rules
 
-Create countries through cascade, keep Coverage backlinks idempotent, and regenerate the catalog after changes.
+Create countries through cascade, use one stable country note for English and Bahasa exonyms, keep
+Coverage backlinks idempotent, and regenerate the catalog after changes.

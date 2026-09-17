@@ -148,6 +148,7 @@ def main() -> None:
     sentiments: Counter[str] = Counter()
     event_types: Counter[str] = Counter()
     source_types: Counter[str] = Counter()
+    languages: Counter[str] = Counter()
     tags: Counter[str] = Counter()
     weekdays: Counter[str] = Counter()
     links_by_domain: Counter[str] = Counter()
@@ -175,6 +176,9 @@ def main() -> None:
             event_types[str(meta["eventType"]).title()] += 1
             with_event += 1
         source_types[str(meta.get("sourceType") or "Unknown").title()] += 1
+        language = str(meta.get("language") or "legacy/unknown").lower()
+        language_label = {"eng": "English", "ind": "Bahasa Indonesia"}.get(language, "Unknown")
+        languages[language_label] += 1
         if meta.get("sourceUrl"):
             with_url += 1
         coverage_total += int(numeric(meta.get("coverageCount"), 1))
@@ -185,8 +189,11 @@ def main() -> None:
             tag = str(tag).lstrip("#").strip()
             if tag and tag != "source":
                 tags[tag] += 1
-        for target in re.findall(r"\[\[([^\]|/#]+)(?:\|[^\]]+)?\]\]", body):
-            domain = filename_domain.get(target)
+        # Canonical vault links are path-qualified and piped, e.g.
+        # [[country/indonesia|Indonesia]]. Resolve on the final path segment so
+        # both qualified and bare targets are counted.
+        for target in re.findall(r"\[\[([^\]|#]+)(?:#[^\]|]*)?(?:\|[^\]]*)?\]\]", body):
+            domain = filename_domain.get(target.strip().split("/")[-1])
             if domain:
                 links_by_domain[domain] += 1
         if raw_date:
@@ -286,6 +293,7 @@ def main() -> None:
         "sentiments": [{"name": name, "count": count} for name, count in sentiments.most_common()],
         "eventTypes": [{"name": name, "count": count} for name, count in event_types.most_common()],
         "sourceTypes": [{"name": name, "count": count} for name, count in source_types.most_common()],
+        "languages": [{"name": name, "count": count} for name, count in languages.most_common()],
         "entityComposition": entity_composition,
         "top": {
             "countries": top_entities("country", 10),

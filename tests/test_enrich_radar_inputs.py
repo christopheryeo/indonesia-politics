@@ -50,13 +50,41 @@ class RadarInputEnrichmentTests(unittest.TestCase):
         review = self.classification()
         result = ENRICH.consensus(primary, review, 0.82, {"AI Safety"})
         self.assertTrue(result["autoApplicable"]["tone"])
+        self.assertTrue(result["autoApplicable"]["topic"])
+        self.assertTrue(result["autoApplicable"]["toneSentiment"])
         self.assertTrue(result["autoApplicable"]["eventType"])
         self.assertEqual(result["issueTags"], ["AI Safety"])
+        self.assertEqual(result["outletLocationValidation"]["status"], "validated")
 
         review["tone"] = "Factual"
         result = ENRICH.consensus(primary, review, 0.82, {"AI Safety"})
         self.assertFalse(result["autoApplicable"]["tone"])
         self.assertIsNone(result["tone"])
+
+    def test_location_validation_blocks_supplied_country_conflict(self):
+        primary = self.classification()
+        review = self.classification()
+        result = ENRICH.consensus(
+            primary, review, 0.82, {"AI Safety"}, supplied_country="Indonesia",
+        )
+        self.assertEqual(result["outletLocationValidation"]["status"], "conflict")
+        self.assertFalse(result["autoApplicable"]["metadata"])
+        self.assertTrue(result["reviewRequired"])
+
+    def test_location_validation_blocks_low_confidence(self):
+        primary = self.classification()
+        review = self.classification()
+        primary["metadata_confidence"] = 0.60
+        result = ENRICH.consensus(primary, review, 0.82, {"AI Safety"})
+        self.assertEqual(result["outletLocationValidation"]["status"], "unverified")
+        self.assertFalse(result["autoApplicable"]["metadata"])
+
+    def test_bahasa_tag_shortlist_uses_canonical_english_tag(self):
+        inventory = [("Corruption", "corruption", 20)]
+        self.assertEqual(
+            ENRICH.shortlist_tags("Penyelidikan kasus korupsi sedang berlangsung.", inventory),
+            ["Corruption"],
+        )
 
     def test_apply_only_writes_registered_fields(self):
         lines = [
@@ -70,13 +98,18 @@ class RadarInputEnrichmentTests(unittest.TestCase):
             "coverageCount: 1",
         ]
         result = {
+            "topic": "AI safety governance",
             "tone": "Opinionated",
+            "toneSentiment": "Positive",
             "eventType": "Facilitated",
             "issueTags": ["AI Safety"],
             "outletName": "Example News",
             "outletCountry": "Singapore",
             "institutionalCategory": "National Security",
-            "autoApplicable": {"tone": True, "eventType": True, "metadata": True, "tags": True},
+            "autoApplicable": {
+                "topic": True, "tone": True, "toneSentiment": True,
+                "eventType": True, "metadata": True, "tags": True,
+            },
         }
         with tempfile.TemporaryDirectory() as folder:
             path = pathlib.Path(folder) / "article.md"
@@ -85,21 +118,31 @@ class RadarInputEnrichmentTests(unittest.TestCase):
             text = path.read_text(encoding="utf-8")
         self.assertEqual(
             changed,
-            ["category", "countries", "coverageCount", "eventType", "outlets", "tags", "tone"],
+            [
+                "category", "countries", "coverageCount", "eventType", "outlets", "tags",
+                "tone", "toneSentiment", "topic",
+            ],
         )
         self.assertIn("tone: 'Opinionated'", text)
+        self.assertIn("toneSentiment: 'Positive'", text)
+        self.assertIn("topic: 'AI safety governance'", text)
         self.assertIn("tags: ['AI Safety']", text)
         self.assertNotIn("confidence", text)
 
     def test_apply_assessment_deduplicates_articles_across_files(self):
         result = {
+            "topic": "AI safety governance",
             "tone": "Opinionated",
+            "toneSentiment": "Positive",
             "eventType": "Facilitated",
             "issueTags": ["AI Safety"],
             "outletName": "Example News",
             "outletCountry": "Singapore",
             "institutionalCategory": "National Security",
-            "autoApplicable": {"tone": True, "eventType": True, "metadata": True, "tags": True},
+            "autoApplicable": {
+                "topic": True, "tone": True, "toneSentiment": True,
+                "eventType": True, "metadata": True, "tags": True,
+            },
         }
         with tempfile.TemporaryDirectory() as folder:
             relative = pathlib.Path(folder) / "article.md"
@@ -131,9 +174,15 @@ class RadarInputEnrichmentTests(unittest.TestCase):
     @staticmethod
     def classification():
         return {
+            "topic_label": "AI safety governance",
+            "topic_confidence": 0.92,
+            "topic_evidence": ["AI safety regulation"],
             "tone": "Opinionated",
             "tone_confidence": 0.93,
             "tone_evidence": ["The author argues"],
+            "tone_sentiment": "Positive",
+            "sentiment_confidence": 0.90,
+            "sentiment_evidence": ["welcomed the safeguards"],
             "event_type": "Facilitated",
             "event_confidence": 0.91,
             "event_trigger": "scheduled report",

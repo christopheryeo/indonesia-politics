@@ -7,12 +7,13 @@ const number = new Intl.NumberFormat("en-SG");
 const compact = new Intl.NumberFormat("en-SG", { notation: "compact", maximumFractionDigits: 1 });
 
 type RankingKey = "countries" | "outlets" | "people" | "organizations" | "topics";
-type MixKey = "sentiments" | "eventTypes" | "sourceTypes";
+type MixKey = "sentiments" | "eventTypes" | "sourceTypes" | "languages";
 
 const mixLabels: Record<MixKey, string> = {
   sentiments: "Sentiment",
   eventTypes: "Event type",
   sourceTypes: "Source",
+  languages: "Language",
 };
 
 const statusOrder: Record<string, number> = { hot: 3, warm: 2, watch: 1, closed: 0, dismissed: 0 };

@@ -22,4 +22,6 @@ Political parties, public bodies, companies, civil-society groups, and other org
 
 ## Operating rules
 
-Use canonical names, preserve aliases, maintain idempotent Coverage backlinks, and regenerate the catalog after changes.
+Use official Indonesian display names for Indonesian bodies and established English names for
+international bodies. Preserve stable filenames and register reviewed English and Bahasa forms as
+aliases. Maintain idempotent Coverage backlinks and regenerate the catalog after changes.

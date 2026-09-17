@@ -227,7 +227,9 @@ def find_unlinked_entities(scan_notes, name_to_slug):
         for name, slugs in name_to_slug.items():
             if slugs & linked or name in seen:
                 continue
-            if re.search(r"(?<!\w)" + re.escape(name) + r"(?!\w)", plain):
+            if len(slugs) != 1:
+                continue  # ambiguous bilingual alias: never suggest an automatic target
+            if re.search(r"(?<!\w)" + re.escape(name) + r"(?!\w)", plain, re.IGNORECASE):
                 seen.add(name)
                 findings.append((path, name, sorted(slugs)[0]))
     return findings

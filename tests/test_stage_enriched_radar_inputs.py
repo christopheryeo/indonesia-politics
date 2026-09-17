@@ -23,12 +23,19 @@ CASCADE = load_script("ingest_cascade")
 
 
 class EnrichedRadarStagerTests(unittest.TestCase):
+    def test_phase4_duplicate_check_is_collation_explicit(self):
+        sql = STAGER.phase4_transform_sql("batch", "transform")
+        self.assertIn("SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci;", sql)
+        self.assertIn("u.`vendor_article_id` COLLATE utf8mb4_unicode_ci", sql)
+        self.assertIn("a.`vendor_article_id` COLLATE utf8mb4_unicode_ci", sql)
+
     def article(self, article_id, title):
         return (
             "---\n"
             f"articleId: '{article_id}'\n"
             f"articleTitle: '{title}'\n"
             "publishedDate: '2026-07-23T07:29:40.852Z'\n"
+            "language: 'eng'\n"
             "category: 'Multilateral Relations'\n"
             f"topic: '{title}'\n"
             "tone: 'Factual'\n"
@@ -46,7 +53,9 @@ class EnrichedRadarStagerTests(unittest.TestCase):
 
     def assessment(self, article_id, ready=True):
         auto = {
+            "topic": True,
             "tone": True,
+            "toneSentiment": True,
             "eventType": ready,
             "metadata": True,
             "tags": True,
@@ -54,12 +63,22 @@ class EnrichedRadarStagerTests(unittest.TestCase):
         return {
             "articleId": article_id,
             "consensus": {
+                "topic": "AI safety governance",
                 "tone": "Factual",
+                "toneSentiment": "Neutral",
                 "eventType": "Facilitated",
                 "issueTags": ["AI Safety"],
                 "outletName": "Example News",
                 "outletCountry": "Singapore",
                 "institutionalCategory": "Non-institutional",
+                "outletLocationValidation": {
+                    "status": "validated",
+                    "country": "Singapore",
+                    "method": "two-pass-enrichment-consensus",
+                    "confidence": 0.9,
+                    "reviewRequired": False,
+                    "reviewReasons": [],
+                },
                 "autoApplicable": auto,
                 "reviewRequired": not ready,
                 "reviewReasons": [] if ready else ["event-type disagreement or low confidence"],
@@ -134,7 +153,10 @@ class EnrichedRadarStagerTests(unittest.TestCase):
                     "approvedBy": "reviewer",
                     "approvedAt": "2026-07-23T17:00:00+08:00",
                     "fields": {
+                        "language": "eng",
+                        "topic": "AI safety governance",
                         "tone": "Factual",
+                        "toneSentiment": "Neutral",
                         "eventType": "Facilitated",
                         "tags": ["AI Safety"],
                         "outletName": "Example News",
@@ -151,6 +173,39 @@ class EnrichedRadarStagerTests(unittest.TestCase):
             )
             self.assertEqual(manifest["counts"]["readyArticles"], 2)
             self.assertEqual(manifest["counts"].get("reviewArticles", 0), 0)
+
+    def test_missing_publisher_location_validation_is_held(self):
+        assessment = self.assessment("art_alpha", True)
+        assessment["consensus"].pop("outletLocationValidation")
+        _, problems = STAGER.assessment_state(
+            "art_alpha",
+            {
+                "tone": "Factual",
+                "eventType": "Facilitated",
+                "tags": ["AI Safety"],
+                "outlets": ["example-news"],
+                "countries": ["Singapore"],
+                "category": "Government",
+            },
+            assessment,
+            None,
+        )
+        self.assertIn("PUBLISHER_LOCATION_NOT_VALIDATED", {item["rule"] for item in problems})
+
+    def test_und_language_is_held_even_when_enrichment_is_ready(self):
+        assessment = self.assessment("art_alpha", True)
+        _, problems = STAGER.assessment_state(
+            "art_alpha",
+            {
+                "language": "und", "topic": "AI safety governance", "tone": "Factual",
+                "toneSentiment": "Neutral", "eventType": "Facilitated",
+                "tags": ["AI Safety"], "outlets": ["example-news"],
+                "countries": ["Singapore"], "category": "Government",
+            },
+            assessment,
+            None,
+        )
+        self.assertIn("language", {item["field"] for item in problems})
 
     def test_compiled_article_body_preserves_exact_issue_tags(self):
         self.assertEqual(

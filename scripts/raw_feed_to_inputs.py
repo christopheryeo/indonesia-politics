@@ -31,6 +31,12 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+SCRIPT_DIR = Path(__file__).resolve().parent
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
+
+from language_support import normalize_language
+
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW_FEED_DIR = ROOT / "raw" / "feed data"
@@ -192,6 +198,7 @@ def render_note(record: dict[str, Any]) -> str:
         f"articleId: {yaml_quote(record.get('articleId'))}",
         f"articleTitle: {yaml_quote(title)}",
         f"publishedDate: {yaml_quote(record.get('publishedDate'))}",
+        f"language: {yaml_quote(normalize_language(record.get('language') or record.get('lang')))}",
         f"category: {yaml_quote(record.get('category') or '')}",
         f"topic: {yaml_quote(record.get('topic') or '')}",
         f"tone: {yaml_quote(record.get('tone') or '')}",
@@ -316,6 +323,10 @@ def process_file(path: Path, write: bool, overwrite: bool) -> tuple[Counter[str]
 
     for record, target in zip(records, targets):
         counts[f"month:{target.month}"] += 1
+        language = normalize_language(record.get("language") or record.get("lang"))
+        counts[f"language:{language}"] += 1
+        if language == "und":
+            counts["language_holds"] += 1
         if target.input_path.exists() and not overwrite:
             counts["existing_inputs"] += 1
             continue

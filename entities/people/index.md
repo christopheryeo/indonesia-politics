@@ -23,4 +23,5 @@ Named individuals referenced by monitored coverage.
 
 ## Operating rules
 
-Disambiguate people before creation, preserve aliases and dated roles, maintain Coverage backlinks, and regenerate the catalog after changes.
+Disambiguate people before creation, preserve English and Bahasa title/name variants as reviewed
+aliases, and never infer identity or country from language. Maintain Coverage backlinks and regenerate the catalog.
