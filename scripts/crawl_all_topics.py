@@ -13,6 +13,7 @@ import datetime as dt
 import hashlib
 import json
 import pathlib
+import re
 import subprocess
 import sys
 import urllib.request
@@ -55,7 +56,43 @@ def batch_slugs(batches_file: pathlib.Path, batch_id: str) -> list[str]:
     raise SystemExit(f"unknown batch {batch_id!r}; available batches: {available}")
 
 
-def request_articles(key: str, query: str, language: str, start: str, end: str) -> list[dict]:
+# Low-value connective tokens dropped before building an AND keyword list, so a
+# multi-word analytical alias matches on its content terms rather than as an exact
+# contiguous phrase (which NewsAPI.ai's keyword param requires and which returns
+# nothing for long titles). English and Bahasa Indonesia function words.
+STOPWORDS = {
+    "and", "or", "the", "a", "an", "of", "in", "on", "at", "to", "for", "by", "with",
+    "as", "into", "from", "after", "over", "amid", "s",
+    "dan", "atau", "di", "ke", "dari", "yang", "untuk", "pada", "dalam", "atas",
+    "terhadap", "sebagai", "oleh", "dengan",
+}
+
+# Temporal / ordinal descriptors: the crawl already bounds the date range, so these
+# only over-constrain an AND keyword query without adding topical precision.
+TEMPORAL = {
+    "first", "second", "third", "fourth", "half", "quarter", "semester",
+    "pertama", "kedua", "ketiga", "triwulan", "kuartal",
+}
+
+
+def tokenize_alias(alias: str) -> list[str]:
+    """Split an alias into query tokens: content words plus acronyms, stopwords removed.
+
+    A single surviving token is queried as-is (unchanged behaviour for broad
+    single-word topics); multiple tokens are AND-ed via keywordOper so the alias
+    matches articles containing all its terms without demanding an exact phrase.
+    """
+    raw = re.findall(r"[0-9A-Za-z]+", alias)
+    tokens = [
+        t for t in raw
+        if not t.isdigit()                       # dates are bounded by the crawl range, not keywords
+        and t.lower() not in TEMPORAL             # ordinals/periods over-constrain an AND query
+        and (t.upper() == t or (t.lower() not in STOPWORDS and len(t) >= 3))
+    ]
+    return tokens or [t for t in raw if not t.isdigit()] or raw
+
+
+def request_articles(key: str, query, language: str, start: str, end: str) -> list[dict]:
     payload = {
         "action": "getArticles",
         "keyword": query,
@@ -65,8 +102,15 @@ def request_articles(key: str, query: str, language: str, start: str, end: str) 
         "articlesPage": 1,
         "articlesCount": 50,
         "includeSourceLocation": True,
+        # Server-side restrict to Indonesia-located sources. This mirrors the
+        # client-side valid() acceptance criterion, so it drops nothing that would
+        # have been accepted, but returns mostly-usable candidates per call instead
+        # of fetching 50 and rejecting the ~90% that are not Indonesia-sourced.
+        "sourceLocationUri": "http://en.wikipedia.org/wiki/Indonesia",
         "apiKey": key,
     }
+    if isinstance(query, list) and len(query) > 1:
+        payload["keywordOper"] = "and"
     request = urllib.request.Request(
         "https://eventregistry.org/api/v1/article/getArticles",
         data=json.dumps(payload).encode(),
@@ -81,7 +125,14 @@ def request_articles(key: str, query: str, language: str, start: str, end: str) 
 
 def country(article: dict) -> str:
     location = (article.get("source") or {}).get("location") or {}
-    label = location.get("label") or {}
+    # A "place" location (city/province, e.g. Jakarta, Bengkulu) carries its nation
+    # under `country`; a "country" location carries it directly on `label`. Resolve
+    # either shape to the nation, so city-datelined Indonesian outlets (Antara
+    # regional, Media Indonesia, Okezone) are not wrongly rejected as non-Indonesia.
+    if str(location.get("type")) == "place":
+        label = (location.get("country") or {}).get("label") or {}
+    else:
+        label = location.get("label") or {}
     return str(label.get("eng") or "").strip()
 
 
@@ -122,7 +173,7 @@ def main() -> int:
     parser.add_argument("--date-start", required=True, type=dt.date.fromisoformat)
     parser.add_argument("--date-end", required=True, type=dt.date.fromisoformat)
     parser.add_argument("--target", type=int, default=20)
-    parser.add_argument("--query-limit", type=int, default=3)
+    parser.add_argument("--query-limit", type=int, default=5)
     parser.add_argument("--config", type=pathlib.Path, default=ROOT / ".env.local")
     parser.add_argument("--run-root", type=pathlib.Path, default=ROOT / "runs" / "2026-09-07" / "artifacts" / "topic-crawls" / "all-61-topics")
     parser.add_argument("--batch", help="Batch id from --batches-file to crawl (e.g. B1); default crawls every active topic")
@@ -149,19 +200,25 @@ def main() -> int:
         run.mkdir(parents=True, exist_ok=True)
         aliases = [str(topic.get("displayName") or "").strip()]
         aliases.extend(str(x).strip() for x in topic.get("aliases") or [])
-        queries = list(dict.fromkeys(x for x in aliases if x))[:args.query_limit]
+        labels = list(dict.fromkeys(x for x in aliases if x))[:args.query_limit]
+        # Query each alias by its content tokens (AND-ed) rather than as an exact
+        # phrase; a single token collapses to the previous single-keyword behaviour.
+        queries = []
+        for label in labels:
+            tokens = tokenize_alias(label)
+            queries.append((label, tokens[0] if len(tokens) == 1 else tokens))
         accepted, disposition, searches = [], [], []
-        for query in queries:
+        for label, keyword in queries:
             if len(accepted) >= args.target:
                 break
             for language in ("ind", "eng"):
                 if len(accepted) >= args.target:
                     break
                 try:
-                    results = request_articles(key, query, language, start.isoformat(), end.isoformat())
-                    searches.append({"query": query, "language": language, "candidates": len(results)})
+                    results = request_articles(key, keyword, language, start.isoformat(), end.isoformat())
+                    searches.append({"query": label, "keyword": keyword, "language": language, "candidates": len(results)})
                 except Exception as exc:  # record an endpoint failure per query; continue other lanes
-                    searches.append({"query": query, "language": language, "error": str(exc)})
+                    searches.append({"query": label, "keyword": keyword, "language": language, "error": str(exc)})
                     continue
                 for article in results:
                     ok, reason = valid(article, start, end)

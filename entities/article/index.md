@@ -35,14 +35,15 @@ Compiled media notes that have completed the entity cascade. Raw inputs remain u
 
 ## Cascade status
 
-**Last counted:** 2026-08-13 (22-article full-folder batch from `Inputs/articles/2026-07/`; see note below)
+**Last counted:** 2026-09-18 (72-article full-folder batch from `Inputs/articles/2026-09/`; see note below)
 
 | Month | Cascaded | Inputs remaining | Total | % cascaded |
 |---|---:|---:|---:|---:|
 | 2026-05 | 1 | 0 | 1 | 100.0% |
 | 2026-06 | 5 | 0 | 5 | 100.0% |
-| 2026-07 | 202 | 0 | 202 | 100.0% |
-| 2026-08 | 42 | 0 | 42 | 100.0% |
-| **Total** | **250** | **0** | **250** | **100.0%** |
+| 2026-07 | 205 | 0 | 205 | 100.0% |
+| 2026-08 | 231 | 0 | 231 | 100.0% |
+| 2026-09 | 1,206 | 0 | 1,206 | 100.0% |
+| **Total** | **1,648** | **0** | **1,648** | **100.0%** |
 
-Note: Counts are recomputed from `Inputs/articles/` and `entities/article/` on every cascade run, not accreted from batch receipts. Last run 2026-08-13: 22 file(s) from `Inputs/articles/2026-07/`; all input folders are empty. Per-batch history is in `log.md`.
+Note: Counts are recomputed from `Inputs/articles/` and `entities/article/` on every cascade run, not accreted from batch receipts. Last run 2026-09-18: 72 file(s) from `Inputs/articles/2026-09/`; all input folders are empty. Per-batch history is in `log.md`.

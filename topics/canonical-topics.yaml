@@ -1,7 +1,7 @@
 schemaVersion: indonesia-politics-canonical-topics.v1
 maximumActiveTopics: 90
 assignmentLimit: 3
-updated: '2026-09-17'
+updated: '2026-09-18'
 scope:
   domain: Indonesian politics
   regions:
@@ -15,10 +15,17 @@ topics:
   category: Imported article topic
   aliases:
   - Amahami Beach reclamation prosecution
+  - reklamasi Amahami korupsi
+  - reklamasi Pantai Amahami
+  - Amahami
   keywords:
   - Amahami Beach reclamation prosecution
+  - reklamasi Amahami korupsi
+  - reklamasi Pantai Amahami
+  - Amahami
   definition: Monitors Indonesian political reporting materially related to Amahami Beach reclamation prosecution.
-  crawlPrompt: ("Amahami Beach reclamation prosecution") AND Indonesia
+  crawlPrompt: ("Amahami Beach reclamation prosecution" OR "reklamasi Amahami korupsi" OR "reklamasi Pantai Amahami" OR "Amahami")
+    AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -28,11 +35,18 @@ topics:
   category: Imported article topic
   aliases:
   - AMPI leadership reshuffle and internal governance dispute
+  - AMPI musyawarah
+  - AMPI kepengurusan
+  - Angkatan Muda Pembaharuan Indonesia
   keywords:
   - AMPI leadership reshuffle and internal governance dispute
+  - AMPI musyawarah
+  - AMPI kepengurusan
+  - Angkatan Muda Pembaharuan Indonesia
   definition: Monitors Indonesian political reporting materially related to AMPI leadership reshuffle and internal governance
     dispute.
-  crawlPrompt: ("AMPI leadership reshuffle and internal governance dispute") AND Indonesia
+  crawlPrompt: ("AMPI leadership reshuffle and internal governance dispute" OR "AMPI musyawarah" OR "AMPI kepengurusan" OR
+    "Angkatan Muda Pembaharuan Indonesia") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -67,14 +81,21 @@ topics:
   - Attorney General's Office leadership, prosecution reform, and personnel reshuffles
   - Kejaksaan Agung kepemimpinan dan reformasi penuntutan
   - mutasi dan rotasi jaksa
+  - Jaksa Agung reformasi
+  - Kejaksaan Agung mutasi
+  - mutasi Kejagung
   keywords:
   - Attorney General's Office leadership, prosecution reform, and personnel reshuffles
   - Kejaksaan Agung kepemimpinan dan reformasi penuntutan
   - mutasi dan rotasi jaksa
+  - Jaksa Agung reformasi
+  - Kejaksaan Agung mutasi
+  - mutasi Kejagung
   definition: Monitors Indonesian political reporting materially related to Attorney General's Office leadership, prosecution
     reform, and personnel reshuffles.
   crawlPrompt: ("Attorney General's Office leadership, prosecution reform, and personnel reshuffles" OR "Kejaksaan Agung kepemimpinan
-    dan reformasi penuntutan" OR "mutasi dan rotasi jaksa") AND Indonesia
+    dan reformasi penuntutan" OR "mutasi dan rotasi jaksa" OR "Jaksa Agung reformasi" OR "Kejaksaan Agung mutasi" OR "mutasi
+    Kejagung") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -84,10 +105,17 @@ topics:
   category: Imported article topic
   aliases:
   - Bangka Belitung deputy governor diploma case
+  - Bangka Belitung ijazah
+  - ijazah palsu gubernur
+  - wakil gubernur Bangka Belitung ijazah
   keywords:
   - Bangka Belitung deputy governor diploma case
+  - Bangka Belitung ijazah
+  - ijazah palsu gubernur
+  - wakil gubernur Bangka Belitung ijazah
   definition: Monitors Indonesian political reporting materially related to Bangka Belitung deputy governor diploma case.
-  crawlPrompt: ("Bangka Belitung deputy governor diploma case") AND Indonesia
+  crawlPrompt: ("Bangka Belitung deputy governor diploma case" OR "Bangka Belitung ijazah" OR "ijazah palsu gubernur" OR "wakil
+    gubernur Bangka Belitung ijazah") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -97,10 +125,17 @@ topics:
   category: Imported article topic
   aliases:
   - Bank Indonesia social program corruption probe
+  - Bank Indonesia korupsi bansos
+  - dana CSR Bank Indonesia korupsi
+  - korupsi program sosial Bank Indonesia
   keywords:
   - Bank Indonesia social program corruption probe
+  - Bank Indonesia korupsi bansos
+  - dana CSR Bank Indonesia korupsi
+  - korupsi program sosial Bank Indonesia
   definition: Monitors Indonesian political reporting materially related to Bank Indonesia social program corruption probe.
-  crawlPrompt: ("Bank Indonesia social program corruption probe") AND Indonesia
+  crawlPrompt: ("Bank Indonesia social program corruption probe" OR "Bank Indonesia korupsi bansos" OR "dana CSR Bank Indonesia
+    korupsi" OR "korupsi program sosial Bank Indonesia") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -110,11 +145,18 @@ topics:
   category: Imported article topic
   aliases:
   - Batang policy on retaining low-enrolment public schools
+  - Batang sekolah negeri
+  - sekolah sepi peminat
+  - Batang sekolah
   keywords:
   - Batang policy on retaining low-enrolment public schools
+  - Batang sekolah negeri
+  - sekolah sepi peminat
+  - Batang sekolah
   definition: Monitors Indonesian political reporting materially related to Batang policy on retaining low-enrolment public
     schools.
-  crawlPrompt: ("Batang policy on retaining low-enrolment public schools") AND Indonesia
+  crawlPrompt: ("Batang policy on retaining low-enrolment public schools" OR "Batang sekolah negeri" OR "sekolah sepi peminat"
+    OR "Batang sekolah") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -124,11 +166,20 @@ topics:
   category: Imported article topic
   aliases:
   - BGN meal-program governance and conflict-of-interest scrutiny
+  - Badan Gizi Nasional korupsi
+  - makan bergizi gratis korupsi
+  - MBG korupsi
+  - BGN konflik kepentingan
   keywords:
   - BGN meal-program governance and conflict-of-interest scrutiny
+  - Badan Gizi Nasional korupsi
+  - makan bergizi gratis korupsi
+  - MBG korupsi
+  - BGN konflik kepentingan
   definition: Monitors Indonesian political reporting materially related to BGN meal-program governance and conflict-of-interest
     scrutiny.
-  crawlPrompt: ("BGN meal-program governance and conflict-of-interest scrutiny") AND Indonesia
+  crawlPrompt: ("BGN meal-program governance and conflict-of-interest scrutiny" OR "Badan Gizi Nasional korupsi" OR "makan
+    bergizi gratis korupsi" OR "MBG korupsi" OR "BGN konflik kepentingan") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -180,11 +231,18 @@ topics:
   category: Imported article topic
   aliases:
   - Coal-corruption investigation linked to electricity outages
+  - korupsi batu bara listrik
+  - tata niaga batu bara korupsi
+  - korupsi batu bara
   keywords:
   - Coal-corruption investigation linked to electricity outages
+  - korupsi batu bara listrik
+  - tata niaga batu bara korupsi
+  - korupsi batu bara
   definition: Monitors Indonesian political reporting materially related to Coal-corruption investigation linked to electricity
     outages.
-  crawlPrompt: ("Coal-corruption investigation linked to electricity outages") AND Indonesia
+  crawlPrompt: ("Coal-corruption investigation linked to electricity outages" OR "korupsi batu bara listrik" OR "tata niaga
+    batu bara korupsi" OR "korupsi batu bara") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -209,10 +267,17 @@ topics:
   category: Imported article topic
   aliases:
   - Constitutional scrutiny of BPKP audit methodology
+  - BPKP metode audit
+  - uji materi BPKP
+  - metodologi audit BPKP
   keywords:
   - Constitutional scrutiny of BPKP audit methodology
+  - BPKP metode audit
+  - uji materi BPKP
+  - metodologi audit BPKP
   definition: Monitors Indonesian political reporting materially related to Constitutional scrutiny of BPKP audit methodology.
-  crawlPrompt: ("Constitutional scrutiny of BPKP audit methodology") AND Indonesia
+  crawlPrompt: ("Constitutional scrutiny of BPKP audit methodology" OR "BPKP metode audit" OR "uji materi BPKP" OR "metodologi
+    audit BPKP") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -257,11 +322,18 @@ topics:
   category: Imported article topic
   aliases:
   - Danantara participation in financial stability policy
+  - Danantara stabilitas sistem keuangan
+  - Danantara KSSK
+  - Danantara stabilitas keuangan
   keywords:
   - Danantara participation in financial stability policy
+  - Danantara stabilitas sistem keuangan
+  - Danantara KSSK
+  - Danantara stabilitas keuangan
   definition: Monitors Indonesian political reporting materially related to Danantara participation in financial stability
     policy.
-  crawlPrompt: ("Danantara participation in financial stability policy") AND Indonesia
+  crawlPrompt: ("Danantara participation in financial stability policy" OR "Danantara stabilitas sistem keuangan" OR "Danantara
+    KSSK" OR "Danantara stabilitas keuangan") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -271,10 +343,17 @@ topics:
   category: Imported article topic
   aliases:
   - Danantara role in financial stability oversight
+  - Danantara pengawasan keuangan
+  - Danantara stabilitas sistem
+  - Danantara OJK
   keywords:
   - Danantara role in financial stability oversight
+  - Danantara pengawasan keuangan
+  - Danantara stabilitas sistem
+  - Danantara OJK
   definition: Monitors Indonesian political reporting materially related to Danantara role in financial stability oversight.
-  crawlPrompt: ("Danantara role in financial stability oversight") AND Indonesia
+  crawlPrompt: ("Danantara role in financial stability oversight" OR "Danantara pengawasan keuangan" OR "Danantara stabilitas
+    sistem" OR "Danantara OJK") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -284,11 +363,18 @@ topics:
   category: Imported article topic
   aliases:
   - Direct local election legitimacy after Constitutional Court ruling
+  - putusan MK pilkada
+  - legitimasi pilkada
+  - pilkada langsung MK
   keywords:
   - Direct local election legitimacy after Constitutional Court ruling
+  - putusan MK pilkada
+  - legitimasi pilkada
+  - pilkada langsung MK
   definition: Monitors Indonesian political reporting materially related to Direct local election legitimacy after Constitutional
     Court ruling.
-  crawlPrompt: ("Direct local election legitimacy after Constitutional Court ruling") AND Indonesia
+  crawlPrompt: ("Direct local election legitimacy after Constitutional Court ruling" OR "putusan MK pilkada" OR "legitimasi
+    pilkada" OR "pilkada langsung MK") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -332,11 +418,18 @@ topics:
   category: Imported article topic
   aliases:
   - Equitable business financing for Indonesia Emas 2045
+  - pembiayaan Indonesia Emas 2045
+  - pembiayaan UMKM berkeadilan
+  - pembiayaan usaha berkeadilan
   keywords:
   - Equitable business financing for Indonesia Emas 2045
+  - pembiayaan Indonesia Emas 2045
+  - pembiayaan UMKM berkeadilan
+  - pembiayaan usaha berkeadilan
   definition: Monitors Indonesian political reporting materially related to Equitable business financing for Indonesia Emas
     2045.
-  crawlPrompt: ("Equitable business financing for Indonesia Emas 2045") AND Indonesia
+  crawlPrompt: ("Equitable business financing for Indonesia Emas 2045" OR "pembiayaan Indonesia Emas 2045" OR "pembiayaan
+    UMKM berkeadilan" OR "pembiayaan usaha berkeadilan") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -346,10 +439,17 @@ topics:
   category: Imported article topic
   aliases:
   - Febrie Adriansyah money-laundering investigation
+  - Febrie Adriansyah
+  - pencucian uang Febrie
+  - TPPU Febrie
   keywords:
   - Febrie Adriansyah money-laundering investigation
+  - Febrie Adriansyah
+  - pencucian uang Febrie
+  - TPPU Febrie
   definition: Monitors Indonesian political reporting materially related to Febrie Adriansyah money-laundering investigation.
-  crawlPrompt: ("Febrie Adriansyah money-laundering investigation") AND Indonesia
+  crawlPrompt: ("Febrie Adriansyah money-laundering investigation" OR "Febrie Adriansyah" OR "pencucian uang Febrie" OR "TPPU
+    Febrie") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -359,10 +459,17 @@ topics:
   category: Imported article topic
   aliases:
   - Fortified-rice procurement investigation
+  - pengadaan beras fortifikasi
+  - fortifikasi beras korupsi
+  - beras fortifikasi
   keywords:
   - Fortified-rice procurement investigation
+  - pengadaan beras fortifikasi
+  - fortifikasi beras korupsi
+  - beras fortifikasi
   definition: Monitors Indonesian political reporting materially related to Fortified-rice procurement investigation.
-  crawlPrompt: ("Fortified-rice procurement investigation") AND Indonesia
+  crawlPrompt: ("Fortified-rice procurement investigation" OR "pengadaan beras fortifikasi" OR "fortifikasi beras korupsi"
+    OR "beras fortifikasi") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -387,10 +494,17 @@ topics:
   category: Imported article topic
   aliases:
   - Government messaging about political disruption
+  - narasi pemerintah stabilitas
+  - pemerintah gangguan politik
+  - pemerintah stabilitas politik
   keywords:
   - Government messaging about political disruption
+  - narasi pemerintah stabilitas
+  - pemerintah gangguan politik
+  - pemerintah stabilitas politik
   definition: Monitors Indonesian political reporting materially related to Government messaging about political disruption.
-  crawlPrompt: ("Government messaging about political disruption") AND Indonesia
+  crawlPrompt: ("Government messaging about political disruption" OR "narasi pemerintah stabilitas" OR "pemerintah gangguan
+    politik" OR "pemerintah stabilitas politik") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -406,6 +520,19 @@ topics:
   - Kebijakan Pemerintah
   definition: Monitors Indonesian political reporting materially related to Government Policies.
   crawlPrompt: ("Government Policies" OR "Kebijakan Pemerintah") AND Indonesia
+  advisorySources: []
+  languages:
+  - eng
+  - ind
+- topicId: government
+  displayName: Government
+  category: Imported article topic
+  aliases:
+  - Government
+  keywords:
+  - Government
+  definition: Monitors Indonesian political reporting materially related to Government.
+  crawlPrompt: ("Government") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -430,11 +557,18 @@ topics:
   category: Imported article topic
   aliases:
   - Indonesian Gaza activists legal complaint against Israeli officials
+  - aktivis Gaza Indonesia
+  - gugatan pejabat Israel
+  - aktivis Indonesia Israel laporan
   keywords:
   - Indonesian Gaza activists legal complaint against Israeli officials
+  - aktivis Gaza Indonesia
+  - gugatan pejabat Israel
+  - aktivis Indonesia Israel laporan
   definition: Monitors Indonesian political reporting materially related to Indonesian Gaza activists legal complaint against
     Israeli officials.
-  crawlPrompt: ("Indonesian Gaza activists legal complaint against Israeli officials") AND Indonesia
+  crawlPrompt: ("Indonesian Gaza activists legal complaint against Israeli officials" OR "aktivis Gaza Indonesia" OR "gugatan
+    pejabat Israel" OR "aktivis Indonesia Israel laporan") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -487,10 +621,14 @@ topics:
   category: Imported article topic
   aliases:
   - Kaesang Pangarep parliamentary candidacy
+  - Kaesang Pangarep
+  - Kaesang DPR
   keywords:
   - Kaesang Pangarep parliamentary candidacy
+  - Kaesang Pangarep
+  - Kaesang DPR
   definition: Monitors Indonesian political reporting materially related to Kaesang Pangarep parliamentary candidacy.
-  crawlPrompt: ("Kaesang Pangarep parliamentary candidacy") AND Indonesia
+  crawlPrompt: ("Kaesang Pangarep parliamentary candidacy" OR "Kaesang Pangarep" OR "Kaesang DPR") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -503,15 +641,20 @@ topics:
   - Kejaksaan-Polri-KPK jurisdiction disputes
   - sengketa kewenangan Kejaksaan Polri KPK
   - pengambilalihan perkara KPK
+  - Kejagung Polri KPK perkara
+  - sengketa kewenangan penyidikan
   keywords:
   - Kejagung-Polri-KPK jurisdiction and case-transfer disputes
   - Kejaksaan-Polri-KPK jurisdiction disputes
   - sengketa kewenangan Kejaksaan Polri KPK
   - pengambilalihan perkara KPK
+  - Kejagung Polri KPK perkara
+  - sengketa kewenangan penyidikan
   definition: Monitors Indonesian political reporting materially related to Kejagung-Polri-KPK jurisdiction and case-transfer
     disputes.
   crawlPrompt: ("Kejagung-Polri-KPK jurisdiction and case-transfer disputes" OR "Kejaksaan-Polri-KPK jurisdiction disputes"
-    OR "sengketa kewenangan Kejaksaan Polri KPK" OR "pengambilalihan perkara KPK") AND Indonesia
+    OR "sengketa kewenangan Kejaksaan Polri KPK" OR "pengambilalihan perkara KPK" OR "Kejagung Polri KPK perkara" OR "sengketa
+    kewenangan penyidikan") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -521,11 +664,18 @@ topics:
   category: Imported article topic
   aliases:
   - KPK enforcement activity in the first half of 2026
+  - KPK penindakan
+  - KPK OTT
+  - operasi tangkap tangan KPK
   keywords:
   - KPK enforcement activity in the first half of 2026
+  - KPK penindakan
+  - KPK OTT
+  - operasi tangkap tangan KPK
   definition: Monitors Indonesian political reporting materially related to KPK enforcement activity in the first half of
     2026.
-  crawlPrompt: ("KPK enforcement activity in the first half of 2026") AND Indonesia
+  crawlPrompt: ("KPK enforcement activity in the first half of 2026" OR "KPK penindakan" OR "KPK OTT" OR "operasi tangkap
+    tangan KPK") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -550,11 +700,18 @@ topics:
   category: Imported article topic
   aliases:
   - Military involvement in law-enforcement institutional rivalry
+  - militer penegakan hukum
+  - keterlibatan militer penegakan hukum
+  - TNI Polri rivalitas
   keywords:
   - Military involvement in law-enforcement institutional rivalry
+  - militer penegakan hukum
+  - keterlibatan militer penegakan hukum
+  - TNI Polri rivalitas
   definition: Monitors Indonesian political reporting materially related to Military involvement in law-enforcement institutional
     rivalry.
-  crawlPrompt: ("Military involvement in law-enforcement institutional rivalry") AND Indonesia
+  crawlPrompt: ("Military involvement in law-enforcement institutional rivalry" OR "militer penegakan hukum" OR "keterlibatan
+    militer penegakan hukum" OR "TNI Polri rivalitas") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -622,10 +779,17 @@ topics:
   category: Imported article topic
   aliases:
   - National judicial ethics court proposal
+  - pengadilan etik hakim
+  - mahkamah etik
+  - peradilan etik hakim
   keywords:
   - National judicial ethics court proposal
+  - pengadilan etik hakim
+  - mahkamah etik
+  - peradilan etik hakim
   definition: Monitors Indonesian political reporting materially related to National judicial ethics court proposal.
-  crawlPrompt: ("National judicial ethics court proposal") AND Indonesia
+  crawlPrompt: ("National judicial ethics court proposal" OR "pengadilan etik hakim" OR "mahkamah etik" OR "peradilan etik
+    hakim") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -635,10 +799,17 @@ topics:
   category: Imported article topic
   aliases:
   - PDIP positioning as a government balancing party
+  - sikap politik PDIP
+  - PDIP oposisi
+  - PDIP penyeimbang
   keywords:
   - PDIP positioning as a government balancing party
+  - sikap politik PDIP
+  - PDIP oposisi
+  - PDIP penyeimbang
   definition: Monitors Indonesian political reporting materially related to PDIP positioning as a government balancing party.
-  crawlPrompt: ("PDIP positioning as a government balancing party") AND Indonesia
+  crawlPrompt: ("PDIP positioning as a government balancing party" OR "sikap politik PDIP" OR "PDIP oposisi" OR "PDIP penyeimbang")
+    AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -648,10 +819,17 @@ topics:
   category: Imported article topic
   aliases:
   - Pemalang regent corruption investigation
+  - Pemalang korupsi
+  - bupati Pemalang
+  - korupsi Pemalang
   keywords:
   - Pemalang regent corruption investigation
+  - Pemalang korupsi
+  - bupati Pemalang
+  - korupsi Pemalang
   definition: Monitors Indonesian political reporting materially related to Pemalang regent corruption investigation.
-  crawlPrompt: ("Pemalang regent corruption investigation") AND Indonesia
+  crawlPrompt: ("Pemalang regent corruption investigation" OR "Pemalang korupsi" OR "bupati Pemalang" OR "korupsi Pemalang")
+    AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -661,10 +839,17 @@ topics:
   category: Imported article topic
   aliases:
   - PGN gas transaction corruption prosecution
+  - PGN korupsi
+  - Perusahaan Gas Negara korupsi
+  - korupsi transaksi gas PGN
   keywords:
   - PGN gas transaction corruption prosecution
+  - PGN korupsi
+  - Perusahaan Gas Negara korupsi
+  - korupsi transaksi gas PGN
   definition: Monitors Indonesian political reporting materially related to PGN gas transaction corruption prosecution.
-  crawlPrompt: ("PGN gas transaction corruption prosecution") AND Indonesia
+  crawlPrompt: ("PGN gas transaction corruption prosecution" OR "PGN korupsi" OR "Perusahaan Gas Negara korupsi" OR "korupsi
+    transaksi gas PGN") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -674,10 +859,17 @@ topics:
   category: Imported article topic
   aliases:
   - Police officer fatal shooting investigation
+  - polisi tembak tewas
+  - oknum polisi penembakan
+  - penembakan polisi
   keywords:
   - Police officer fatal shooting investigation
+  - polisi tembak tewas
+  - oknum polisi penembakan
+  - penembakan polisi
   definition: Monitors Indonesian political reporting materially related to Police officer fatal shooting investigation.
-  crawlPrompt: ("Police officer fatal shooting investigation") AND Indonesia
+  crawlPrompt: ("Police officer fatal shooting investigation" OR "polisi tembak tewas" OR "oknum polisi penembakan" OR "penembakan
+    polisi") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -687,10 +879,15 @@ topics:
   category: Imported article topic
   aliases:
   - Police protocol for responding to prosecutor summonses
+  - polisi panggilan jaksa
+  - Polri penuhi panggilan Kejaksaan
   keywords:
   - Police protocol for responding to prosecutor summonses
+  - polisi panggilan jaksa
+  - Polri penuhi panggilan Kejaksaan
   definition: Monitors Indonesian political reporting materially related to Police protocol for responding to prosecutor summonses.
-  crawlPrompt: ("Police protocol for responding to prosecutor summonses") AND Indonesia
+  crawlPrompt: ("Police protocol for responding to prosecutor summonses" OR "polisi panggilan jaksa" OR "Polri penuhi panggilan
+    Kejaksaan") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -718,10 +915,17 @@ topics:
   category: Imported article topic
   aliases:
   - Proposed cabinet appointments for legal reform
+  - reshuffle kabinet hukum
+  - kabinet reformasi hukum
+  - menteri hukum reformasi
   keywords:
   - Proposed cabinet appointments for legal reform
+  - reshuffle kabinet hukum
+  - kabinet reformasi hukum
+  - menteri hukum reformasi
   definition: Monitors Indonesian political reporting materially related to Proposed cabinet appointments for legal reform.
-  crawlPrompt: ("Proposed cabinet appointments for legal reform") AND Indonesia
+  crawlPrompt: ("Proposed cabinet appointments for legal reform" OR "reshuffle kabinet hukum" OR "kabinet reformasi hukum"
+    OR "menteri hukum reformasi") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -731,11 +935,18 @@ topics:
   category: Imported article topic
   aliases:
   - Proposed corruptor-amnesty clause in Prosecutor's Office bill
+  - amnesti koruptor
+  - RUU Kejaksaan koruptor
+  - pemaafan koruptor
   keywords:
   - Proposed corruptor-amnesty clause in Prosecutor's Office bill
+  - amnesti koruptor
+  - RUU Kejaksaan koruptor
+  - pemaafan koruptor
   definition: Monitors Indonesian political reporting materially related to Proposed corruptor-amnesty clause in Prosecutor's
     Office bill.
-  crawlPrompt: ("Proposed corruptor-amnesty clause in Prosecutor's Office bill") AND Indonesia
+  crawlPrompt: ("Proposed corruptor-amnesty clause in Prosecutor's Office bill" OR "amnesti koruptor" OR "RUU Kejaksaan koruptor"
+    OR "pemaafan koruptor") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -745,11 +956,18 @@ topics:
   category: Imported article topic
   aliases:
   - Prosecutorial discipline complaints in West Nusa Tenggara
+  - Kejati NTB
+  - jaksa NTB pengaduan
+  - jaksa NTB etik
   keywords:
   - Prosecutorial discipline complaints in West Nusa Tenggara
+  - Kejati NTB
+  - jaksa NTB pengaduan
+  - jaksa NTB etik
   definition: Monitors Indonesian political reporting materially related to Prosecutorial discipline complaints in West Nusa
     Tenggara.
-  crawlPrompt: ("Prosecutorial discipline complaints in West Nusa Tenggara") AND Indonesia
+  crawlPrompt: ("Prosecutorial discipline complaints in West Nusa Tenggara" OR "Kejati NTB" OR "jaksa NTB pengaduan" OR "jaksa
+    NTB etik") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -759,10 +977,17 @@ topics:
   category: Imported article topic
   aliases:
   - Prosecutorial leadership and personnel changes
+  - mutasi jaksa
+  - pergantian pimpinan Kejaksaan
+  - rotasi pejabat Kejaksaan
   keywords:
   - Prosecutorial leadership and personnel changes
+  - mutasi jaksa
+  - pergantian pimpinan Kejaksaan
+  - rotasi pejabat Kejaksaan
   definition: Monitors Indonesian political reporting materially related to Prosecutorial leadership and personnel changes.
-  crawlPrompt: ("Prosecutorial leadership and personnel changes") AND Indonesia
+  crawlPrompt: ("Prosecutorial leadership and personnel changes" OR "mutasi jaksa" OR "pergantian pimpinan Kejaksaan" OR "rotasi
+    pejabat Kejaksaan") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -772,10 +997,17 @@ topics:
   category: Imported article topic
   aliases:
   - Public-official ethics and character
+  - etika pejabat publik
+  - etika karakter pejabat
+  - integritas pejabat
   keywords:
   - Public-official ethics and character
+  - etika pejabat publik
+  - etika karakter pejabat
+  - integritas pejabat
   definition: Monitors Indonesian political reporting materially related to Public-official ethics and character.
-  crawlPrompt: ("Public-official ethics and character") AND Indonesia
+  crawlPrompt: ("Public-official ethics and character" OR "etika pejabat publik" OR "etika karakter pejabat" OR "integritas
+    pejabat") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -823,11 +1055,15 @@ topics:
   category: Imported article topic
   aliases:
   - Sidaanyar bridge completion and local economic access
+  - jembatan Sidaanyar
+  - Sidaanyar
   keywords:
   - Sidaanyar bridge completion and local economic access
+  - jembatan Sidaanyar
+  - Sidaanyar
   definition: Monitors Indonesian political reporting materially related to Sidaanyar bridge completion and local economic
     access.
-  crawlPrompt: ("Sidaanyar bridge completion and local economic access") AND Indonesia
+  crawlPrompt: ("Sidaanyar bridge completion and local economic access" OR "jembatan Sidaanyar" OR "Sidaanyar") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -852,11 +1088,18 @@ topics:
   category: Imported article topic
   aliases:
   - State coercion, security-sector incentives, and social justice
+  - kekerasan negara keadilan sosial
+  - sektor keamanan insentif
+  - keadilan sosial aparat
   keywords:
   - State coercion, security-sector incentives, and social justice
+  - kekerasan negara keadilan sosial
+  - sektor keamanan insentif
+  - keadilan sosial aparat
   definition: Monitors Indonesian political reporting materially related to State coercion, security-sector incentives, and
     social justice.
-  crawlPrompt: ("State coercion, security-sector incentives, and social justice") AND Indonesia
+  crawlPrompt: ("State coercion, security-sector incentives, and social justice" OR "kekerasan negara keadilan sosial" OR
+    "sektor keamanan insentif" OR "keadilan sosial aparat") AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -885,11 +1128,18 @@ topics:
   category: Imported article topic
   aliases:
   - Sutrimo death investigation linked to the Febrie case
+  - kematian Sutrimo
+  - Sutrimo Febrie
+  - Sutrimo
   keywords:
   - Sutrimo death investigation linked to the Febrie case
+  - kematian Sutrimo
+  - Sutrimo Febrie
+  - Sutrimo
   definition: Monitors Indonesian political reporting materially related to Sutrimo death investigation linked to the Febrie
     case.
-  crawlPrompt: ("Sutrimo death investigation linked to the Febrie case") AND Indonesia
+  crawlPrompt: ("Sutrimo death investigation linked to the Febrie case" OR "kematian Sutrimo" OR "Sutrimo Febrie" OR "Sutrimo")
+    AND Indonesia
   advisorySources: []
   languages:
   - eng
@@ -912,10 +1162,17 @@ topics:
   category: Imported article topic
   aliases:
   - Unresolved Denny Indrayana payment-gateway investigation
+  - Denny Indrayana
+  - payment gateway Denny Indrayana
+  - Denny Indrayana korupsi
   keywords:
   - Unresolved Denny Indrayana payment-gateway investigation
+  - Denny Indrayana
+  - payment gateway Denny Indrayana
+  - Denny Indrayana korupsi
   definition: Monitors Indonesian political reporting materially related to Unresolved Denny Indrayana payment-gateway investigation.
-  crawlPrompt: ("Unresolved Denny Indrayana payment-gateway investigation") AND Indonesia
+  crawlPrompt: ("Unresolved Denny Indrayana payment-gateway investigation" OR "Denny Indrayana" OR "payment gateway Denny
+    Indrayana" OR "Denny Indrayana korupsi") AND Indonesia
   advisorySources: []
   languages:
   - eng
